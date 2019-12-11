@@ -1,3 +1,5 @@
+# **Supercharge your Azure SQL deployments by operationalizing Azure with DevOps**
+
 
 # Contributing
 
