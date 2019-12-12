@@ -34,14 +34,19 @@ Architect, Consultants, DBAs, Database Developers, and data proffessionals in th
 ## ![](docs/graphics/scope.png) Scope
 
 ## ![](docs/graphics/Azure&#32;SQL&#32;Database.png) What is Azure SQL Database?
+Azure SQL Database is the intelligent, scalable, cloud database as a services in Azure. It is a general-purpose relational database in Azure as a managed service.  It is based on the latest stable version of the Microsoft SQL Server database engine.  To learn about Azure SQL Database please read through the Microsoft Documention: [Azure SQL Database documentation](https://docs.microsoft.com/en-us/azure/sql-database/)
 
 ## ![](docs/graphics/Azure-DevOps-Service.png) What is Azure DevOps?
+Azure DevOps is an software as a service that privdes developer services to support work item planning, collaborate of code development, and is used to build and deploy applications. This workshop uses Azure DevOps service to operationalize the development and deployment of Azure SQL Database.  The full documention for Azure DevOps can be reviewed by visiting the Microsoft Docs: [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/?view=azure-devops).
 
 ## ![](docs/graphics/DevOps.png) What is DevOps?
+![](docs/graphics/devops-cycle.png)</br>
+“DevOps is the union of people, process, and products to enable continuous delivery of value to our end users.” – Donovan Brown</br>
+To learn more about DevOps please vist: What is [DevOps?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops)
 
 ## ![](docs/graphics/dml.png) What is Database management lifecycle?
 
----
+
 ## ![](docs/graphics/contributing.png) Contributing
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
