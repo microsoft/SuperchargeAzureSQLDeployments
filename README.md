@@ -13,6 +13,20 @@ Learn how to architect, design & develop a full Azure SQL DB management lifecycl
 Architect, Consultants, DBAs, Database Developers, and data proffessionals in the Data & AI space wanting to learn how to operationalize Azure with DevOps.
 
 ## ![](docs/graphics/modules.png) Workshop Modules
+1. Configure your DevOps Environment
+   1. Azure Resource groups
+   2. Azure AD Service Principles
+   3. Access Control (IAM)
+   4. DevOps Service connections - Azure Resource Manager
+2. Azure Resource Deployment
+   1. Azure DevOps Build - Azure Services
+   2. Azure DevOps Release - Azure Services
+3. Database Life Cycle Management
+   1. SSDT Project
+   2. Azure DevOps Build - Database Development
+   3. Azure DevOps Release - Database Development
+   4. Unit Testing
+   5. Dev, Test, Prod Pipeline
 
 
 ## ![](docs/graphics/prerequisites.png) Prerequisites 
