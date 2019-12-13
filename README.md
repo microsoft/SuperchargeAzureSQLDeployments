@@ -14,7 +14,7 @@ Architect, Consultants, DBAs, Database Developers, and data proffessionals in th
 
 ## ![](docs/graphics/modules.png) Workshop Modules
 1. Configure your Local Environment
-   1. Install and configure (Git, Visual Studio - SSDT, VS Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe 
+   1. Install and configure (Git, Visual Studio - SSDT, VS Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe)
 2. Configure your DevOps Environment
    1. Azure Resource groups
    2. Azure AD Service Principles
@@ -23,7 +23,7 @@ Architect, Consultants, DBAs, Database Developers, and data proffessionals in th
 3. Azure Resource Deployment
    1. Azure DevOps Build - Azure Services
    2. Azure DevOps Release - Azure Services
-4. Database Life Cycle Management
+4. Database Lifecycle Management
    1. SSDT Project
    2. Azure DevOps Build - Database Development
    3. Azure DevOps Release - Database Development
