@@ -55,10 +55,8 @@ Azure DevOps is an software as a service that privdes developer services to supp
 
 ## ![](docs/graphics/DevOps.png) What is DevOps?
 “DevOps is the union of people, process, and products to enable continuous delivery of value to our end users.” – Donovan Brown</br>
-To learn more about DevOps please vist: What is [DevOps?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops)</br>
-
 ![](docs/graphics/devops-cycle.png)</br>
-
+To learn more about DevOps please vist: What is [DevOps?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops)</br>
 ![](docs/graphics/devops-flow.png)</br>
 To learn the prerequisite skills and technologies needed to succeed with Azure DevOps as the preferred method for deploying applications into Azure please vist: [Azure Superpowers](https://github.com/microsoft/AzureSuperpowers)</br>
 
