@@ -169,6 +169,8 @@ Expected return:
 
 ![](docs/../imgs/dl_VS.png)
 
+<iframe title="Download VS" src="https://visualstudio.microsoft.com/downloads/"></iframe>
+
 3. Note the location of the installation files
 
 ### Install Visual Studio 2019
