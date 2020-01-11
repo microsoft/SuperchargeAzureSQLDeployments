@@ -1,12 +1,16 @@
 ## Lab 1 - Configure your Local Environment
-[Back to all modules](/docs/labs/README.md)
 --------------------------------
+
+[Back to all modules](/docs/labs/README.md)
+
+
 
 | Lab Description | This lab covers the installation of tools that you will you in the labs. |
 | :------------ | :-------------- |
-| Estimated Time to Complete | 30 minutes |
+| Estimated Time to Complete | 45 minutes |
 | Key Takeaways | 1. Download and install the required tools |
 |  | 2. Know what version of the tools are installed |
+|  | 3. Learn to configure VS COde and Azure Data Studio and install extenstions |
 |  | By the end of this lab, you should have: Git, Visual Studio - SSDT, Visual Studio Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe |
 | Author | Frank Garofalo |
 
