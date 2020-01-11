@@ -187,13 +187,9 @@ Expected return:
 
 ## <div style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </div>
 *<div style="color:#8661c5; font-size:12px">SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.</div>*
-
-<html>
-<font color="red">This is some red text!</font>
-</html>
-
-<h1 style="color:blue;">This is a Blue Heading</h1>
-
+<font color='red'>test red color font</font>
+<mark>Marked text</mark>
+<span style="background-color: #8661c5">Marked text</span>
 ### Download SSMS
 
 1. In a web browser, navigate to <https://aka.ms/ssmsfullsetup>
