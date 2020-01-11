@@ -1,4 +1,5 @@
 ## Lab 1 - Configure your Local Environment
+[Back to all modules](/docs/labs/README.md)
 --------------------------------
 
 | Lab Description | This lab covers the installation of tools that you will you in the labs. |
@@ -353,4 +354,4 @@ The Az PowerShell module requires .Net Framework Runtime 4.7.2 or higher
 
 <ins>TRIAL SUBSCRIPTIONS ARE NOT SUPPORTED FOR THIS WORKSHOP</ins>
 
-<div style="page-break-after: always;"></div>
+[Back to all modules](/docs/labs/README.md)
