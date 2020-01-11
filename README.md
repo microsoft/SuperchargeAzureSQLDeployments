@@ -13,7 +13,7 @@ Learn how to architect, design & develop a full Azure SQL DB management lifecycl
 Architect, Consultants, DBAs, Database Developers, and data proffessionals in the Data & AI space wanting to learn how to operationalize Azure with DevOps.
 
 ## ![](docs/graphics/modules.png) Workshop Modules
-1. Configure your Local Environment
+1. [Configure your Local Environment](/docs/labs/1-ConfigLocalEnvironment.md)
    1. Install and configure (Git, Visual Studio - SSDT, VS Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe)
 2. Configure your DevOps Environment
    1. Azure Resource groups
