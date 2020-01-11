@@ -3,7 +3,7 @@
 
 | Lab Description | This lab covers the installation of tools that you will you in the labs. |
 | :------------ | :-------------- |
-| Estimated Time to Complete | 20 minutes |
+| Estimated Time to Complete | 30 minutes |
 | Key Takeaways | 1. Download and install the required tools |
 |  | 2. Know what version of the tools are installed |
 |  | By the end of this lab, you should have: Git, Visual Studio - SSDT, Visual Studio Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe |
@@ -15,7 +15,7 @@ For those new to DevOps, Source Control, and Database Projects
 there are many tools that you need to familiarize yourself with. This modules
 walks you through installing and configuring the required tools for this lab, as well as making sure they are on the current supported versions.
 
-## Exercise - Setup Az PowerShell Module
+## <span style="color: #107c10">Exercise - Setup Az PowerShell Module</span>
 
 ### Launch PowerShell
 
@@ -87,7 +87,7 @@ Expected return:
 >
 > Settings : {}
 
-## Exercise - Setup ![](docs/../imgs/Git-Icon.png) Git for Windows
+## <span style="color: #107c10">Exercise - Setup ![](docs/../imgs/Git-Icon.png) Git for Windows</span>
 ### Download Git for Windows Installation Files
 
 1.  In a web browser, navigate to <https://git-scm.com/download/win>
@@ -128,7 +128,7 @@ Expected return:
 
 13. Uncheck "View Release Notes" and click **Finish**
 
-## Exercise - Setup ![](docs/../imgs/vsCode.png) Visual Studio Code
+## <span style="color: #107c10">Exercise - Setup ![](docs/../imgs/vsCode.png) Visual Studio Code</span>
 
 ### Download Visual Studio Code
 
@@ -158,7 +158,7 @@ Expected return:
 8.  Uncheck "Launch Visual Studio Code" and click **Finish**
 
 
-## Exercise - Setup ![](docs/../imgs/visualstudio.png) Visual Studio - SSDT
+## <span style="color: #107c10">Exercise - Setup ![](docs/../imgs/visualstudio.png) Visual Studio - SSDT</span>
 
 ### Download Visual Studio 2019
 
@@ -185,7 +185,28 @@ Expected return:
 *This is a large install and can take some time to complete*</br>   
    ![](docs/../imgs/installSSDT.png)
 
-## Exercise - Version Check
+## <span style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </span>
+*<span style="color:#8661c5; font-size:12px">
+SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.
+</span>*
+
+### Download SSMS
+
+1. In a web browser, navigate to <https://aka.ms/ssmsfullsetup>
+
+2. Note the location of the installation files
+
+### Install SSMS
+
+1. Run the **SSMS-Setup-ENU** installation file
+
+2. Leave defualt installation path
+
+3. Click Install
+
+4. Once Setup completes click **Close**
+
+## <span style="color: #107c10">Exercise - Version Check</span>
 
 ### Check the version of Az
 
@@ -202,7 +223,7 @@ Expected return:
 Get-Module -Name 'Az.Compute' -ListAvailable | Select-Object -Property 'Version'
 ```
 
-4.  The expected output is **2.4.1** or later
+4.  The expected output is **3.3.0** or later
 
 ### Check the version of Git for Window
 
@@ -212,7 +233,7 @@ Get-Module -Name 'Az.Compute' -ListAvailable | Select-Object -Property 'Version'
 git --version
 ```
 
-2.  The expected output is **git version 2.23.0.windows.1** or later
+2.  The expected output is **git version 2.24.1.windows.2** or later
 
 3.  If you experience any issues with this step, restart VS Code and try
     again
@@ -221,19 +242,9 @@ git --version
 
 1.  From the VS Code File Menu, click **Help** then **About**
 
-2.  The expected version is **1.37.1** or later
+2.  The expected version is **1.41.1** or later
 
-### Check the version of Azure Storage Explorer
-
-1.  Launch Azure Storage Explorer
-
-2.  From the File Menu, click **Help** then **About**
-
-3.  The expected version is **1.9.0** or later
-
-<div style="page-break-after: always;"></div>
-
-## Troubleshooting
+## <span style="color: #ffb900">Troubleshooting</span>
 
 **Azure PowerShell**\
 \
