@@ -15,7 +15,7 @@ For those new to DevOps, Source Control, and Database Projects
 there are many tools that you need to familiarize yourself with. This modules
 walks you through installing and configuring the required tools for this lab, as well as making sure they are on the current supported versions.
 
-## <span style="color: #107c10">Exercise - Setup Az PowerShell Module</span>
+## <div style="color: #107c10">Exercise - Setup Az PowerShell Module</div>
 
 ### Launch PowerShell
 
@@ -87,7 +87,7 @@ Expected return:
 >
 > Settings : {}
 
-## <span style="color: #107c10">Exercise - Setup ![](docs/../imgs/Git-Icon.png) Git for Windows</span>
+## <div style="color: #107c10">Exercise - Setup ![](docs/../imgs/Git-Icon.png) Git for Windows</div>
 ### Download Git for Windows Installation Files
 
 1.  In a web browser, navigate to <https://git-scm.com/download/win>
@@ -128,7 +128,7 @@ Expected return:
 
 13. Uncheck "View Release Notes" and click **Finish**
 
-## <span style="color: #107c10">Exercise - Setup ![](docs/../imgs/vsCode.png) Visual Studio Code</span>
+## <div style="color: #107c10">Exercise - Setup ![](docs/../imgs/vsCode.png) Visual Studio Code</div>
 
 ### Download Visual Studio Code
 
@@ -158,7 +158,7 @@ Expected return:
 8.  Uncheck "Launch Visual Studio Code" and click **Finish**
 
 
-## <span style="color: #107c10">Exercise - Setup ![](docs/../imgs/visualstudio.png) Visual Studio - SSDT</span>
+## <div style="color: #107c10">Exercise - Setup ![](docs/../imgs/visualstudio.png) Visual Studio - SSDT</div>
 
 ### Download Visual Studio 2019
 
@@ -185,10 +185,10 @@ Expected return:
 *This is a large install and can take some time to complete*</br>   
    ![](docs/../imgs/installSSDT.png)
 
-## <span style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </span>
-*<span style="color:#8661c5; font-size:12px">
+## <div style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </div>
+*<div style="color:#8661c5; font-size:12px">
 SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.
-</span>*
+</div>*
 
 ### Download SSMS
 
@@ -206,7 +206,7 @@ SSMS is not required for this lab, but is useful to connect to and query Azure S
 
 4. Once Setup completes click **Close**
 
-## <span style="color: #107c10">Exercise - Version Check</span>
+## <div style="color: #107c10">Exercise - Version Check</div>
 
 ### Check the version of Az
 
@@ -244,7 +244,7 @@ git --version
 
 2.  The expected version is **1.41.1** or later
 
-## <span style="color: #ffb900">Troubleshooting</span>
+## <div style="color: #ffb900">Troubleshooting</div>
 
 **Azure PowerShell**\
 \
