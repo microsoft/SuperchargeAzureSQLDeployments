@@ -167,9 +167,9 @@ Expected return:
 2.  Click Free Download on Community Edition</br>
 *if you have a license, download the appropriate edition*</br>
 
-![](docs/../imgs/dl_VS.png)
+<img src="./imgs/dl_VS.png" border="1">
 
-3. Note the location of the installation files
+1. Note the location of the installation files
 
 ### Install Visual Studio 2019
 
@@ -183,16 +183,16 @@ Expected return:
 
 5. Click Install </br>
 *This is a large install and can take some time to complete*</br>   
-   ![](docs/../imgs/installSSDT.png)
+ <img src="./imgs/installSSDT.png" border="1">
 
 ## <div style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </div>
-*<div style="color:#8661c5; font-size:12px">`SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.`</div>*
+*`SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.`*
 
 ### Download SSMS
 
 1. In a web browser, navigate to <https://aka.ms/ssmsfullsetup>
 
-2. Note the location of the installation files
+2. Note the location of the installation file
 
 ### Install SSMS
 
@@ -204,7 +204,34 @@ Expected return:
 
 4. Once Setup completes click **Close**
 
-## <div style="color: #107c10">Exercise - Version Check</div>
+## <div style="color: #107c10"> Exercise - Setup ![](./imgs/AzureDataStudioLogo.png) Azure Data Studio </div>
+*`SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.`*
+
+### Download Azure Data Studio
+
+1. In a web browser, navigate to <https://go.microsoft.com/fwlink/?linkid=2113530>
+   
+2. Note the location of the installation file
+
+### Install Azure Data Studio
+1.  Run the **azuredatastudio-windows-user-setup** installation file
+
+2.  If you are prompted with a message \"This User Installer is not
+    meant to be run as an Administrator\" Click **OK**
+    
+3. Accept the EULA and click **Next**
+
+4.  Accept the default installation location and click **Next**
+
+5.  Accept the default Start Menu Folder and click **Next**
+
+6.  Select all additional tasks and click **Next** (Optional)
+
+7.  Click **Install**
+
+8.  Uncheck "Launch Azure Data Studio" and click **Finish**
+
+## <div style="color: #107c10">Exercise - Version Check and Configuration</div>
 
 ### Check the version of Az
 
@@ -241,6 +268,70 @@ git --version
 1.  From the VS Code File Menu, click **Help** then **About**
 
 2.  The expected version is **1.41.1** or later
+   
+### Install extensions in Visual Studio Code
+*Credit for this exercise goes to: [Azure Superpowers](https://github.com/microsoft/AzureSuperpowers/blob/master/docs/AzureSuperpowers.md#exercise---vs-code-interface "Azure Superpowers")*
+1.  Visual Studio Code has a rich extensibility model for interacting
+    with and adding to the tool. The features that Visual Studio Code
+    includes out-of-the-box are just the start. VS Code extensions let
+    you add languages, debuggers, and tools to your installation to
+    support your development workflow.
+
+2.  You may find an extension for Azure Repos. We do not recommend using
+    this extension in this workshop. If you already have this extension
+    installed, please remove it for the duration of this workshop.
+
+3.  Search for and install the following extension, published by
+    Microsoft. Once the extension is installed, reload VS Code.
+
+        a.  PowerShell (In addition to enhancements to PowerShell, this
+        extension includes a PowerShell ISE color theme that can found
+        by selecting File, Preferences, Color Theme)
+        b.  Install the latest available version of the PowerShell
+        extension, which may be newer than the version shown below.
+
+    <img src="./imgs/PSextension.png" border="1">
+
+4.  You will not need any other VS Code extensions for this course. You
+    may find extensions that attempt to connect you into Git
+    repositories in Azure DevOps, but they are not needed and have been
+    found to cause confusion with future steps in this workshop.
+
+5.  In VS Code, the language support for a file is based on its filename
+    extension. However, at times you may wish to change language modes
+    when working in a particular file. To do this, while editing a file,
+    click on the language indicator - which is located at the bottom of
+    the VS Code window on the right hand of the Status Bar. This will
+    bring up the Select Language Mode drop-down where you can select
+    another language for the current file you are working on.
+
+    <img src="./imgs/PS1filetype.png" border="1">
+
+    <img src="./imgs/PS1filetype2.png" border="1">
+
+6.  Regarding PowerShell authoring in VS Code, you will want to have the
+    PowerShell extension installed. You will also want to ensure that
+    when you are working with PowerShell code, you have the VS Code
+    language set to PowerShell, and you will want to use the PowerShell
+    Integrated Console. **You will need have at least one PowerShell file
+    open in VS Code for the PowerShell Integrated Console to appear.**
+
+    <img src="./imgs/PS1filetype3.png" border="1">
+
+7.  Operating in this configuration will provide you with the best
+    PowerShell experience, and enable familiar options from the
+    PowerShell ISE, such as pressing F8 to execute a selected area of
+    code.
+
+8.  **NOTE:** When it comes to authoring PowerShell code in this course,
+    we recommend that you type your commands in the top editor window,
+    and use the F8 key to execute your code. Typing your code in the
+    editor window allows you to save the commands you type throughout
+    this course so you can easily refer to them later. The top editor
+    window also enables you to be able to select and execute multiple
+    lines of PowerShell.
+
+    <img src="./imgs/PS1filetype4.png" border="1">
 
 ## <div style="color: #ffb900">Troubleshooting</div>
 
