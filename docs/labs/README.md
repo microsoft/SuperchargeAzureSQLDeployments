@@ -16,7 +16,7 @@
 
       6. [Azure Data Studio (optional)](/docs/labs/1-ConfigLocalEnvironment.md#-exercise---setup--azure-data-studio-)
 
-      7. [Install sqlpackage for Windows](/docs/labs/1-ConfigLocalEnvironment.md)
+      7. [Install sqlpackage for Windows](/docs/labs/1-ConfigLocalEnvironment.md#-exercise---install-sqlpackage-for-windows)
 
       8. [Version Check and Configuration](/docs/labs/1-ConfigLocalEnvironment.md#exercise---version-check-and-configuration)
 
@@ -24,7 +24,9 @@
    1. Azure Resource groups
    2. Azure AD Service Principles
    3. Access Control (IAM)
-   4. DevOps Service connections - Azure Resource Manager
+   4. Azure DevOps Organzations
+   5. Azure DevOps Project
+   6. DevOps Service connections - Azure Resource Manager
 3. Azure Resource Deployment
    1. Azure DevOps Build - Azure Services
    2. Azure DevOps Release - Azure Services
