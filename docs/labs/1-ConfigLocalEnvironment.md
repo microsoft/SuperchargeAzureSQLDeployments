@@ -232,6 +232,28 @@ Expected return:
 
 8.  Uncheck "Launch Azure Data Studio" and click **Finish**
 
+## <div style="color: #107c10"> Exercise - Install sqlpackage for Windows</div>
+
+### Download sqlpackage
+
+1. In a web browser, navigate to <https://go.microsoft.com/fwlink/?linkid=2113703>
+   
+2. Note the location of the installation file
+
+### Install sqlpackage
+1.  Run the **DacFramework** installation file
+
+2. Click **Next**
+
+3. Accept the EULA and click **Next**
+
+4. Click **Install**
+
+5. click **Finish** to complete the install
+
+```note that sqlpackage installs to:```
+>C:\Program Files\Microsoft SQL Server\150\DAC\bin
+
 ## <div style="color: #107c10">Exercise - Version Check and Configuration</div>
 
 ### Check the version of Az
