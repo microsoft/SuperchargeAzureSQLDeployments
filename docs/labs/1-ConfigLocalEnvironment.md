@@ -71,8 +71,6 @@ Get-Module -Name '*Az*' -ListAvailable
 Disable-AzContextAutosave
 ```
 
-<div style="page-break-after: always;"></div>
-
 Expected return:
 
 > PS C:\\\> Disable-AzContextAutosave
@@ -89,10 +87,7 @@ Expected return:
 >
 > Settings : {}
 
-<div style="page-break-after: always;"></div>
-
-## Exercise - Setup Git for Windows
-
+## Exercise - Setup ![](docs/../imgs/Git-Icon.png) Git for Windows
 ### Download Git for Windows Installation Files
 
 1.  In a web browser, navigate to <https://git-scm.com/download/win>
@@ -102,7 +97,7 @@ Expected return:
 
 3.  Note the location of the installation files
 
-### Install Git for Windows
+###  Install Git for Windows
 
 1.  Run the **Git for Windows** installation file
 
@@ -133,9 +128,7 @@ Expected return:
 
 13. Uncheck "View Release Notes" and click **Finish**
 
-<div style="page-break-after: always;"></div>
-
-## Exercise - Setup Visual Studio Code
+## Exercise - Setup ![](docs/../imgs/vsCode.png) Visual Studio Code
 
 ### Download Visual Studio Code
 
@@ -164,33 +157,33 @@ Expected return:
 
 8.  Uncheck "Launch Visual Studio Code" and click **Finish**
 
-<div style="page-break-after: always;"></div>
 
-## Exercise - Setup Azure Storage Explorer
+## Exercise - Setup ![](docs/../imgs/visualstudio.png) Visual Studio - SSDT
 
-### Download Azure Storage Explorer
+### Download Visual Studio 2019
 
-1.  In a web browser, navigate to
-    <https://azure.microsoft.com/en-us/features/storage-explorer/>
+1.  In a web browser, navigate to <https://visualstudio.microsoft.com/downloads/>
 
-2.  Click **Download Storage Explorer free**
+2.  Click Free Download on Community Edition</br>
+*if you have a license, download the appropriate edition*</br>
 
-3.  Note the location of the installation files
+![](docs/../imgs/dl_VS.png)
 
-### Install Azure Storage Explorer
+3. Note the location of the installation files
 
-1.  Run the Azure Storage Explorer installation file
+### Install Visual Studio 2019
 
-2.  Accept the EULA and click **Install**
+1. Run the **vs_community** installation file
 
-3.  Accept the default location and click **Next**
+2. Accept the EULA and click Next
 
-4.  Accept the Start Menu Folder and click **Next**
+3. Select the Data storage and processing workload
 
-5.  After the installation completes, uncheck "Launch Microsoft Azure
-    Storage Explorer" and click **Finish**
+4. Make sure SQL Server Data Tools is selected
 
-<div style="page-break-after: always;"></div>
+5. Click Install </br>
+*This is a large install and can take some time to complete*</br>   
+   ![](docs/../imgs/installSSDT.png)
 
 ## Exercise - Version Check
 
