@@ -51,10 +51,10 @@ While there are no prerequisites for this workshop, it is helpful if you have al
 This workshop is the distilled and simplified experience of multiple engineers working on migrating data estates for enterprise customers to the cloud.
 
 ## ![](docs/graphics/Azure&#32;SQL&#32;Database.png) What is Azure SQL Database?
-Azure SQL Database is the intelligent, scalable, cloud database as a services in Azure. It is a general-purpose relational database in Azure as a managed service.  It is based on the latest stable version of the Microsoft SQL Server database engine.  To learn about Azure SQL Database please read through the Microsoft Documention: [Azure SQL Database documentation](https://docs.microsoft.com/en-us/azure/sql-database/)
+Azure SQL Database is the intelligent, scalable, cloud database as a service in Azure. It is a general-purpose relational database in Azure as a managed service.  It is based on the latest stable version of the Microsoft SQL Server database engine.  To learn about Azure SQL Database please read through the Microsoft Documentation: [Azure SQL Database documentation](https://docs.microsoft.com/en-us/azure/sql-database/)
 
 ## ![](docs/graphics/Azure-DevOps-Service.png) What is Azure DevOps?
-Azure DevOps is an software as a service that provides developer services to support work item planning, collaborate of code development, and building and deploying applications. This workshop uses Azure DevOps service to operationalize the development and deployment of Azure SQL Database.  The full documention for Azure DevOps can be reviewed by visiting the Microsoft Docs: [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/?view=azure-devops).
+Azure DevOps is software as a service that provides developer services to support work item planning, collaborate of code development, and building and deploying applications. This workshop uses Azure DevOps service to operationalize the development and deployment of Azure SQL Database.  The full documentation for Azure DevOps can be reviewed by visiting the Microsoft Docs: [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/?view=azure-devops).
 
 ## ![](docs/graphics/DevOps.png) What is DevOps?
 “DevOps is the union of people, process, and products to enable continuous delivery of value to our end users.” – Donovan Brown</br>
