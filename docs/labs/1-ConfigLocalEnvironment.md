@@ -10,14 +10,14 @@
 | Estimated Time to Complete | 45 minutes |
 | Key Takeaways | 1. Download and install the required tools |
 |  | 2. Know what version of the tools are installed |
-|  | 3. Learn to configure VS COde and Azure Data Studio and install extenstions |
+|  | 3. Learn to configure VS Code and Azure Data Studio and install extensions |
 |  | By the end of this lab, you should have: Git, Visual Studio - SSDT, Visual Studio Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe |
 | Author | Frank Garofalo |
 
 ### Purpose
 
-For those new to DevOps, Source Control, and Database Projects
-there are many tools that you need to familiarize yourself with. This modules
+For those new to DevOps, Source Control, and Database Projects,
+there are many tools that you need to familiarize yourself with. This module
 walks you through installing and configuring the required tools for this lab, as well as making sure they are on the current supported versions.
 
 ## <div style="color: #107c10">Exercise - Setup Az PowerShell Module</div>
