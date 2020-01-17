@@ -131,8 +131,8 @@ Go to the resource group that was created earlier
 4. Click on **Role Assignments** to verify
 
 
+## <div style="color: #107c10">Exercise - Set up Azure DevOps environment</div>
 
-### Set up Azure DevOps environment
 
 #### Azure DevOps Organzations
 #### Azure DevOps Project
