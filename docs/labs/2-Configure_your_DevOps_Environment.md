@@ -30,7 +30,9 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 1. Login to **https://portal.azure.com**
 2. Select **Resource Groups** from the main menu
-![lab2](./imgs/resourcegoup.jpg# smaller)
+
+<img src="./imgs/resourcegoup.jpg" width="50%" height="50%" />
+
 3. Click **Add**
 a. Select the **Subscription**
 b. Enter the **Resource Group** name
