@@ -135,8 +135,7 @@ Go to the resource group that was created earlier
 
 
 #### Azure DevOps Organzations
-#### Azure DevOps Project
-## <div style="color: #107c10">Exercise - ![](docs/../imgs/Git-Icon.png)Clone Project Repro</div>
+#### Azure DevOps Project - ![](docs/../imgs/Git-Icon.png)Clone Project Repro
 #### DevOps Service Connection with Azure Resource Manager
 
 **Azure subscriptions**
