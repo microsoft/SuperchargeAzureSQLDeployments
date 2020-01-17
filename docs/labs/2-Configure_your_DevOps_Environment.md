@@ -119,7 +119,9 @@ $pass
 ## <div style="color: #107c10">Exercise - Setup Permissions</div>
 
 ### Access Control (IAM) for the Resource Group
-
+```diff 
+# Perform the tasks below either via the Portal or PowerShell.
+```
 > #### **Portal**
 
 Go to the resource group that was created earlier
