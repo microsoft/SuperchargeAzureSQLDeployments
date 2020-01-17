@@ -117,9 +117,18 @@ $pass
 
 ## <div style="color: #107c10">Exercise - Setup Permissions</div>
 
-### Access Control (IAM)
+### Access Control (IAM) for the Resource Group
 
-1.  [Work in Progress]
+> #### **Portal**
+
+Go to the resource group that was created earlier
+1. Click on the **Access control (IAM)** blade
+2. Click on **+ Add**
+3. Click on **Add role assignment**
+     1. Select the **Owner** role
+     2. Enter your Service Principal name in the **Select** box to search
+     3. Click **Save**
+4. Click on **Role Assignments** to verify
 
 ### DevOps Service Connection with Azure Resource Manager
 
