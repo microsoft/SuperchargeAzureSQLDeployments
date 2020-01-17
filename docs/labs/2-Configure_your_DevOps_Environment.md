@@ -130,19 +130,14 @@ Go to the resource group that was created earlier
      3. Click **Save**
 4. Click on **Role Assignments** to verify
 
-### DevOps Service Connection with Azure Resource Manager
-
-1.  [Work in Progress]
 
 
-## <div style="color: #107c10">Exercise - ![](docs/../imgs/Git-Icon.png)Clone Project Repro</div>
 ### Set up Azure DevOps environment
 
-1.  [Work in Progress]
-
-   
-### Install extensions in Visual Studio Code
-*Credit for this exercise goes to: [Azure Superpowers](https://github.com/microsoft/AzureSuperpowers/blob/master/docs/AzureSuperpowers.md#exercise---vs-code-interface "Azure Superpowers")*
+#### Azure DevOps Organzations
+#### Azure DevOps Project
+## <div style="color: #107c10">Exercise - ![](docs/../imgs/Git-Icon.png)Clone Project Repro</div>
+#### DevOps Service Connection with Azure Resource Manager
 
 **Azure subscriptions**
 
