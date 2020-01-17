@@ -27,11 +27,12 @@ This lab will create the environment for the CI/CD process. Service Principals a
 ## <div style="color: #107c10">Exercise - Setup Azure Environment</div>
 
 ### Create Azure Resource groups
-```diff
-# Perform the tasks below either via the Portal or PowerShell. 
-```
-#### **Portal**
 
+```diff 
+# Perform the tasks below either via the Portal or PowerShell.
+```
+
+#### **Portal**
 1. Login to **https://portal.azure.com**
 1. Select **Resource Groups** from the main menu
 
@@ -46,7 +47,6 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 
 #### **PowerShell**
-
 ```powershell  
 $rg = "<Your Resource Group Name>"
 $location = "<Location>"
