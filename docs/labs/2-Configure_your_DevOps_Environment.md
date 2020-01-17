@@ -84,25 +84,36 @@ Get-AzLocation
    1. Leave the defaults
    1. Click **Register**
 
+On the **App Registrations > <Your App Name>** blade
+ 
+ 1. Select the **Certificates & secrets** blade
+	   1. Select the **+ New client secret** 
+	   1. Enter the **Description**
+	   1. Click **Add**
+	   1. Copy the **Value**
+
 
 
 > #### **PowerShell**
 ```powershell  
-$rg = "<Your Resource Group Name>"
-$location = "<Location>"
-
 Login-AzAccount
 
-Select-AzSubscription –Subscription '<Id>'
-New-AzResourceGroup -Name $rg -Location $location
-Get-AzResourceGroup -Name $rg
+$spName  = '<Service Principal Name>'
+$id = (New-Guid).Guid
+$pass = (New-Guid).Guid
+
+$cred = New-Object Microsoft.Azure.Commands.ActiveDirectory.PSADPasswordCredential
+$cred.StartDate = Get-Date
+$cred.EndDate = (Get-Date).AddYears(1)
+$cred.KeyId = $id
+$cred.Password = $pass
+New-AzADServicePrincipal -DisplayName $spName -PasswordCredential $cred
+
+$pass
 ``` 
 
-:bulb: Use the following cmdlets to obtain the subscription id and regions `
-```powershell  
-Get-AzSubscription
-Get-AzLocation
-``` 
+:exclamation: Copy the value from the $pass variable. It will be used later. `
+
 
 ## <div style="color: #107c10">Exercise - Setup Permissions</div>
 
