@@ -37,6 +37,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
 2. Select **Resource Groups** from the main menu
 
 <img src="./imgs/resourcegoup.jpg" width="50%" height="50%" />
+
 3. Click **+ Add**
    1. Select the **Subscription**
    1. Enter the **Resource Group** name
