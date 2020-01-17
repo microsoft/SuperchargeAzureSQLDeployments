@@ -37,7 +37,6 @@ This lab will create the environment for the CI/CD process. Service Principals a
 2. Select **Resource Groups** from the main menu
 
 <img src="./imgs/resourcegoup.jpg" width="50%" height="50%" />
-
 3. Click **+ Add**
    1. Select the **Subscription**
    1. Enter the **Resource Group** name
@@ -73,14 +72,15 @@ Get-AzLocation
 ```
 
 > #### **Portal**
+
 1. Login to **https://portal.azure.com**
 2. Select **Azure Active Directory** from the main menu
 <img src="./imgs/ad.jpg" width="50%" height="50%" />
 3. Select the **App Registrations** blade
 4. Select **+ New registration**
-    1. Enter the **Name** 
-    1. Leave the defaults
-    1. Click **Register***
+   1. Enter the **Name**
+   1. Leave the defaults
+   1. Click **Register**
 
 
 
