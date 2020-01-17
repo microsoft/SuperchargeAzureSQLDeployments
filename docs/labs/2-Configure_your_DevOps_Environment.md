@@ -29,16 +29,16 @@ This lab will create the environment for the CI/CD process. Service Principals a
 ### Create Azure Resource groups
 
 1. Login to **https://portal.azure.com**
-2. Select **Resource Groups** from the main menu
+1. Select **Resource Groups** from the main menu
 
 <img src="./imgs/resourcegoup.jpg" width="50%" height="50%" />
 
-3. Click **Add**
-a. Select the **Subscription**
-b. Enter the **Resource Group** name
-c. Select the **Region**
-d. Click **Review + create**
-e. Click **Create**
+1. Click **Add**
+ 1.  Select the **Subscription**
+ 1.  Enter the **Resource Group** name
+ 1.  Select the **Region**
+ 1.  Click **Review + create**
+ 1.  Click **Create**
 
 ### Create Service Principal
 
