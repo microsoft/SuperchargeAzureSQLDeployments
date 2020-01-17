@@ -97,6 +97,7 @@ On the **App Registrations > <Your App Name>** blade
 > #### **PowerShell**
 ```powershell  
 Login-AzAccount
+Select-AzSubscription –Subscription '<Id>'
 
 $spName  = '<Service Principal Name>'
 $id = (New-Guid).Guid
@@ -130,6 +131,17 @@ Go to the resource group that was created earlier
      3. Click **Save**
 4. Click on **Role Assignments** to verify
 
+> #### **PowerShell**
+```powershell  
+Login-AzAccount
+Select-AzSubscription –Subscription '<Id>'
+
+$spName  = '<Service Principal Name>'
+$rg = "<Your Resource Group Name>"
+
+$app = (Get-AzADServicePrincipal -DisplayName $spName).ApplicationID
+New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionName 'Owner'
+``` 
 
 ## <div style="color: #107c10">Exercise - Set up Azure DevOps environment</div>
 
