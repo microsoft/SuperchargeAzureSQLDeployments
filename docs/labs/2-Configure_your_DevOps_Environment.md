@@ -34,11 +34,11 @@ This lab will create the environment for the CI/CD process. Service Principals a
 <img src="./imgs/resourcegoup.jpg" width="50%" height="50%" />
 
 1. Click **Add**
- 1.  Select the **Subscription**
- 1.  Enter the **Resource Group** name
- 1.  Select the **Region**
- 1.  Click **Review + create**
- 1.  Click **Create**
+   - Select the **Subscription**
+   - Enter the **Resource Group** name
+   - Select the **Region**
+   - Click **Review + create**
+   - Click **Create**
 
 ### Create Service Principal
 
