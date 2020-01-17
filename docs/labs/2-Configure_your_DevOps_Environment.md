@@ -77,12 +77,12 @@ Get-AzLocation
 1. Login to **https://portal.azure.com**
 2. Select **Azure Active Directory** from the main menu
 <img src="./imgs/ad.jpg" width="50%" height="50%" />
+
 3. Select the **App Registrations** blade
 4. Select **+ New registration**
    1. Enter the **Name**
    1. Leave the defaults
    1. Click **Register**
-
 
 
 
