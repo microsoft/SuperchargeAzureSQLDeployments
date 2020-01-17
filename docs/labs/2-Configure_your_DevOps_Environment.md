@@ -59,7 +59,7 @@ New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
 ``` 
 
-:bulb: Use the following cmdlets to obtain the subscription id and regions `
+:bulb: Use the following cmdlets to obtain the subscription id and region
 ```powershell  
 Get-AzSubscription
 Get-AzLocation
