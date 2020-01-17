@@ -18,7 +18,7 @@ Architects, consultants, DBAs, database developers, and data professionals in th
 
 1. [Configure your Local Environment](/docs/labs/1-ConfigLocalEnvironment.md)
    1. Install and configure (Git, Visual Studio - SSDT, VS Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe)
-2. Configure your DevOps Environment
+2. [Configure your DevOps Environment](/docs/labs/2-Configure_your_DevOps_Environment.md)
    1. Azure Resource groups
    2. Azure AD Service Principles
    3. Access Control (IAM)
