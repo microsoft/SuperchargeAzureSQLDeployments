@@ -32,7 +32,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
 # Perform the tasks below either via the Portal or PowerShell.
 ```
 
-#### **Portal**
+> #### **Portal**
 1. Login to **https://portal.azure.com**
 1. Select **Resource Groups** from the main menu
 
@@ -46,7 +46,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
    - Click **Create**
 
 
-#### **PowerShell**
+> #### **PowerShell**
 ```powershell  
 $rg = "<Your Resource Group Name>"
 $location = "<Location>"
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
 ``` 
 
->**Note:** Use the following cmdlets to obtain the subscription id and regions `
+:bulb: Use the following cmdlets to obtain the subscription id and regions `
 ```powershell  
 Get-AzSubscription
 Get-AzLocation
