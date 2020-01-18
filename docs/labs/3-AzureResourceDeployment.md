@@ -1,5 +1,8 @@
 1. Navigate to **Pipelines**
 2. Click on **Pipelines**
+
+<img src="./imgs/pipelines.jpg" width="25%" height="25%" />
+
 3. Click on **Create Pipeline**
 4. Click on **Use the classic editor to create a pipeline without YAML**
 
