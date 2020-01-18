@@ -171,6 +171,10 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 <img src="./imgs/repo.jpg" width="25%" height="25%" />
 
 6. Click on **Import a repository**
+7. Select **Git** for **Repository type**
+8. Enter the **Clone URL** https://github.com/microsoft/SuperchargeAzureSQLDeployments.git
+
+<img src="./imgs/importrepo.jpg" width="50%" height="50%" />
 
 #### DevOps Service Connection with Azure Resource Manager
 
