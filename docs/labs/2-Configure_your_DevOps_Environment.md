@@ -168,7 +168,7 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 
 5. Click on **Repo**
 
-<img src="./imgs/repo.jpg" width="50%" height="50%" />
+<img src="./imgs/repo.jpg" width="25%" height="25%" />
 
 6. Click on **Import a repository**
 
