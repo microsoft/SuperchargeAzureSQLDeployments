@@ -22,7 +22,7 @@ Architects, consultants, DBAs, database developers, and data professionals in th
    1. [Azure Resource groups](/docs/labs/2-Configure_your_DevOps_Environment.md#create-azure-resource-groups)
    2. [Azure AD Service Principals](/docs/labs/2-Configure_your_DevOps_Environment.md#create-service-principal)
    3. [Access Control (IAM)](/docs/labs/2-Configure_your_DevOps_Environment.md#access-control-iam-for-the-resource-group)
-   4. [Azure DevOps Organizations](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-organizations
+   4. [Azure DevOps Organizations](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-organizations)
    5. [Azure DevOps Project](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-project---clone-project-repo)
    6. [DevOps Service connections - Azure Resource Manager](/docs/labs/2-Configure_your_DevOps_Environment.md#devops-service-connection-with-azure-resource-manager)
 3. Azure Resource Deployment
