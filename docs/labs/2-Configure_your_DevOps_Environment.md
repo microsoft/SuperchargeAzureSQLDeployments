@@ -23,6 +23,8 @@ This lab will create the environment for the CI/CD process. Service Principals a
  **Summary**
   * [Setup Up Azure Environment](#exercise---setup-azure-environment)
   * [Azure AD Service Principles](#exercise---setup-permissions)
+  * [Exercise - Set up Azure DevOps environment](#exercise---Set_up_Azure_DevOps_environment)
+
 
 ## <div style="color: #107c10">Exercise - Setup Azure Environment</div>
 
@@ -145,7 +147,7 @@ $app = (Get-AzADServicePrincipal -DisplayName $spName).ApplicationID
 New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionName 'Owner'
 ``` 
 
-## <div style="color: #107c10">Exercise - Set up Azure DevOps environment</div>
+## <div style="color: #107c10">Exercise - Set up Azure DevOps Environment</div>
 
 
 #### Azure DevOps Organizations
