@@ -154,7 +154,7 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 2. Navigate to Azure DevOps after signing in
 3. Click on **New Organization**
      1. Confirm and Enter an **organization** name
-     2. Choose a location
+     2. Choose a **Location**
 4. After creation, navigate to your organization **https://dev.azure.com/{yourorganization}**
 
 
@@ -164,6 +164,9 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 3. Select **Git** and **Basic** for version control and work item process, respectively. 
 4. Click on **+ Create project**
 <img src="./imgs/newproject.jpg" width="50%" height="50%" />
+5. Click on **Repo**
+<img src="./imgs/repo.jpg" width="50%" height="50%" />
+6. Click on **Import a repository**
 
 #### DevOps Service Connection with Azure Resource Manager
 
