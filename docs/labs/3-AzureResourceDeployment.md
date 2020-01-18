@@ -3,7 +3,7 @@
 3. Click on **Create Pipeline**
 4. Click on **Use the classic editor to create a pipeline without YAML**
 
-<img src="./imgs/classiceditor.jpg" width="50%" height="50%" />
+<img src="./imgs/classiceditor.jpg" width="25%" height="25%" />
 
 5. Select a source
      1. Select **Azure Repos Git**
