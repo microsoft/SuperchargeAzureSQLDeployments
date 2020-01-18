@@ -173,10 +173,36 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 6. Click on **Import a repository**
 7. Select **Git** for **Repository type**
 8. Enter the **Clone URL** https://github.com/microsoft/SuperchargeAzureSQLDeployments.git
+9. Click on **Import**
 
 <img src="./imgs/importrepo.jpg" width="50%" height="50%" />
 
 #### DevOps Service Connection with Azure Resource Manager
+
+1. Select the **Project Settings**
+
+<img src="./imgs/projectsettings.jpg" width="50%" height="50%" />
+
+2. Select **Service Connections** under **Pipelines**
+3. Click on **Create service connection**
+4. Select **Azure Resource Manager**
+
+<img src="./imgs/serviceconnection.jpg" width="50%" height="50%" />
+
+5. Click on **Next**
+6. Click on **use the full version of the service connection dialog.**
+
+<img src="./imgs/fullserviceconnection.jpg" width="50%" height="50%" />
+
+7. Enter the following:
+     1. Select **Service Principal Authentication**
+     2. Enter a **Connection Name**
+     3. Enter **Service principal client ID** (Created earlier)
+     4. Enter **Service principal key** (Value noted earlier)
+     5. Click on **Verify connection**
+     6. Click on **OK**
+     
+
 
 **Azure subscriptions**
 
