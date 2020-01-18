@@ -181,7 +181,7 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 
 1. Select the **Project Settings**
 
-<img src="./imgs/projectsettings.jpg" width="50%" height="50%" />
+<img src="./imgs/projectsettings.jpg" width="25%" height="25%" />
 
 2. Select **Service Connections** under **Pipelines**
 3. Click on **Create service connection**
