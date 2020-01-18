@@ -19,11 +19,12 @@ Architects, consultants, DBAs, database developers, and data professionals in th
 1. [Configure your Local Environment](/docs/labs/1-ConfigLocalEnvironment.md)
    1. Install and configure (Git, Visual Studio - SSDT, VS Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe)
 2. [Configure your DevOps Environment](/docs/labs/2-Configure_your_DevOps_Environment.md)
-   1. Azure Resource groups
-   2. Azure AD Service Principals
-   3. Access Control (IAM)
-   4. Setup DevOps Project
-   5. DevOps Service connections - Azure Resource Manager
+   1. [Azure Resource groups](/docs/labs/2-Configure_your_DevOps_Environment.md#create-azure-resource-groups)
+   2. [Azure AD Service Principals](/docs/labs/2-Configure_your_DevOps_Environment.md#create-service-principal)
+   3. [Access Control (IAM)](/docs/labs/2-Configure_your_DevOps_Environment.md#access-control-iam-for-the-resource-group)
+   4. [Azure DevOps Organizations](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-organizations
+   5. [Azure DevOps Project](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-project---clone-project-repo)
+   6. [DevOps Service connections - Azure Resource Manager](/docs/labs/2-Configure_your_DevOps_Environment.md#devops-service-connection-with-azure-resource-manager)
 3. Azure Resource Deployment
    1. Azure DevOps Build - Azure Services
    2. Azure DevOps Release - Azure Services
