@@ -209,6 +209,7 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 **Azure subscriptions**
 
 <ins>TRIAL SUBSCRIPTIONS ARE NOT SUPPORTED FOR THIS WORKSHOP</ins>
-[Next Lab](/docs/labs/3-AzureResourceDeployment.md)
-[Back to all modules](/docs/labs/README.md)
+
+- [Next Lab](/docs/labs/3-AzureResourceDeployment.md)
+- [Back to all modules](/docs/labs/README.md)
 
