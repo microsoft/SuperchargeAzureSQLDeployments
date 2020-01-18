@@ -158,14 +158,18 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 4. After creation, navigate to your organization **https://dev.azure.com/{yourorganization}**
 
 
-#### Azure DevOps Project - ![](docs/../imgs/Git-Icon.png)Clone Project Repro
+#### Azure DevOps Project - ![](docs/../imgs/Git-Icon.png)Clone Project Repo
 1. Enter your **Project name**
 2. Select **Private**
 3. Select **Git** and **Basic** for version control and work item process, respectively. 
 4. Click on **+ Create project**
+
 <img src="./imgs/newproject.jpg" width="50%" height="50%" />
+
 5. Click on **Repo**
+
 <img src="./imgs/repo.jpg" width="50%" height="50%" />
+
 6. Click on **Import a repository**
 
 #### DevOps Service Connection with Azure Resource Manager
