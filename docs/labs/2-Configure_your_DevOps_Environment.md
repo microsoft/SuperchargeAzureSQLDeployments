@@ -7,7 +7,7 @@
 
 | Lab Description | This lab covers the configurations and environment creation for DevOps deployments. |
 | :------------ | :-------------- |
-| Estimated Time to Complete | 30 minutes |
+| Estimated Time to Complete | 20 minutes |
 | Key Takeaways | 1. Create resource group in Azure  for deployment automation |
 |  | 2. Establish RBAC permissions for resource creation |
 |  | 3. Set up permissions and service principals for continuous deployments in Azure DevOps environment |
@@ -209,6 +209,6 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 **Azure subscriptions**
 
 <ins>TRIAL SUBSCRIPTIONS ARE NOT SUPPORTED FOR THIS WORKSHOP</ins>
-
+[Next Lab](/docs/labs/3-AzureResourceDeployment.md)
 [Back to all modules](/docs/labs/README.md)
 
