@@ -23,8 +23,8 @@
    - [2.1. Azure Resource groups](/docs/labs/2-Configure_your_DevOps_Environment.md#create-azure-resource-groups)
    - [2.2. Azure AD Service Principles](/docs/labs/2-Configure_your_DevOps_Environment.md#create-service-principal)
    - [2.3. Access Control (IAM)](/docs/labs/2-Configure_your_DevOps_Environment.md#access-control-iam-for-the-resource-group)
-   - 2.4. Azure DevOps Organzations
-   - 2.5. Azure DevOps Project
+   - [2.4. Azure DevOps Organizations](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-organizations)
+   - [2.5. Azure DevOps Project](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-project---clone-project-repo)
    - 2.6. DevOps Service connections - Azure Resource Manager
 2. Azure Resource Deployment
    1. Azure DevOps Build - Azure Services
