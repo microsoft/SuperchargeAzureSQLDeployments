@@ -148,8 +148,23 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 ## <div style="color: #107c10">Exercise - Set up Azure DevOps environment</div>
 
 
-#### Azure DevOps Organzations
+#### Azure DevOps Organizations
+
+1. Sign in **https://dev.azure.com/**
+2. Navigate to Azure DevOps after signing in
+3. Click on **New Organization**
+     1. Confirm and Enter an **organization** name
+     2. Choose a location
+4. After creation, navigate to your organization **https://dev.azure.com/{yourorganization}**
+
+
 #### Azure DevOps Project - ![](docs/../imgs/Git-Icon.png)Clone Project Repro
+1. Enter your **Project name**
+2. Select **Private**
+3. Select **Git** and **Basic** for version control and work item process, respectively. 
+4. Click on **+ Create project**
+<img src="./imgs/newproject.jpg" width="50%" height="50%" />
+
 #### DevOps Service Connection with Azure Resource Manager
 
 **Azure subscriptions**
