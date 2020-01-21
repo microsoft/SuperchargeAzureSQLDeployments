@@ -67,7 +67,7 @@ To learn the prerequisite skills and technologies needed to succeed with Azure D
 ![](docs/graphics/DatabaseManagementLifecycle.png)</br>
 Database lifecycle management (DLM) is an approach to managing databases and data assets using CI/CD . DLM is a comprehensive approach to managing the database schema, data, and metadata for the database(s). A thoughtful and proactive approach to DLM enables an organization to manage data resources according to appropriate levels of performance, protection, availability, and cost. Providing the team the ablity to source control their database(s) while supercharing their deployments and development with DevOps. Leveraging SQL Server Data tools to manage database projects and intagrate with Git Repositories within Azure DevOps Services.  The team can develop, test, build, deploy, maintain, monitor, and scale with ease.
 
-## ![](docs/graphics/contributing.png) Contributing
+## ![](docs/graphics/contributing.png) [Contributing](./CONTRIBUTING.md)
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
