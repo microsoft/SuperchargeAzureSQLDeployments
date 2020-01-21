@@ -10,14 +10,14 @@
 | Estimated Time to Complete | 45 minutes |
 | Key Takeaways | 1. Download and install the required tools |
 |  | 2. Know what version of the tools are installed |
-|  | 3. Learn to configure VS COde and Azure Data Studio and install extenstions |
+|  | 3. Learn to configure VS Code and Azure Data Studio and install extensions |
 |  | By the end of this lab, you should have: Git, Visual Studio - SSDT, Visual Studio Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe |
 | Author | Frank Garofalo |
 
 ### Purpose
 
-For those new to DevOps, Source Control, and Database Projects
-there are many tools that you need to familiarize yourself with. This modules
+For those new to DevOps, Source Control, and Database Projects,
+there are many tools that you need to familiarize yourself with. This module
 walks you through installing and configuring the required tools for this lab, as well as making sure they are on the current supported versions.
 
 ## <div style="color: #107c10">Exercise - Setup Az PowerShell Module</div>
@@ -38,7 +38,7 @@ walks you through installing and configuring the required tools for this lab, as
 Set-ExecutionPolicy Unrestricted
 ```
 
-2.  Select Yes if prompted. Execution policies determine whether you can
+2.  Select "Yes to All" if prompted. Execution policies determine whether you can
     load configuration files, such as your PowerShell profile, or run
     scripts and whether scripts must be digitally signed before they are
     run. More information on this topic can be found here:
@@ -56,7 +56,7 @@ Install-Module -Name 'Az'
     provider. Select **Yes** if this is the case.
 
 3.  You may receive a warning message stating you are installing modules
-    from an untrusted repository. Select **Yes** if this is the case.
+    from an untrusted repository. Select **Yes to All** if this is the case.
     This process may take several minutes.
 
 4.  Run the following PowerShell Command to verify the module has
@@ -66,7 +66,7 @@ Install-Module -Name 'Az'
 Get-Module -Name '*Az*' -ListAvailable
 ```
 
-5.  If installed, Az should be returned
+5.  If installed, Az.* modules should be returned
 
 6.  Run the following PowerShell Command to turn off autosaving Azure
     credentials\
@@ -156,7 +156,7 @@ Expected return:
 
 5.  Accept the default Start Menu Folder and click **Next**
 
-6.  Select all additional tasks and click **Next** (Optional)
+6.  Select **All additional tasks** and click **Next** (Optional)
 
 7.  Click **Install**
 
@@ -182,12 +182,12 @@ Expected return:
 
 2. Accept the EULA and click Next
 
-3. Select the Data storage and processing workload
+3. Select Workloads -> Other Toolsets -> **Data storage and processing** 
 
 4. Make sure SQL Server Data Tools is selected
 
 5. Click Install </br>
-*This is a large install and can take some time to complete*</br>   
+*This is a large install and can take some time to complete(~20 mins)*</br>   
  <img src="./imgs/installSSDT.png" border="1">
 
 ## <div style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </div>
@@ -203,7 +203,7 @@ Expected return:
 
 1. Run the **SSMS-Setup-ENU** installation file
 
-2. Leave defualt installation path
+2. Leave default installation path
 
 3. Click Install
 
@@ -255,8 +255,7 @@ Expected return:
 
 5. click **Finish** to complete the install
 
-```note that sqlpackage installs to:```
->C:\Program Files\Microsoft SQL Server\150\DAC\bin
+ >The sqlpackage installs to: C:\Program Files\Microsoft SQL Server\150\DAC\bin
 
 ## <div style="color: #107c10">Exercise - Version Check and Configuration</div>
 
@@ -310,6 +309,8 @@ git --version
 
 3.  Search for and install the following extension, published by
     Microsoft. Once the extension is installed, reload VS Code.
+    
+     > Note: Search for extensions on the activity window on the left (bottom icon)
 
         a.  PowerShell (In addition to enhancements to PowerShell, this
         extension includes a PowerShell ISE color theme that can found

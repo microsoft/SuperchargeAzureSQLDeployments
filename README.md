@@ -1,16 +1,16 @@
 ![Microsoft Logo](docs/graphics/microsoft-logo-small.png)
 
 # **Supercharge your Azure SQL deployments by operationalizing Azure with DevOps**
+This repository is used for a technical workshop.  It focuses on the skills and technologies needed to learn how to quickly deploy and manage Azure SQL database development and deployments at scale using Azure DevOps Services.  Supercharge your data estate with database lifecycle management using modern cloud principles and architectures.  Learn how to leverage the power of Azure Resource Manager and DevOps to deploy efficiently. Learn how to seamlessly manage database projects and handle schema changes that will avail your cloud migration efforts with ease.
 
-#### This repository is used for a technical workshop.  It focuses on the skills and technologies needed to learn how to quickly deploy and manage Azure SQL database development and deployments at scale using Azure DevOps Services.  Supercharge your data estate with database lifecycle management using modern cloud principles and architectures.  Learn how to leverage the power of Azure Resource Manager and DevOps to deploy efficiently. Learn how to seamlessly manage database projects, and handle schema changes that will avail your cloud migration efforts with ease.
 ---
 ## ![](docs/graphics/ribbon.png) Learning objective
-Learn how to architect, design & develop a full Azure SQL DB management lifecycle using DevOps. You will learn how to build an end to end solution to deploy the Azure Services along with full CI/CD pipelines to "Rub a little DevOps" on your database development.
+Learn how to architect, design, and develop a full Azure SQL DB management lifecycle using DevOps. You will learn how to build an end to end solution to deploy the Azure Services along with full CI/CD pipelines to "Rub a little DevOps" on your database development.
 
 ---
 
 ## ![](docs/graphics/roles.png)  Target role(s)
-Architect, Consultants, DBAs, Database Developers, and data proffessionals in the Data & AI space wanting to learn how to operationalize Azure with DevOps.
+Architects, consultants, DBAs, database developers, and data professionals in the Data & AI space wanting to learn how to operationalize Azure with DevOps.
 
 ## ![](docs/graphics/modules.png) Workshop Modules
 
@@ -18,12 +18,14 @@ Architect, Consultants, DBAs, Database Developers, and data proffessionals in th
 
 1. [Configure your Local Environment](/docs/labs/1-ConfigLocalEnvironment.md)
    1. Install and configure (Git, Visual Studio - SSDT, VS Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe)
-2. Configure your DevOps Environment
-   1. Azure Resource groups
-   2. Azure AD Service Principles
-   3. Access Control (IAM)
-   4. DevOps Service connections - Azure Resource Manager
-3. Azure Resource Deployment
+2. [Configure your DevOps Environment](/docs/labs/2-Configure_your_DevOps_Environment.md)
+   1. [Azure Resource groups](/docs/labs/2-Configure_your_DevOps_Environment.md#create-azure-resource-groups)
+   2. [Azure AD Service Principals](/docs/labs/2-Configure_your_DevOps_Environment.md#create-service-principal)
+   3. [Access Control (IAM)](/docs/labs/2-Configure_your_DevOps_Environment.md#access-control-iam-for-the-resource-group)
+   4. [Azure DevOps Organizations](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-organizations)
+   5. [Azure DevOps Project](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-project---clone-project-repo)
+   6. [DevOps Service connections - Azure Resource Manager](/docs/labs/2-Configure_your_DevOps_Environment.md#devops-service-connection-with-azure-resource-manager)
+3. [Azure Resource Deployment](/docs/labs/3-AzureResourceDeployment.md)
    1. Azure DevOps Build - Azure Services
    2. Azure DevOps Release - Azure Services
 4. Database Lifecycle Management
@@ -48,13 +50,13 @@ While there are no prerequisites for this workshop, it is helpful if you have al
 - [Git source control framework - Basics of source control and collaborating with others](https://docs.microsoft.com/en-us/azure/devops/learn/git/what-is-git)
 
 ## ![](docs/graphics/scope.png) Scope
-This workshop is the distilled and simplified experience of multiple engineers working on transforming data estates for enterprise customers to the cloud.
+This workshop is the distilled and simplified experience of multiple engineers working on migrating data estates for enterprise customers to the cloud.
 
 ## ![](docs/graphics/Azure&#32;SQL&#32;Database.png) What is Azure SQL Database?
-Azure SQL Database is the intelligent, scalable, cloud database as a services in Azure. It is a general-purpose relational database in Azure as a managed service.  It is based on the latest stable version of the Microsoft SQL Server database engine.  To learn about Azure SQL Database please read through the Microsoft Documention: [Azure SQL Database documentation](https://docs.microsoft.com/en-us/azure/sql-database/)
+Azure SQL Database is the intelligent, scalable, cloud database as a service in Azure. It is a general-purpose relational database in Azure as a managed service.  It is based on the latest stable version of the Microsoft SQL Server database engine.  To learn about Azure SQL Database please read through the Microsoft Documentation: [Azure SQL Database documentation](https://docs.microsoft.com/en-us/azure/sql-database/)
 
 ## ![](docs/graphics/Azure-DevOps-Service.png) What is Azure DevOps?
-Azure DevOps is an software as a service that privdes developer services to support work item planning, collaborate of code development, and is used to build and deploy applications. This workshop uses Azure DevOps service to operationalize the development and deployment of Azure SQL Database.  The full documention for Azure DevOps can be reviewed by visiting the Microsoft Docs: [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/?view=azure-devops).
+Azure DevOps is software as a service that provides developer services to support work item planning, collaborate of code development, and building and deploying applications. This workshop uses Azure DevOps service to operationalize the development and deployment of Azure SQL Database.  The full documentation for Azure DevOps can be reviewed by visiting the Microsoft Docs: [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/?view=azure-devops).
 
 ## ![](docs/graphics/DevOps.png) What is DevOps?
 “DevOps is the union of people, process, and products to enable continuous delivery of value to our end users.” – Donovan Brown</br>
@@ -65,7 +67,7 @@ To learn the prerequisite skills and technologies needed to succeed with Azure D
 
 ## ![](docs/graphics/dml.png) What is Database management lifecycle?
 ![](docs/graphics/DatabaseManagementLifecycle.png)</br>
-Database lifecycle management (DLM) is an approach to managing databases and data assets using CI/CD . DLM is a comprehensive approach to managing the database schema, data, and metadata for the database(s). A thoughtful and proactive approach to DLM enables an organization to manage data resources according to appropriate levels of performance, protection, availability, and cost. Providing the team the ablity to source control their database(s) while supercharing their deployments and development with DevOps. Leveraging SQL Server Data tools to manage database projects and intagrate with Git Repositories within Azure DevOps Services.  The team can develop, test, build, deploy, maintain, monitor, and scale with ease.
+Database Lifecycle Management (DLM) is an approach to managing databases and data assets using CI/CD. DLM is a comprehensive approach to managing the database schema, data, and metadata for the database(s). A thoughtful and proactive approach to DLM enables an organization to manage data resources according to appropriate levels of performance, protection, availability, and cost. Providing the team the ability to source control their database(s) while supercharging their deployments and development with DevOps. Leveraging SQL Server Data tools to manage database projects and integrate with Git Repositories within Azure DevOps Services.  The team can develop, test, build, deploy, maintain, monitor, and scale with ease.
 
 ## ![](docs/graphics/contributing.png) [Contributing](./CONTRIBUTING.md)
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
