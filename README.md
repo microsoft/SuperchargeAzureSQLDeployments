@@ -10,7 +10,7 @@ Learn how to architect, design, and develop a full Azure SQL DB management lifec
 ---
 
 ## ![](docs/graphics/roles.png)  Target role(s)
-Architects, consultants, DBAs, database developers, and data professionals in the Data & AI space wanting to learn how to operationalize Azure with DevOps.
+Architects, consultants, DBAs, database developers, and data professionals in the Data and AI realm wanting to learn how to operationalize Azure with DevOps.
 
 ## ![](docs/graphics/modules.png) Workshop Modules
 
