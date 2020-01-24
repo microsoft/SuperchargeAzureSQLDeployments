@@ -343,9 +343,6 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 11. Click on **Repos** > **Files**
 12. You should now see all of the files in your repo<br/>
 <img src="./imgs/remotefiles.png"  width="75%" height="75%" />
-
-
-
 ___     
 - [Next Lab](/docs/labs/3-AzureResourceDeployment.md)
 - [Back to all modules](/docs/labs/README.md)
