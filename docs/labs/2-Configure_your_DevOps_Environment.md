@@ -236,7 +236,7 @@ There are many options for a branching strategy and Git gives you the flexibilit
 <img src="./imgs/serviceconnection.jpg" width="50%" height="50%" />
 
 5. Click on **Next**
-6. Select **Service princple (manual)**
+6. Select **Service principal (manual)**
 
 <img src="./imgs/ServiceConnection.png" width="50%" height="50%"></br>
 >  If you do not use manual, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.
