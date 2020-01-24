@@ -1,0 +1,604 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "autoSetAdminAccount": {
+            "type": "bool",
+            "allowedValues": [
+                true,
+                false
+            ],
+            "defaultValue": true
+        },
+        "adminUsername": {
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "securestring"
+        },
+        "serverName": {
+            "type": "string"
+        },
+        "serverADAdminGroup": {
+            "type": "string"
+        },
+        "serverADAdminSID": {
+            "type": "string"
+        },
+        "databases": {
+            "type": "array"
+        },
+        "createFirewallAllServices": {
+            "metadata": {
+                "comments": "Setup Firewall Rule to Allow access to Azure services: true/false"
+            },
+            "type": "bool",
+            "allowedValues": [
+                true,
+                false
+            ],
+            "defaultValue": false
+        },
+        "CreateVNetFirewall": {
+            "type": "bool",
+            "allowedValues": [
+                true,
+                false
+            ],
+            "defaultValue": false
+        },
+        "vNetRule": {
+            "type": "array"
+        },
+        "CreateFirewallRangeRule": {
+            "type": "bool",
+            "allowedValues": [
+                true,
+                false
+            ],
+            "defaultValue": false
+        },
+        "FirewallRangeRule": {
+            "type": "array"
+        },
+        "createLogAnalyticsWorkspace": {
+            "type": "bool",
+            "allowedValues": [
+                true,
+                false
+            ],
+            "defaultValue": true
+        },
+        "LogAnalyticsWorkspaceResourceGroup": {
+            "type": "string"
+        },
+        "LogAnalyticsWorkspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "workspaceName"
+            }
+        },
+        "LogAnalyticsServicetier": {
+            "type": "string",
+            "metadata": {
+                "description": "Service tier: Free, Standalone, or PerNode"
+            },
+            "allowedValues": [
+                "Free",
+                "Standalone",
+                "PerNode"
+            ],
+            "defaultValue": "Standalone"
+        },
+        "LogAnalyticsDataRetention": {
+            "type": "int",
+            "defaultValue": 30,
+            "minValue": 7,
+            "maxValue": 730,
+            "metadata": {
+                "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
+            }
+        },
+        "enableAlertPolicies": {
+            "type": "bool",
+            "allowedValues": [
+                true,
+                false
+            ],
+            "defaultValue": true
+        },
+        "emailAddresses": {
+            "type": "array"
+        },
+        "diagnosticName": {
+            "type": "string"
+        },
+        "auditActionsAndGroups": {
+            "type": "array",
+            "allowedValues": [
+                "BATCH_COMPLETED_GROUP",
+                "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
+                "FAILED_DATABASE_AUTHENTICATION_GROUP",
+                "APPLICATION_ROLE_CHANGE_PASSWORD_GROUP",
+                "BACKUP_RESTORE_GROUP",
+                "DATABASE_LOGOUT_GROUP",
+                "DATABASE_OBJECT_CHANGE_GROUP",
+                "DATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP",
+                "DATABASE_OBJECT_PERMISSION_CHANGE_GROUP",
+                "DATABASE_OPERATION_GROUP",
+                "DATABASE_PERMISSION_CHANGE_GROUP",
+                "DATABASE_PRINCIPAL_CHANGE_GROUP",
+                "DATABASE_PRINCIPAL_IMPERSONATION_GROUP",
+                "DATABASE_ROLE_MEMBER_CHANGE_GROUP",
+                "FAILED_DATABASE_AUTHENTICATION_GROUP",
+                "SCHEMA_OBJECT_ACCESS_GROUP",
+                "SCHEMA_OBJECT_CHANGE_GROUP",
+                "SCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP",
+                "SCHEMA_OBJECT_PERMISSION_CHANGE_GROUP",
+                "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
+                "USER_CHANGE_PASSWORD_GROUP",
+                "BATCH_STARTED_GROUP",
+                "BATCH_COMPLETED_GROUP"
+            ],
+            "defaultValue": [
+                "BATCH_COMPLETED_GROUP",
+                "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
+                "FAILED_DATABASE_AUTHENTICATION_GROUP",
+                "USER_CHANGE_PASSWORD_GROUP",
+                "BACKUP_RESTORE_GROUP",
+                "DATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP",
+                "DATABASE_OBJECT_PERMISSION_CHANGE_GROUP"
+            ]
+        },
+        "createStorageAccount": {
+            "type": "bool",
+            "allowedValues": [
+                true,
+                false
+            ],
+            "defaultValue": true
+        },
+        "storageName": {
+            "type": "string"
+        },
+        "paramStorageType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "metadata": {
+                "comments": "LRS: Locally-redundant storage - Data is replicated within a single storage scale unit , ZRS: Zone-redundant storage - Data is replicated synchronously across three availability zones, GRS: Geo-redundant storage -Cross-regional replication to protect against region-wide unavailability, RAGRS: Read-access geo-redundant storage - Cross-regional replication with read access to the replica"
+            },
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Premium_LRS",
+                "Premium_ZRS"
+
+            ]
+        }
+    },
+    "variables": {
+        "sqlAdmin": "[concat('sqladmin',uniqueString(resourceGroup().id,subscription().subscriptionId))]",
+        "sqlAdminPass": "[concat('P', base64ToString(base64(concat(uniqueString(resourceGroup().id,subscription().subscriptionId),deployment().name,guid(subscription().subscriptionId)))), 'z', '!')]",
+        "administratorLogin": "[if(parameters('autoSetAdminAccount'), variables('sqlAdmin'), parameters('adminUsername'))]",
+        "administratorLoginPassword": "[if(parameters('autoSetAdminAccount'), variables('sqlAdminPass'), parameters('adminPassword'))]",
+        "LogAnalyticsWorkspaceName": "[if(parameters('createLogAnalyticsWorkspace'), concat(parameters('LogAnalyticsWorkspaceName'),'-',uniqueString(resourceGroup().id)), parameters('LogAnalyticsWorkspaceName'))]",
+        "logRG": "[if(parameters('createLogAnalyticsWorkspace'), resourceGroup().name, parameters('LogAnalyticsWorkspaceResourceGroup'))]",
+        "LogAnalytics": "[resourceId(variables('logRG'), 'Microsoft.operationalinsights/workspaces/', variables('LogAnalyticsWorkspaceName'))]",
+        "varStorageName": "[concat(toLower(parameters('storageName')), uniqueString(resourceGroup().id))]",
+        "StorageAccountPrefix": "[if(greater(length(variables('varStorageName')),24), substring(variables('varStorageName'),0,23),variables('varStorageName'))]",
+        "AzureSQLAnalytics": {
+            "Name": "[Concat('AzureSQLAnalytics', '(', variables('LogAnalyticsWorkspaceName'), ')')]",
+            "GalleryName": "AzureSQLAnalytics"
+        },
+        "storageAccountName": "[if(parameters('createStorageAccount'), variables('StorageAccountPrefix'), parameters('storageName'))]"
+    },
+    "resources": [
+        {
+            "comments": "Deploy for Storage Account",
+            "name": "[variables('storageAccountName')]",
+            "condition": "[parameters('createStorageAccount')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2018-07-01",
+            "sku": {
+                "name": "[parameters('paramStorageType')]"
+            },
+            "kind": "Storage",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "SQLAuditStorageAccount",
+                "field": "tags.NoVnet",
+                "notLike": "True"
+            },
+            "properties": {
+                "encryption": {
+                    "keySource": "Microsoft.Storage",
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "supportsHttpsTrafficOnly": true
+            },
+            "resources": [
+            ]
+        },
+        {
+            "comments": "Deploy for Log Analytics",
+            "name": "[variables('LogAnalyticsWorkspaceName')]",
+            "condition": "[parameters('createLogAnalyticsWorkspace')]",
+            "apiVersion": "2015-11-01-preview",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('LogAnalyticsServicetier')]"
+                },
+                "retention": "[parameters('LogAnalyticsDataRetention')]"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[resourceGroup().location]",
+                    "name": "[variables('AzureSQLAnalytics').Name]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('AzureSQLAnalytics').Name)]",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', variables('LogAnalyticsWorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', variables('LogAnalyticsWorkspaceName'))]"
+                    },
+                    "plan": {
+                        "name": "[variables('AzureSQLAnalytics').Name]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', variables('AzureSQLAnalytics').GalleryName)]",
+                        "promotionCode": ""
+                    }
+                }
+            ]
+        },
+        {
+            "comments": "TDS End Point (Logical SQL Server)",
+            "name": "[parameters('serverName')]",
+            "type": "Microsoft.Sql/servers",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "SQL DB Logical Server"
+            },
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "comments": "SQL admin username and password should be autoset, unless you overide",
+                "administratorLogin": "[variables('administratorLogin')]",
+                "administratorLoginPassword": "[variables('administratorLoginPassword')]",
+                "version": "12.0"
+            },
+            "resources": [
+                {
+                    "name": "[concat(parameters('serverName'), '/', 'firewallAllServices')]",
+                    "condition": "[parameters('createFirewallAllServices')]",
+                    "type": "Microsoft.Sql/servers/firewallRules",
+                    "apiVersion": "2015-05-01-preview",
+                    "properties": {
+                        "startIpAddress": "0.0.0.0",
+                        "endIpAddress": "0.0.0.0"
+                    },
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+                    ]
+                },
+                {
+                    "name": "[concat(parameters('serverName'), '/SecurityAlerts')]",
+                    "type": "Microsoft.Sql/servers/securityAlertPolicies",
+                    "apiVersion": "2017-03-01-preview",
+                    "properties": {
+                        "state": "Enabled",
+                        "disabledAlerts": "",
+                        "emailAddresses": "[parameters('emailAddresses')]",
+                        "emailAccountAdmins": true,
+                        "storageEndpoint": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').primaryEndpoints.blob)]",
+                        "storageAccountAccessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').keys[0].value]",
+                        "retentionDays": 60
+                    },
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+                    ]
+                },
+                {
+                    "name": "[concat(parameters('serverName'), '/vascans')]",
+                    "type": "Microsoft.Sql/servers/vulnerabilityAssessments",
+                    "apiVersion": "2018-06-01-preview",
+                    "properties": {
+                        "storageContainerPath": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').primaryEndpoints.blob, 'vulnerability-assessment')]",
+                        "storageAccountAccessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').keys[0].value]",
+                        "recurringScans": {
+                            "isEnabled": true,
+                            "emailSubscriptionAdmins": false,
+                            "emails": "[parameters('emailAddresses')]"
+                        }
+                    },
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                        "[resourceId('Microsoft.Sql/servers/securityAlertPolicies', parameters('serverName'), 'SecurityAlerts')]"
+                    ]
+                },
+                {
+                    "comments": "Set Azure AD Server Admin, SOE-C lockdowns recommend an AAD group. Can use PowerShell Get-AzureADUser from AzureAD module to find SID",
+                    "type": "Microsoft.Sql/servers/administrators",
+                    "name": "[concat(parameters('serverName'), '/', 'activeDirectory')]",
+                    "apiVersion": "2014-04-01-preview",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+                    ],
+                    "properties": {
+                        "administratorType": "ActiveDirectory",
+                        "login": "[parameters('serverADAdminGroup')]",
+                        "sid": "[parameters('serverADAdminSID')]",
+                        "tenantId": "[subscription().tenantId]"
+                    }
+                },
+                {
+                    "comments": "Setup Database Auditing",
+                    "type": "Microsoft.Sql/servers/auditingSettings",
+                    "location": "[resourceGroup().location]",
+                    "name": "[concat(parameters('serverName'), '/', 'dbaudit')]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+                    ],
+                    "apiVersion": "2017-03-01-preview",
+                    "properties": {
+                        "state": "Enabled",
+                        "storageEndpoint": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').primaryEndpoints.blob)]",
+                        "storageAccountAccessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').keys[0].value]",
+                        "retentionDays": 60,
+                        "auditActionsAndGroups": "[parameters('auditActionsAndGroups')]",
+                        "storageAccountSubscriptionId": "[subscription().subscriptionId]",
+                        "isStorageSecondaryKeyInUse": false
+                    }
+                }
+            ],
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('serverName'), '/', parameters('FirewallRangeRule')[copyIndex()].Name)]",
+            "condition": "[parameters('CreateFirewallRangeRule')]",
+            "copy": {
+                "name": "IpRangeCopy",
+                "count": "[length(parameters('FirewallRangeRule'))]"
+            },
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "apiVersion": "2015-05-01-preview",
+            "properties": {
+                "startIpAddress": "[parameters('FirewallRangeRule')[copyIndex()].StartIp]",
+                "endIpAddress": "[parameters('FirewallRangeRule')[copyIndex()].EndIp]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+            ]
+        },
+        {
+            "comments": "SQL vNet Rule",
+            "condition": "[parameters('CreateVNetFirewall')]",
+            "copy": {
+                "name": "vNetCopy",
+                "count": "[length(parameters('vNetRule'))]"
+            },
+            "type": "Microsoft.Sql/servers/virtualNetworkRules",
+            "name": "[concat(parameters('serverName'), '/', parameters('vNetRule')[copyIndex()].vNetName, '-', parameters('vNetRule')[copyIndex()].vNetSubNetName)]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+            ],
+            "properties": {
+                "virtualNetworkSubnetId": "[resourceId(parameters('vNetRule')[copyIndex()].subscriptionId, parameters('vNetRule')[copyIndex()].vNetResourceGroup, 'Microsoft.Network/virtualNetworks/subnets', parameters('vNetRule')[copyIndex()].vNetName, parameters('vNetRule')[copyIndex()].vNetSubNetName)]"
+            }
+        },
+        {
+            "comments": "Create Database Resource",
+            "type": "Microsoft.Sql/servers/databases",
+            "name": "[concat(parameters('serverName'), '/', parameters('databases')[copyIndex()].databaseName)]",
+            "apiVersion": "2017-10-01-preview",
+            "location": "[resourceGroup().location]",
+            "sku": "[parameters('databases')[copyIndex()].databaseSku]",
+            "properties": {
+                "createMode": "Default",
+                "collation": "[parameters('databases')[copyIndex()].dbCollation]"
+            },
+            "copy": {
+                "name": "databasecopy",
+                "count": "[length(parameters('databases'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+            ],
+            "resources": [
+                {
+                    "type": "transparentDataEncryption",
+                    "name": "current",
+                    "apiVersion": "2014-04-01",
+                    "properties": {
+                        "status": "Enabled"
+                    },
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers/databases', parameters('serverName'), parameters('databases')[copyIndex()].databaseName)]"
+                    ]
+                },
+                {
+                    "apiVersion": "2017-03-01-preview",
+                    "type": "auditingSettings",
+                    "name": "Default",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                        "[resourceId('Microsoft.Sql/servers/databases', parameters('serverName'), parameters('databases')[copyIndex()].databaseName)]",
+                        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+                    ],
+                    "properties": {
+                        "State": "Enabled",
+                        "storageEndpoint": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').primaryEndpoints.blob)]",
+                        "storageAccountAccessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').keys[0].value]",
+                        "retentionDays": 60,
+                        "auditActionsAndGroups": [
+                            "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
+                            "DATABASE_LOGOUT_GROUP",
+                            "USER_CHANGE_PASSWORD_GROUP"
+                        ],
+                        "storageAccountSubscriptionId": "[subscription().subscriptionId]",
+                        "isStorageSecondaryKeyInUse": false
+                    }
+                },
+                {
+                    "apiVersion": "2018-06-01-preview",
+                    "type": "securityAlertPolicies",
+                    "condition": "[parameters('enableAlertPolicies')]",
+                    "name": "Default",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                        "[resourceId('Microsoft.Sql/servers/databases', parameters('serverName'), parameters('databases')[copyIndex()].databaseName)]",
+                        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+                    ],
+                    "properties": {
+                        "state": "Enabled",
+                        "disabledAlerts": "",
+                        "emailAddresses": "[parameters('emailAddresses')]",
+                        "emailAccountAdmins": true,
+                        "storageEndpoint": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').primaryEndpoints.blob)]",
+                        "storageAccountAccessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-07-01').keys[0].value]",
+                        "retentionDays": 60
+                    }
+                }
+            ]
+        },
+        {
+            "comments": "Setup Diagnostic Settings to OMS",
+            "type": "Microsoft.Sql/servers/databases/providers/diagnosticSettings",
+            "name": "[concat(parameters('serverName'), '/', parameters('databases')[copyIndex()].databaseName, '/Microsoft.Insights/', parameters('diagnosticName'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('serverName') ,parameters('databases')[copyIndex()].databaseName)]",
+                "[concat('Microsoft.OperationalInsights/workspaces/', variables('LogAnalyticsWorkspaceName'))]"
+            ],
+            "apiVersion": "2017-05-01-preview",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "name": "[concat(concat(parameters('serverName'), '/', parameters('databases')[copyIndex()].databaseName, '/'), parameters('diagnosticName'))]",
+                "workspaceId": "[variables('LogAnalytics')]",
+                "logs": [
+                    {
+                        "category": "SQLInsights",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "AutomaticTuning",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "QueryStoreRuntimeStatistics",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "QueryStoreWaitStatistics",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "Errors",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "DatabaseWaitStatistics",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "Timeouts",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "Blocks",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "Deadlocks",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 60,
+                            "enabled": false
+                        }
+                    }
+                ],
+                "metrics": [
+                    {
+                        "category": "AllMetrics",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 60
+                        }
+                    }
+                ],
+                "copy": {
+                    "name": "databasecopy",
+                    "count": "[length(parameters('databases'))]"
+                }
+            },
+            "copy": {
+                "name": "databasecopy",
+                "count": "[length(parameters('databases'))]"
+            }
+        }
+    ],
+    "outputs": {
+        "administratorLogin": {
+            "type": "string",
+            "value": "[variables('administratorLogin')]"
+        },
+        "administratorLoginPassword": {
+            "type": "string",
+            "value": "[variables('administratorLoginPassword')]"
+        }
+    }
+}
