@@ -9,12 +9,12 @@
 | Key Takeaways | 1. Create resource group in Azure  for deployment automation |
 |  | 2. Establish RBAC permissions for resource creation |
 |  | 3. Set up permissions and service principals for continuous deployments in Azure DevOps environment |
-|  | By the end of this lab, you should have: Resource Groups, Service Principal, ARM Templates, Azure DevOps Environment
+|  | By the end of this lab, you should have: Resource Groups, Service Principal, Azure DevOps Environment, Artifacts needed to complete this workshop
 | Author | Shirley MacKay </br> Frank Garofalo|
 
 ### Purpose
 
-This lab will create the environment for the CI/CD process. Service Principals are leveraged to allow permission to deploy or update resources in a certain environment for a specific purpose. The Service Connections are based off the Service Principals permissions that is limited to what is required for updates and deployments of the resources. It gives Administrators better control over their environment while allowing the engineers to have concern with only their code.
+This lab will create the environment for the CI/CD process. Service Principals are leveraged to allow permission to deploy or update resources in a certain environments for a specific purpose. The Service Connections are based off the Service Principals permissions that is limited to what is required for updates and deployments of the resources. It gives Administrators better control over their environment while allowing the engineers to have concern with only their code.
  
  **Summary**
   * [Setup Up Azure Environment](#exercise---setup-azure-environment)
@@ -238,7 +238,7 @@ There are many options for a branching strategy and Git gives you the flexibilit
 5. Click on **Next**
 6. Select **Service principal (manual)**
 
-<img src="./imgs/ServiceConnection.png" width="50%" height="50%"></br>
+<img src="./imgs/ServiceConnection.png" width="50%" height="50%" /></br>
 >  If you do not use manual, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.
 
 Enter the following:
@@ -252,12 +252,100 @@ Enter the following:
 4. Enter **Subscription Name**
 5. Enter **Service Principal ID** (Created earlier)
 6. Select Credential **Service principal key**
-8. Enter **Service principal key** (Value noted earlier)
-9. Tenat ID should be prepopulated
-10. Click on **Verify**
-11. Enter **Service connection name**
-12. Enter **Description** (optional)
-13. Click on **Verify and save**
+7. Enter **Service principal key** (Value noted earlier)
+8. Tenat ID should be prepopulated
+9. Click on **Verify**
+10. Enter **Service connection name**
+11. Enter **Description** (optional)
+12. Click on **Verify and save**
+
+## <div style="color: #107c10">Exercise - Push files to your Repo</div>
+Your repository is currently empty, except for the default README.md file that was created to initialize your repo. In this exercise you are going to use Git commands to clone down the source files needed for this lab and push them up to your repo.  
+
+1. Using the TERMINAL in VSCode or Git Bash
+2. Run the following Git comand to clone this Github Repo</br>
+
+```Bash
+
+git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/SuperchargeAzureSQL
+
+```
+3. In a browser navagate to your Azure DevOps Project that you created above.
+   1. Click on **Repos**
+   2. Click **Files**
+   3. Click the **Clone** button
+
+<img src="./imgs/Clone.png" width="75%" height="75%"></br>
+
+4. Copy the Command line **HTTPS** URL for your repo by clicking on the copy icon
+
+   <img src="./imgs/CloneCopy.png" width="50%" height="50%" />
+
+5. Back in VS Code hit the F1 key to open the comand pallet
+6. Type **Git: Clone** and hit enter
+7. Paste the Repository URL for your Azure DevOps Repo
+8. Navagate to your **C:\\** drive
+9. CLick **Select Repository Location**
+   1.  You may be asked to provide your Microsoft acount
+   2.  Use your Microsoft account used to login to Azure DevOps
+10. Using windows explore navagate to the the **source** directory in the cloned GitHub repo
+    *  **C:\\SuperchargeAzureSQL\\source\\** </br>
+
+    <img src="./imgs/sourcedir.png" width="75%" height="75%"/>
+
+11. Copy both directories:  DatabaseProjects & Deployments
+12. Using windows explore navagate to your cloned Azure DevOps repo
+    *  **C:\\SuperchargeSQLDeployment** </br>
+13. Paste the copied directories from step 11 into your cloned Azure DevOps repo
+14. The above steps should result with the following:
+
+<img src="./imgs/copiedsource.png" width="75%" height="75%" />
+
+## Performing your inital Commit using VS Code
+
+1. In VS Code from the menu click **File** > **Open Folder** 
+2. Navagate to your Cloned Azure DevOps Repo: **C:\SuperchargeSQLDeployments**
+3. Click on the Git icon from the left side menu
+   1. Notice that is shows a number on the icon
+   2. This is the number file files that have not been commited to your local Git repository for your Azure DevOps project
+4. Make sure your our working off of the Dev branch
+   1. Click on **master** from the bottom left of VS Code</br>
+   <img src="./imgs/master.png">
+   2. Select **dev**</br>
+   <img src="./imgs/devSelect.png">
+   3. You should now be in your *dev* branch</br>
+   <img src="./imgs/dev.png">   
+
+5. Click on the + that shows up when you hover over **CHANGES**
+   * This will **stage** all changes in your repo to be commited
+   * You can also pick and choose which files you want to stage, for this workshop we want all of the intial files staged to be commited
+
+   <img src="./imgs/stagefiles.png" width="75%" height="75%" />
+
+6. Type a message for the intial commit in the **Message** box (ie. inital commit)
+7. Click the Check mark to perform the commit.
+  >If you receive an error message **Make sure you configure your 'user.name' and 'user.email' in git.** Click Cancel on the error message </br>
+  > 1. Open the Terminal in VS Code
+  > 2. Run the following commands, **filling in your own name and email address**
+  ><br/>
+  >git config --global user.name "Your Name" <br/>
+  >git config --global user.email "you@example.com" <br/>
+  >
+  > 3. Run your commit again (Step 6.)
+7. You now have commited all of the changes to your local Git Repo, notice that the Git icon in the left side menu does not show any numbers. 
+8. Notice that you have changes to push up to your remote Git repo (Azure DevOps Repo</br>
+<img src="./imgs/push.png" />
+
+9. Click on the **sync** icon in the bottom left to perform a Git pull & Git push
+     * You can also run the following Git command
+     >git push
+10. Using a browser navigate to your Azure DevOps project
+11. Click on **Repos** > **Files**
+12. You should now see all of the files in your repo<br/>
+<img src="./imgs/remotefiles.png"  width="75%" height="75%" />
+
+
+
 ___     
 - [Next Lab](/docs/labs/3-AzureResourceDeployment.md)
 - [Back to all modules](/docs/labs/README.md)
