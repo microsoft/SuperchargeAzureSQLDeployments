@@ -241,23 +241,23 @@ There are many options for a branching strategy and Git gives you the flexibilit
 <img src="./imgs/ServiceConnection.png" width="50%" height="50%"></br>
 >  If you do not use manual, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.
 
-7. Enter the following:
-     1. Select Environment
-     2. Select Scope level **Subscription**
-     3. Enter **Subscription Id**</br>
+Enter the following:
+1. Select Environment
+2. Select Scope level **Subscription**
+3. Enter **Subscription Id**</br>
      ```PowerShell
      Get-AzSubscription
      #Returns Subscription Name, Id, TenantId and State
     ```
-     4. Enter **Subscription Name**
-     5. Enter **Service Principal ID** (Created earlier)
-     6. Select Credential **Service principal key**
-     8. Enter **Service principal key** (Value noted earlier)
-     9. Tenat ID should be prepopulated
-     10. Click on **Verify**
-     11. Enter **Service connection name**
-     12. Enter **Description** (optional)
-     13. Click on **Verify and save**
+4. Enter **Subscription Name**
+5. Enter **Service Principal ID** (Created earlier)
+6. Select Credential **Service principal key**
+8. Enter **Service principal key** (Value noted earlier)
+9. Tenat ID should be prepopulated
+10. Click on **Verify**
+11. Enter **Service connection name**
+12. Enter **Description** (optional)
+13. Click on **Verify and save**
 ___     
 - [Next Lab](/docs/labs/3-AzureResourceDeployment.md)
 - [Back to all modules](/docs/labs/README.md)
