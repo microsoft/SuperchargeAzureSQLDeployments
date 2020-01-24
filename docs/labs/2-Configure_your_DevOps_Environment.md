@@ -125,7 +125,7 @@ New-AzADServicePrincipal -DisplayName $spName -PasswordCredential $cred
 $pass
 ``` 
 
-:exclamation: Copy and save the Service Principal Name, ApplicationId and the Key which is the value from the $pass variable. It will be used later. `
+:exclamation: Copy and save the Service Principal Name, ApplicationId and the Key which is the value from the $pass variable. It will be used later. 
 
 
 ## <div style="color: #107c10">Exercise - Setup Permissions</div>
