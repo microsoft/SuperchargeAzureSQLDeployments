@@ -1,0 +1,25 @@
+﻿	CREATE TABLE [dim].[deliveredworkshop]
+(
+	[MIPName] VARCHAR(75) NULL, 
+	[MIPType] VARCHAR(30) NULL,
+    [StartDeliveryDate] DATE NULL, 
+    [EndDeliveryDate] DATE NULL,
+	[Hours] int NULL,
+    [Attendee] VARCHAR(100) NULL, 
+	[AttendeeArea] VARCHAR(30) NULL,
+    [AttendeeStateEmail] VARCHAR(40) NULL, 
+    [AttendeeDosDevAccnt] VARCHAR(40) NULL, 
+    [AttendeeMSLiveEmail] VARCHAR(40) NULL, 
+	[AttendedWorkShop] VARCHAR(4) NULL,
+    [AttendeeNotes] VARCHAR(255) NULL, 
+    [PrimaryInstructor] VARCHAR(30) NULL, 
+    [SecondaryInstructor] VARCHAR(30) NULL,
+	[DeliveriedCustomerSite] VARCHAR(4) NULL,
+	[DeliveryOffice] VARCHAR(30) NULL,
+	[DeliveryOfficeRoom] VARCHAR(15),
+    [DeliveryLocationState] VARCHAR(2) NULL, 
+    [DeliveryLocationCity] VARCHAR(30) NULL, 
+    [LocationNotes] VARCHAR(255) NULL, 
+    [WorkshopNotes] VARCHAR(255) NULL, 
+    [ROSSId] VARCHAR(50) NULL
+)

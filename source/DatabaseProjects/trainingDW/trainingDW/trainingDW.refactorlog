@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="320b1d02-45ab-42d8-af78-468bc373a5dd" ChangeDateTime="06/21/2019 18:36:31">
+    <Property Name="ElementName" Value="[stg].[workshop].[StartDilveredDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[stg].[workshop]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StartDeliveryDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f7e94bb1-657c-4200-a812-4ceda23df9a4" ChangeDateTime="06/21/2019 18:38:09">
+    <Property Name="ElementName" Value="[stg].[workshop].[AttendeeDosDevEmail]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[stg].[workshop]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AttendeeDosDevAccnt" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="03689c2b-4004-459e-90d6-8589e530a1f1" ChangeDateTime="06/21/2019 18:39:24">
+    <Property Name="ElementName" Value="[stg].[workshop].[Intructor]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[stg].[workshop]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PrimaryInstructor" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e4d4f96a-59e3-495e-9e74-5028cd8b6bc5" ChangeDateTime="06/21/2019 18:40:32">
+    <Property Name="ElementName" Value="[stg].[workshop].[DeliveryLocation]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[stg].[workshop]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DeliveryLocationState" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ac2b27fd-aff4-4df2-a11c-071cd386dcff" ChangeDateTime="06/21/2019 18:40:41">
+    <Property Name="ElementName" Value="[stg].[workshop].[DeliverLocationRoom]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[stg].[workshop]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DeliveryLocationCity" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9e1dc644-921d-4044-a24a-e3f88721fac6" ChangeDateTime="06/21/2019 18:41:20">
+    <Property Name="ElementName" Value="[stg].[workshop].[Notes]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[stg].[workshop]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AttendeeNotes" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f4affb07-c9ee-409e-aa23-2ab9e0b6ee16" ChangeDateTime="07/04/2019 17:43:43">
+    <Property Name="ElementName" Value="[dim].[Location].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[Location]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LocationId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f6e64222-e2e7-407b-a8b8-2a42a9f7a45b" ChangeDateTime="07/04/2019 17:52:08">
+    <Property Name="ElementName" Value="[dim].[Instructor].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[Instructor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InstructorId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="93d7580d-d38c-4da1-89b0-53ef47ac61d7" ChangeDateTime="07/04/2019 20:07:07">
+    <Property Name="ElementName" Value="[fact].[MIPfact].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[fact].[MIPfact]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MIPFactId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="aedd83a9-f7ba-46b4-a032-582407584b5b" ChangeDateTime="07/04/2019 20:16:18">
+    <Property Name="ElementName" Value="[dim].[DeliveryStatus].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[DeliveryStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DeliveryStatusId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="383b0f51-6b57-469a-b63c-6595e6f117e0" ChangeDateTime="07/04/2019 20:38:01">
+    <Property Name="ElementName" Value="[dim].[AttendeeNotes].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[AttendeeNotes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AttendeeNotesId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2f731a94-8ecd-4283-aa79-0c0f48e6c38a" ChangeDateTime="07/29/2019 18:18:13">
+    <Property Name="ElementName" Value="[dim].[MIP].[MipCatagory]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[MIP]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ShortName" />
+  </Operation>
+</Operations>

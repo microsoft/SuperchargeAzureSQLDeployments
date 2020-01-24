@@ -363,8 +363,7 @@ git --version
 
 ## <div style="color: #ffb900">Troubleshooting</div>
 
-**Azure PowerShell**\
-\
+**Azure PowerShell**</br>
 We have seen issues in previous workshops if a system has multiple
 versions of the Azure PowerShell module installed. If you run into
 module related issues, remove **all Azure modules** from\
@@ -376,9 +375,12 @@ PowerShell modules installed, we recommend removing the AzureRM modules
 and using only the Az modules.
 
 The Az PowerShell module requires .Net Framework Runtime 4.7.2 or higher
+___     
+- [Next Lab](/docs/labs/2-Configure_your_DevOps_Environment.md)
+- [Back to all modules](/docs/labs/README.md)
+___
+___
 
 **Azure subscriptions**
 
 <ins>TRIAL SUBSCRIPTIONS ARE NOT SUPPORTED FOR THIS WORKSHOP</ins>
-
-[Back to all modules](/docs/labs/README.md)
