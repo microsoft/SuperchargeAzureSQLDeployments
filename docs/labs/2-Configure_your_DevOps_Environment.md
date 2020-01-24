@@ -20,7 +20,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
   * [Setup Up Azure Environment](#exercise---setup-azure-environment)
   * [Azure AD Service Principal](#exercise---setup-permissions)
   * [Set up Azure DevOps Environment](#exercise---set-up-azure-devops-environment)
-
+  * [Push files to your Azure DevOps Repo](#exercise---push-files-to-your-repo)
 
 ## <div style="color: #107c10">Exercise - Setup Azure Environment</div>
 

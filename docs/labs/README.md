@@ -25,7 +25,9 @@
    - [2.3. Access Control (IAM)](/docs/labs/2-Configure_your_DevOps_Environment.md#access-control-iam-for-the-resource-group)
    - [2.4. Azure DevOps Organizations](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-organizations)
    - [2.5. Azure DevOps Project](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-project---clone-project-repo)
-   - [2.6. DevOps Service connections - Azure Resource Manager](/docs/labs/2-Configure_your_DevOps_Environment.md#devops-service-connection-with-azure-resource-manager)
+   - [2.7. Branching](/docs/labs/2-Configure_your_DevOps_Environment.md#branching)
+   - [2.8. DevOps Service connections - Azure Resource Manager](/docs/labs/2-Configure_your_DevOps_Environment.md#devops-service-connection-with-azure-resource-manager)
+   - [2.9. Push files to your Azure DevOps Repo](/docs/labs/2-Configure_your_DevOps_Environment.md#exercise---push-files-to-your-repo)
 2. Azure Resource Deployment
    1. Azure DevOps Build - Azure Services
    2. Azure DevOps Release - Azure Services
