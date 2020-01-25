@@ -159,7 +159,7 @@
                 "description": "Threat Detection: Emails addresses to enable the send alerts to "
             },
             "value": [
-                "frgarofa@microsoft.com"
+                "xxxxxx@xxxxxxxx.com"
             ]
         },
         "createStorageAccount": {
