@@ -19,12 +19,33 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
   * [{summary link}]({summerylinke})
   * [{summary link}]({summerylinke})
 
-## <div style="color: #107c10">Exercise - Review Adanced ARM templates</div>
+## <div style="color: #107c10">Exercise - Review advanced ARM template</div>
 
-### Review 
+### Lunch VS Code
 
-1. Navigate to **Pipelines**
-2. Click on **Pipelines**
+1. Open **sql_db.json**
+   1. Located in: **Deployments** > **ARM** > **templates**</br>
+   <img src="./imgs/sql_db.png" width="50%" height="50%" />
+
+2. Review lines **180 - 196** there are multiple example of how you can use functions in ARM templates to control behavior and maybe your deployments dynamic.
+3. Review lines **376** - **410**, these resources are examples of how you can create multiple Firewall Range rules and/or vNet Firewall rules using copy index and a parameter array
+4. Review lines **411** & **486** this is an example of how to use copy index to deploy mulitiple databases with the option of diffent skus for each DB  
+
+   1. Also note that this resource uses a nested resource to perform some other configurestions on each database like: ensure TDE is enabled, auditing is configured, and Security Alert Policies are set
+   
+5.  This ARM templete can be used to be deploy: Storage account, Log Anylitics, SQL Logtical Server, and multiple SQL DB(s). </br>
+
+>You may see older schema versions this is becuase the templete is designed to work in both Azure Commerical and Azure Government
+
+6.  Close **sql_db.json** without saving anything
+7.  Open **sql_db.parameter.dev.json**
+    1.  Located in: **Deploymnets** > **ARM** > **parameter** </br>
+    <img src="./imgs/parameters.png" width="50%" height="50%" />
+
+
+
+3. Navigate to **Pipelines**
+4.  Click on **Pipelines**
 
 <img src="./imgs/pipelines.jpg" width="25%" height="25%" />
 

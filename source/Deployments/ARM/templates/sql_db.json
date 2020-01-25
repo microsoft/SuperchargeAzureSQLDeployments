@@ -182,6 +182,7 @@
         "sqlAdminPass": "[concat('P', base64ToString(base64(concat(uniqueString(resourceGroup().id,subscription().subscriptionId),deployment().name,guid(subscription().subscriptionId)))), 'z', '!')]",
         "administratorLogin": "[if(parameters('autoSetAdminAccount'), variables('sqlAdmin'), parameters('adminUsername'))]",
         "administratorLoginPassword": "[if(parameters('autoSetAdminAccount'), variables('sqlAdminPass'), parameters('adminPassword'))]",
+        "serverName": "[toLower(parameters('serverName'))]",
         "LogAnalyticsWorkspaceName": "[if(parameters('createLogAnalyticsWorkspace'), concat(parameters('LogAnalyticsWorkspaceName'),'-',uniqueString(resourceGroup().id)), parameters('LogAnalyticsWorkspaceName'))]",
         "logRG": "[if(parameters('createLogAnalyticsWorkspace'), resourceGroup().name, parameters('LogAnalyticsWorkspaceResourceGroup'))]",
         "LogAnalytics": "[resourceId(variables('logRG'), 'Microsoft.operationalinsights/workspaces/', variables('LogAnalyticsWorkspaceName'))]",
@@ -264,7 +265,7 @@
         },
         {
             "comments": "TDS End Point (Logical SQL Server)",
-            "name": "[parameters('serverName')]",
+            "name": "[variables('serverName')]",
             "type": "Microsoft.Sql/servers",
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
@@ -282,7 +283,7 @@
             },
             "resources": [
                 {
-                    "name": "[concat(parameters('serverName'), '/', 'firewallAllServices')]",
+                    "name": "[concat(variables('serverName'), '/', 'firewallAllServices')]",
                     "condition": "[parameters('createFirewallAllServices')]",
                     "type": "Microsoft.Sql/servers/firewallRules",
                     "apiVersion": "2015-05-01-preview",
@@ -291,11 +292,11 @@
                         "endIpAddress": "0.0.0.0"
                     },
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+                        "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
                     ]
                 },
                 {
-                    "name": "[concat(parameters('serverName'), '/SecurityAlerts')]",
+                    "name": "[concat(variables('serverName'), '/SecurityAlerts')]",
                     "type": "Microsoft.Sql/servers/securityAlertPolicies",
                     "apiVersion": "2017-03-01-preview",
                     "properties": {
@@ -308,12 +309,12 @@
                         "retentionDays": 60
                     },
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                        "[resourceId('Microsoft.Sql/servers', variables('serverName'))]",
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ]
                 },
                 {
-                    "name": "[concat(parameters('serverName'), '/vascans')]",
+                    "name": "[concat(variables('serverName'), '/vascans')]",
                     "type": "Microsoft.Sql/servers/vulnerabilityAssessments",
                     "apiVersion": "2018-06-01-preview",
                     "properties": {
@@ -326,19 +327,19 @@
                         }
                     },
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                        "[resourceId('Microsoft.Sql/servers', variables('serverName'))]",
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-                        "[resourceId('Microsoft.Sql/servers/securityAlertPolicies', parameters('serverName'), 'SecurityAlerts')]"
+                        "[resourceId('Microsoft.Sql/servers/securityAlertPolicies', variables('serverName'), 'SecurityAlerts')]"
                     ]
                 },
                 {
                     "comments": "Set Azure AD Server Admin, SOE-C lockdowns recommend an AAD group. Can use PowerShell Get-AzureADUser from AzureAD module to find SID",
                     "type": "Microsoft.Sql/servers/administrators",
-                    "name": "[concat(parameters('serverName'), '/', 'activeDirectory')]",
+                    "name": "[concat(variables('serverName'), '/', 'activeDirectory')]",
                     "apiVersion": "2014-04-01-preview",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+                        "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
                     ],
                     "properties": {
                         "administratorType": "ActiveDirectory",
@@ -351,9 +352,9 @@
                     "comments": "Setup Database Auditing",
                     "type": "Microsoft.Sql/servers/auditingSettings",
                     "location": "[resourceGroup().location]",
-                    "name": "[concat(parameters('serverName'), '/', 'dbaudit')]",
+                    "name": "[concat(variables('serverName'), '/', 'dbaudit')]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                        "[resourceId('Microsoft.Sql/servers', variables('serverName'))]",
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ],
                     "apiVersion": "2017-03-01-preview",
@@ -373,7 +374,7 @@
             ]
         },
         {
-            "name": "[concat(parameters('serverName'), '/', parameters('FirewallRangeRule')[copyIndex()].Name)]",
+            "name": "[concat(variables('serverName'), '/', parameters('FirewallRangeRule')[copyIndex()].Name)]",
             "condition": "[parameters('CreateFirewallRangeRule')]",
             "copy": {
                 "name": "IpRangeCopy",
@@ -386,7 +387,7 @@
                 "endIpAddress": "[parameters('FirewallRangeRule')[copyIndex()].EndIp]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+                "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
             ]
         },
         {
@@ -397,11 +398,11 @@
                 "count": "[length(parameters('vNetRule'))]"
             },
             "type": "Microsoft.Sql/servers/virtualNetworkRules",
-            "name": "[concat(parameters('serverName'), '/', parameters('vNetRule')[copyIndex()].vNetName, '-', parameters('vNetRule')[copyIndex()].vNetSubNetName)]",
+            "name": "[concat(variables('serverName'), '/', parameters('vNetRule')[copyIndex()].vNetName, '-', parameters('vNetRule')[copyIndex()].vNetSubNetName)]",
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+                "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
             ],
             "properties": {
                 "virtualNetworkSubnetId": "[resourceId(parameters('vNetRule')[copyIndex()].subscriptionId, parameters('vNetRule')[copyIndex()].vNetResourceGroup, 'Microsoft.Network/virtualNetworks/subnets', parameters('vNetRule')[copyIndex()].vNetName, parameters('vNetRule')[copyIndex()].vNetSubNetName)]"
@@ -410,7 +411,7 @@
         {
             "comments": "Create Database Resource",
             "type": "Microsoft.Sql/servers/databases",
-            "name": "[concat(parameters('serverName'), '/', parameters('databases')[copyIndex()].databaseName)]",
+            "name": "[concat(variables('serverName'), '/', parameters('databases')[copyIndex()].databaseName)]",
             "apiVersion": "2017-10-01-preview",
             "location": "[resourceGroup().location]",
             "sku": "[parameters('databases')[copyIndex()].databaseSku]",
@@ -423,7 +424,7 @@
                 "count": "[length(parameters('databases'))]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+                "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
             ],
             "resources": [
                 {
@@ -434,7 +435,7 @@
                         "status": "Enabled"
                     },
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers/databases', parameters('serverName'), parameters('databases')[copyIndex()].databaseName)]"
+                        "[resourceId('Microsoft.Sql/servers/databases', variables('serverName'), parameters('databases')[copyIndex()].databaseName)]"
                     ]
                 },
                 {
@@ -443,8 +444,8 @@
                     "name": "Default",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
-                        "[resourceId('Microsoft.Sql/servers/databases', parameters('serverName'), parameters('databases')[copyIndex()].databaseName)]",
+                        "[resourceId('Microsoft.Sql/servers', variables('serverName'))]",
+                        "[resourceId('Microsoft.Sql/servers/databases', variables('serverName'), parameters('databases')[copyIndex()].databaseName)]",
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ],
                     "properties": {
@@ -467,8 +468,8 @@
                     "condition": "[parameters('enableAlertPolicies')]",
                     "name": "Default",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
-                        "[resourceId('Microsoft.Sql/servers/databases', parameters('serverName'), parameters('databases')[copyIndex()].databaseName)]",
+                        "[resourceId('Microsoft.Sql/servers', variables('serverName'))]",
+                        "[resourceId('Microsoft.Sql/servers/databases', variables('serverName'), parameters('databases')[copyIndex()].databaseName)]",
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ],
                     "properties": {
@@ -486,15 +487,15 @@
         {
             "comments": "Setup Diagnostic Settings to OMS",
             "type": "Microsoft.Sql/servers/databases/providers/diagnosticSettings",
-            "name": "[concat(parameters('serverName'), '/', parameters('databases')[copyIndex()].databaseName, '/Microsoft.Insights/', parameters('diagnosticName'))]",
+            "name": "[concat(variables('serverName'), '/', parameters('databases')[copyIndex()].databaseName, '/Microsoft.Insights/', parameters('diagnosticName'))]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('serverName') ,parameters('databases')[copyIndex()].databaseName)]",
+                "[resourceId('Microsoft.Sql/servers/databases', variables('serverName') ,parameters('databases')[copyIndex()].databaseName)]",
                 "[concat('Microsoft.OperationalInsights/workspaces/', variables('LogAnalyticsWorkspaceName'))]"
             ],
             "apiVersion": "2017-05-01-preview",
             "location": "[resourceGroup().location]",
             "properties": {
-                "name": "[concat(concat(parameters('serverName'), '/', parameters('databases')[copyIndex()].databaseName, '/'), parameters('diagnosticName'))]",
+                "name": "[concat(concat(variables('serverName'), '/', parameters('databases')[copyIndex()].databaseName, '/'), parameters('diagnosticName'))]",
                 "workspaceId": "[variables('LogAnalytics')]",
                 "logs": [
                     {
