@@ -24,19 +24,19 @@
             "metadata": {
                 "comments": "SQL TDS Endpoint Name - Logical Server Name for SQL DBs."
             },
-            "value": "dml-sqlsrv"
+            "value": "enter name for logical server"
         },
         "serverADAdminGroup": {
             "metadata": {
                 "comments": "AAD admin group name, this is the group used for AAD admins of your logical server."
             },
-            "value": "DLM-Demo-Admins"
+            "value": "Enter AAD Name"
         },
         "serverADAdminSID": {
             "metadata": {
                 "comments": "SID for AAD group you will use as the AAD SQL Admin. This can be found via AAD or PowerShell"
             },
-            "value": "c3d90134-cb4d-4c55-a387-801f9648a5ae"
+            "value": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         },
         "databases": {
             "metadata": {
@@ -65,7 +65,7 @@
             "metadata": {
                 "comments": "Setup VNetFirewall Rule: true/false"
             },
-            "value": true
+            "value": false
         },
         "vNetRule": {
             "metadata": {
@@ -73,10 +73,10 @@
             },
             "value": [
                 {
-                    "subscriptionId": "7d207b0b-97d1-4855-8e5c-f48f8315d4f5",
-                    "vNetResourceGroup": "DemoTest",
-                    "vNetName": "DemoVNet",
-                    "vNetSubNetName": "default"
+                    "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                    "vNetResourceGroup": "RG Name for vNet",
+                    "vNetName": "VNetName",
+                    "vNetSubNetName": "SubNet Name"
                 }
             ]
         },
@@ -93,8 +93,8 @@
             "value": [
                 {
                     "Name": "Enter Name for Firewall Range Rule",
-                    "StartIp": "0.0.0.0",
-                    "EndIp": "255.255.255.255"
+                    "StartIp": "xxx.xxx.xxx.xxx",
+                    "EndIp": "xxx.xxx.xxx.xxx"
                 }
             ]
         },

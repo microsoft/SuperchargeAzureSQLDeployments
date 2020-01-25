@@ -19,7 +19,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
   * [{summary link}]({summerylinke})
   * [{summary link}]({summerylinke})
 
-## <div style="color: #107c10">Exercise - Review advanced ARM template</div>
+## <div style="color: #107c10">Exercise - Advanced ARM template</div>
 
 ### Lunch VS Code
 
@@ -38,14 +38,30 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 >You may see older schema versions this is becuase the templete is designed to work in both Azure Commerical and Azure Government
 
 6.  Close **sql_db.json** without saving anything
-7.  Open **sql_db.parameter.dev.json**
+
+#### Edit parameter file
+
+1.  Open **sql_db.parameter.dev.json**
     1.  Located in: **Deploymnets** > **ARM** > **parameter** </br>
     <img src="./imgs/parameters.png" width="50%" height="50%" />
 
+2. Befor makeing any changes to the parameter file spend some time reviewing it and reading through all of the comments.
+   1. Each parameter has comments to help provide you with context of the value needed
+   2. For this workshop you will only need to updated the values we call out, but are free to test other values outside of the workshop.
 
+3. Enter name for **serverName**, line **27**
+   1.  The server name needs to be gloabally unique
+   2.  Recommend using: **\<alias>-sqlsrv** (ie jdoe-sqlsrv) </br>
+      <img src="./imgs/srvName.png" border="1" />
 
-3. Navigate to **Pipelines**
-4.  Click on **Pipelines**
+4. Enter **serverADAdminGroup** at line **29** and **serverADAdminSID** at line **39**
+   1. You can look up these values in Azure AD </br>
+   <img src="./imgs/serverAdmin.png" border="1"/> </br>
+   <img src="./imgs/parmAdmin.png" border="1" /> </br>
+5. 
+
+5. Navigate to **Pipelines**
+6.  Click on **Pipelines**
 
 <img src="./imgs/pipelines.jpg" width="25%" height="25%" />
 
