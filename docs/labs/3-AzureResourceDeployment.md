@@ -52,12 +52,12 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 3. Enter name for **serverName**, line **27**
    1.  The server name needs to be gloabally unique
    2.  Recommend using: **\<alias>-sqlsrv** (ie jdoe-sqlsrv) </br>
-      <img src="./imgs/srvName.png" border="1" />
+      <img src="./imgs/srvName.png" width="50%" height="50%" border="1" />
 
 4. Enter **serverADAdminGroup** at line **29** and **serverADAdminSID** at line **39**
    1. You can look up these values in Azure AD </br>
-   <img src="./imgs/serverAdmin.png" border="1"/> </br>
-   <img src="./imgs/parmAdmin.png" border="1" /> </br>
+   <img src="./imgs/serverAdmin.png" width="50%" height="50%" border="1"/> </br>
+   <img src="./imgs/parmAdmin.png" width="50%" height="50%" border="1" /> </br>
 5. 
 
 5. Navigate to **Pipelines**
