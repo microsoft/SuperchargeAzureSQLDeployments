@@ -172,7 +172,7 @@ Expected return:
 2.  Click Free Download on Community Edition</br>
 *if you have a license, download the appropriate edition*</br>
 
-<img src="docs/../imgs/dl_VS.png">
+![VS Studio DL Image](docs/../imgs/dl_VS.png)
 
 1. Note the location of the installation files
 
@@ -187,8 +187,8 @@ Expected return:
 4. Make sure SQL Server Data Tools is selected
 
 5. Click Install </br>
-*This is a large install and can take some time to complete(~20 mins)*</br>   
- <img src="docs/../imgs/installSSDT.png" border="1">
+*This is a large install and can take some time to complete(~20 mins)*</br> 
+![SSDT Installer Page](./imgs/installSSDT.png)
 
 ## <div style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </div>
 *`SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.`*
