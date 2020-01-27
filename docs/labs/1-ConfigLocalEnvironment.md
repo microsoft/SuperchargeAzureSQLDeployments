@@ -172,7 +172,7 @@ Expected return:
 2.  Click Free Download on Community Edition</br>
 *if you have a license, download the appropriate edition*</br>
 
-<img src="docs/../imgs/dl_VS.png" border="1">
+<img src="docs/../imgs/dl_VS.png">
 
 1. Note the location of the installation files
 
