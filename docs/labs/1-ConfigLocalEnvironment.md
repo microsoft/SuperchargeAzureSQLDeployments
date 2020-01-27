@@ -172,7 +172,7 @@ Expected return:
 2.  Click Free Download on Community Edition</br>
 *if you have a license, download the appropriate edition*</br>
 
-<img src="./imgs/dl_VS.png" border="1">
+<img src="docs/../imgs/dl_VS.png" border="1">
 
 1. Note the location of the installation files
 
@@ -188,7 +188,7 @@ Expected return:
 
 5. Click Install </br>
 *This is a large install and can take some time to complete(~20 mins)*</br>   
- <img src="./imgs/installSSDT.png" border="1">
+ <img src="docs/../imgs/installSSDT.png" border="1">
 
 ## <div style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </div>
 *`SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.`*
@@ -209,7 +209,7 @@ Expected return:
 
 4. Once Setup completes click **Close**
 
-## <div style="color: #107c10"> Exercise - Setup ![](./imgs/AzureDataStudioLogo.png) Azure Data Studio </div>
+## <div style="color: #107c10"> Exercise - Setup ![](docs/../imgs/AzureDataStudioLogo.png) Azure Data Studio </div>
 *`SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.`*
 
 ### Download Azure Data Studio
@@ -318,7 +318,7 @@ git --version
         b.  Install the latest available version of the PowerShell
         extension, which may be newer than the version shown below.
 
-    <img src="./imgs/PSextension.png" border="1">
+    <img src="docs/../imgs/PSextension.png" border="1">
 
 4.  You will not need any other VS Code extensions for this course. You
     may find extensions that attempt to connect you into Git
@@ -333,9 +333,9 @@ git --version
     bring up the Select Language Mode drop-down where you can select
     another language for the current file you are working on.
 
-    <img src="./imgs/PS1filetype.png" border="1">
+    <img src="docs/../imgs/PS1filetype.png" border="1">
 
-    <img src="./imgs/PS1filetype2.png" border="1">
+    <img src="docs/../imgs/PS1filetype2.png" border="1">
 
 6.  Regarding PowerShell authoring in VS Code, you will want to have the
     PowerShell extension installed. You will also want to ensure that
@@ -344,7 +344,7 @@ git --version
     Integrated Console. **You will need have at least one PowerShell file
     open in VS Code for the PowerShell Integrated Console to appear.**
 
-    <img src="./imgs/PS1filetype3.png" border="1">
+    <img src="docs/../imgs/PS1filetype3.png" border="1">
 
 7.  Operating in this configuration will provide you with the best
     PowerShell experience, and enable familiar options from the
@@ -359,7 +359,7 @@ git --version
     window also enables you to be able to select and execute multiple
     lines of PowerShell.
 
-    <img src="./imgs/PS1filetype4.png" border="1">
+    <img src="docs/../imgs/PS1filetype4.png" border="1">
 
 ## <div style="color: #ffb900">Troubleshooting</div>
 

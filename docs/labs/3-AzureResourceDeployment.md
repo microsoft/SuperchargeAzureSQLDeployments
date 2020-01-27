@@ -5,7 +5,7 @@
 
 | Lab Description:            | This lab covers all the steps needed to deploy Azure Resource with Azure DevOps pipelines.   |
 | :------------              | :--------------       |
-| Estimated Time to Complete: | 30 minutes            |
+| Estimated Time to Complete: | 25 minutes            |
 | Key Takeaways:              | 1. Understand Adanvced ARM templates |
 |                            | 2. Create CI/CD pipelines            |
 |                            | By the end of this lab, you should have an understanding of: advanced ARM templates, how create build and release pipelines, how to deploy Azure Resources with DevOps         |
