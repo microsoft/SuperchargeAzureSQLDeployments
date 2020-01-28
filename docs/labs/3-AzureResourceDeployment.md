@@ -140,10 +140,13 @@ Get-AzResource -ResourceGroupName "dlm-demo-dev" | Format-Table
 2. **Stage** & **Commit** any changes to your repo
 3. **Sync** or **Push** your changes to your remote branch (Azure DevOps Repo)
 
-_____
+## <div style="color: #107c10">Exercise - Build Pipeline (CI)</div>
 
-1. Navigate to **Pipelines**
-2. Click on **Pipelines**
+In this exrcise you will walk through all of the steps needed to create the Continuous integration (CI) portion of your Azure Resource deployment. This step is called the build proccess.  You will test that your ARM templete build corretly. 
+
+1. In a browser window navagate to your DevOps project
+2. Navigate to **Pipelines**
+3. Click on **Pipelines**
 
 ![](./imgs/pipelines.jpg)
 
@@ -156,11 +159,38 @@ _____
      1. Select **Azure Repos Git**
      2. Select the **Team project**
      3. Select **Repository**
-     4. Select **master** for Default branch for manual and scheduled builds
+     4. Select **dev** for Default branch for manual and scheduled builds
      5. Click on **Continue**
      
-![](./imgs/reposource.jpg)
+![](./imgs/sourcecode.png)
 
-6. Select **Empty Job** at the top of the list
-7. Select **Save** from the drop down menu
-8. Select the default folder and click **Save**
+1. Select **Empty Job** at the top of the list
+
+![](./imgs/emptyjob.png)
+
+2. Update **Name** to: **Dev - DLM Azure Resources-CI**
+3. Leave defaults for **Agent Pool** & **Agent Specification**
+
+![](./imgs/ci-agent.png)
+
+4. Click on Agent job 1
+5. Update **Display Name** to: **Publish Deployment Artifacts**
+6. Keep all other defaults
+
+![](./imgs/CI-AgentStepRename.png)
+
+7. Click the + next to **Publish Deploymnet Artifacts**
+8. Search for **Azure resource group** 
+9. Click **Add** on the **Azure resource group deployment** task
+
+![](./imgs/ci-ARM-task.png)
+
+10. Click on the newly added **Azure resource group deployment** task and perform the following:
+    1.  Update **Display name**: Validate Deployment ARM Templates for SQL DB
+    2.  Select **Azure subscription** - You should see your Azure Service Connection that you setup earlier when configuring your DevOps environment.
+    3.  **Action**: **Create or update resource group**
+    4.  **Resource group**: Select your dev resource group that was setup in the pervious lab
+    5.  **Location**: Select the location you used for your resource group
+    6.  **Template location**: Linked artifact
+    7.  **Template**: click on the ellipses and navagate to the **sql_db.json** template file to select it.
+    8.  
