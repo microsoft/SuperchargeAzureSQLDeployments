@@ -36,7 +36,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
    
 4.  This ARM templete can be used to be deploy: Storage account, Log Anylitics, SQL Logtical Server, and multiple SQL DB(s). </br>
 
->You may see older schema versions this is becuase the templete is designed to work in both Azure Commerical and Azure Government
+:bulb: You may see older schema versions this is becuase the templete is designed to work in both Azure Commerical and Azure Government
 
 6.  Close **sql_db.json** without saving anything
 
@@ -66,7 +66,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
 1. Enter **emailAddress ** at line **162**
 
->Email address for where you want Security Alerts and Vulnerability Assessment scans sent.
+:exclamation: Email address for where you want Security Alerts and Vulnerability Assessment scans sent.
 
 ![](./imgs/email.png)
 
