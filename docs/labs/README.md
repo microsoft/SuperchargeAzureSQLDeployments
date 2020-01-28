@@ -24,10 +24,9 @@
 2. Azure Resource Deployment
    1. Azure DevOps Build - Azure Services
    2. Azure DevOps Release - Azure Services
-3. Database Lifecycle Management
+3. Database life cycle Management
    1. SSDT Project
    2. Azure DevOps Build - Database Development
    3. Azure DevOps Release - Database Development
    4. Unit Testing
    5. Dev, Test, Prod Pipeline
-   6. 

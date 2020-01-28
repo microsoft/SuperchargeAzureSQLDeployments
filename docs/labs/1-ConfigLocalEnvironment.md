@@ -10,7 +10,7 @@
 | Estimated Time to Complete | 45 minutes |
 | Key Takeaways | 1. Download and install the required tools |
 |  | 2. Know what version of the tools are installed |
-|  | 3. Learn to configure VS Code and Azure Data Studio and install extensions |
+|  | 3. Learn to configure VS Code and install extensions |
 |  | By the end of this lab, you should have: Git, Visual Studio - SSDT, Visual Studio Code, Azure PowerShell, SSMS, Azure Data Studio, SQLPackage.exe |
 | Author | Frank Garofalo |
 

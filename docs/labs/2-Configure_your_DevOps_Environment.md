@@ -193,26 +193,26 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 <img src="./imgs/RepoInitialize.png" width="75%" height="75%" />
 
 ## Branching
-There are many options for a branching strategy and Git gives you the flexibility in how you use versions control to share and mange code.  It is an imporant part of DevOps and your strategy is somthing that your team should come up with.  For more information about branching strategies please review [Adopt a Git branching stategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops) docs page. For this workshop we are going to work with just a *dev* and *master* branch.
+There are many options for a branching strategy and Git gives you the flexibility in how you use version control to share and manage code.  It's an important part of DevOps and your strategy is something that your team should come up with.  For more information about branching strategies please review [Adopt a Git branching stategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops) docs page. For this workshop we are going to work with just a *dev* and *master* branch.
 
 1. Click on Repos to expand the **Repos** sub menu
 2. Click on sub menu **Branches**</br>
-     *Notice that your Repo only has a **master** branch, by defualt new Git Repos only have a **master** branch*</br>
+     *Notice that your Repo only has a **master** branch, by default new Git Repos only have a **master** branch*</br>
 
 ![](./imgs/ReposBranchs.png)
 
 3. Click **New branch** 
 4. Enter Name: **dev**
 5. Click **Create**
-6. Click on the elipse on the **master** branch to expose more options
-7. Click **Branch plicies**
+6. Click on the ellipse on the **master** branch to expose more options
+7. Click **Branch policies**
    
 ![](./imgs/RepoBranchPolicies.png)
 
 8. You are now going to set a policy to Protect your **master** branch</br>
 *This is to keep people from accidentally checking dev code into master/prod branch*
 1. Select **Require a minimum number of reviewers**
-2.  Change the minimum nuymber of reviewers to **1**
+2.  Change the minimum number of reviewers to **1**
 3.  Select **Requestors can approve their own changes**
 4.  Save changes
 
@@ -254,7 +254,7 @@ Enter the following:
 5. Enter **Service Principal ID** (Created earlier)
 6. Select Credential **Service principal key**
 7. Enter **Service principal key** (Value noted earlier)
-8. Tenat ID should be prepopulated
+8. Tenant ID should be pre-populated
 9. Click on **Verify**
 10. Enter **Service connection name**
 11. Enter **Description** (optional)
@@ -264,7 +264,7 @@ Enter the following:
 Your repository is currently empty, except for the default README.md file that was created to initialize your repo. In this exercise you are going to use Git commands to clone down the source files needed for this lab and push them up to your repo.  
 
 1. Using the TERMINAL in VSCode or Git Bash
-2. Run the following Git comand to clone this Github Repo</br>
+2. Run the following Git command to clone this Github Repo</br>
 
 ```Bash
 
@@ -282,20 +282,20 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/CloneCopy.png)
 
-2. Back in VS Code hit the F1 key to open the comand pallet
+2. Back in VS Code hit the F1 key to open the command pallet
 3. Type **Git: Clone** and hit enter
 4. Paste the Repository URL for your Azure DevOps Repo
-5. Navagate to your **C:\\** drive
+5. Navigate to your **C:\\** drive
 6. CLick **Select Repository Location**
-   1.  You may be asked to provide your Microsoft acount
+   1.  You may be asked to provide your Microsoft account
    2.  Use your Microsoft account used to login to Azure DevOps
-7.  Using windows explore navagate to the the **source** directory in the cloned GitHub repo
+7.  Using windows explore navigate to the the **source** directory in the cloned GitHub repo
     *  **C:\\SuperchargeAzureSQL\\source\\** </br>
 
 ![](./imgs/sourcedir.png)
 
 8.  Copy both directories:  DatabaseProjects & Deployments
-9.  Using windows explore navagate to your cloned Azure DevOps repo
+9.  Using windows explore navigate to your cloned Azure DevOps repo
     *  **C:\\SuperchargeSQLDeployment** </br>
 10. Paste the copied directories from step 11 into your cloned Azure DevOps repo
 11. The above steps should result with the following:
@@ -305,10 +305,10 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 ## Performing your inital Commit using VS Code
 
 1. In VS Code from the menu click **File** > **Open Folder** 
-2. Navagate to your Cloned Azure DevOps Repo: **C:\SuperchargeSQLDeployments**
+2. Navigate to your Cloned Azure DevOps Repo: **C:\SuperchargeSQLDeployments**
 3. Click on the Git icon from the left side menu
    1. Notice that is shows a number on the icon
-   2. This is the number file files that have not been commited to your local Git repository for your Azure DevOps project
+   2. This is the number file files that have not been committed to your local Git repository for your Azure DevOps project
 4. Make sure your our working off of the Dev branch
    1. Click on **master** from the bottom left of VS Code</br>
 
@@ -323,12 +323,12 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 ![](./imgs/dev.png)
 
 5. Click on the + that shows up when you hover over **CHANGES**
-   * This will **stage** all changes in your repo to be commited
-   * You can also pick and choose which files you want to stage, for this workshop we want all of the intial files staged to be commited</br>
+   * This will **stage** all changes in your repo to be committed
+   * You can also pick and choose which files you want to stage, for this workshop we want all of the initial files staged to be committed</br>
 
 ![](./imgs/stagefiles.png)
 
-6. Type a message for the intial commit in the **Message** box (ie. inital commit)
+6. Type a message for the initial commit in the **Message** box (ie. initial commit)
 7. Click the Check mark to perform the commit.
   >If you receive an error message **Make sure you configure your 'user.name' and 'user.email' in git.** Click Cancel on the error message </br>
   > 1. Open the Terminal in VS Code
