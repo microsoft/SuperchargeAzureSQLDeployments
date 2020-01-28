@@ -188,6 +188,7 @@ Expected return:
 
 5. Click Install </br>
 *This is a large install and can take some time to complete(~20 mins)*</br> 
+
 ![SSDT Installer Page](./imgs/installSSDT.png)
 
 ## <div style="color: #107c10"> Exercise - Setup Sql Server management studio (SSMS) </div>
@@ -318,7 +319,7 @@ git --version
         b.  Install the latest available version of the PowerShell
         extension, which may be newer than the version shown below.
 
-    <img src="docs/../imgs/PSextension.png" border="1">
+![](./imgs/PSextension.png)
 
 4.  You will not need any other VS Code extensions for this course. You
     may find extensions that attempt to connect you into Git
@@ -333,25 +334,25 @@ git --version
     bring up the Select Language Mode drop-down where you can select
     another language for the current file you are working on.
 
-    <img src="docs/../imgs/PS1filetype.png" border="1">
+![](./imgs/PS1filetype.png)
 
-    <img src="docs/../imgs/PS1filetype2.png" border="1">
+![](./imgs/PS1filetype2.png)
 
 6.  Regarding PowerShell authoring in VS Code, you will want to have the
     PowerShell extension installed. You will also want to ensure that
     when you are working with PowerShell code, you have the VS Code
     language set to PowerShell, and you will want to use the PowerShell
     Integrated Console. **You will need have at least one PowerShell file
-    open in VS Code for the PowerShell Integrated Console to appear.**
+    open in VS Code for the PowerShell Integrated Console to appear.**</br>
 
-    <img src="docs/../imgs/PS1filetype3.png" border="1">
+![](./imgs/PS1filetype3.png)
 
-7.  Operating in this configuration will provide you with the best
+1.  Operating in this configuration will provide you with the best
     PowerShell experience, and enable familiar options from the
     PowerShell ISE, such as pressing F8 to execute a selected area of
     code.
 
-8.  **NOTE:** When it comes to authoring PowerShell code in this course,
+2.  **NOTE:** When it comes to authoring PowerShell code in this course,
     we recommend that you type your commands in the top editor window,
     and use the F8 key to execute your code. Typing your code in the
     editor window allows you to save the commands you type throughout
@@ -359,7 +360,7 @@ git --version
     window also enables you to be able to select and execute multiple
     lines of PowerShell.
 
-    <img src="docs/../imgs/PS1filetype4.png" border="1">
+![](./imgs/PS1filetype4.png)
 
 ## <div style="color: #ffb900">Troubleshooting</div>
 

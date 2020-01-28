@@ -36,7 +36,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
 1. Login to **https://portal.azure.com**
 2. Select **Resource Groups** from the main menu
 
-<img src="./imgs/resourcegoup.jpg" width="50%" height="50%" />
+![](./imgs/resourcegoup.jpg)
 
 **create two resource groups:** </br>
          \<name>-prod</br>
@@ -85,7 +85,7 @@ Get-AzLocation
 
 1. Login to **https://portal.azure.com**
 2. Select **Azure Active Directory** from the main menu </br>
-<img src="./imgs/ad.jpg" width="50%" height="50%" />
+![](./imgs/ad.jpg)
 
 3. Select the **App Registrations** blade
 4. Select **+ New registration**
@@ -182,13 +182,13 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 5. Select **Git** and **Basic** for version control and work item process, respectively. 
 6. Click on **+ Create project**
 
-<img src="./imgs/newproject.jpg" width="50%" height="50%" />
+![](./imgs/newproject.jpg)
 
-5. Click on **Repo**
+1. Click on **Repo**
 
-<img src="./imgs/repo.jpg" width="25%" height="25%" />
+![](./imgs/repo.jpg)
 
-6. Click on **Initialize**</br>
+1. Click on **Initialize**</br>
 *Defult settings to include Add a README*
 <img src="./imgs/RepoInitialize.png" width="75%" height="75%" />
 
@@ -199,7 +199,7 @@ There are many options for a branching strategy and Git gives you the flexibilit
 2. Click on sub menu **Branches**</br>
      *Notice that your Repo only has a **master** branch, by defualt new Git Repos only have a **master** branch*</br>
 
-<img src="./imgs/ReposBranchs.png">
+![](./imgs/ReposBranchs.png)
 
 3. Click **New branch** 
 4. Enter Name: **dev**
@@ -207,7 +207,7 @@ There are many options for a branching strategy and Git gives you the flexibilit
 6. Click on the elipse on the **master** branch to expose more options
 7. Click **Branch plicies**
    
-<img src="./imgs/RepoBranchPolicies.png" width="75%" height="75%" />
+![](./imgs/RepoBranchPolicies.png)
 
 8. You are now going to set a policy to Protect your **master** branch</br>
 *This is to keep people from accidentally checking dev code into master/prod branch*
@@ -216,29 +216,30 @@ There are many options for a branching strategy and Git gives you the flexibilit
 3.  Select **Requestors can approve their own changes**
 4.  Save changes
 
-<img src="./imgs/RepoMasterBranchPolicies.png" width="50%" height="50%"  />
+![](./imgs/RepoMasterBranchPolicies.png)
 
-5. Click on **Branches**
-6. Notice that your master branch, now has a Branch Policy icon on it. 
+1. Click on **Branches**
+2. Notice that your master branch, now has a Branch Policy icon on it. 
 
-<img src="./imgs/RepoMasterBranchPoliciesIcon.png" width="50%" height="50%" />
+![](./imgs/RepoMasterBranchPoliciesIcon.png)
 
 ## DevOps Service Connection with Azure Resource Manager
 
 1. Select the **Project Settings**
 
-<img src="./imgs/projectsettings.jpg" width="25%" height="25%" />
+![](./imgs/projectsettings.jpg)
 
 2. Select **Service Connections** under **Pipelines**
 3. Click on **Create service connection**
 4. Select **Azure Resource Manager**
 
-<img src="./imgs/serviceconnection.jpg" width="50%" height="50%" />
+![](./imgs/serviceconnection.jpg)
 
-5. Click on **Next**
-6. Select **Service principal (manual)**
+1. Click on **Next**
+2. Select **Service principal (manual)**
 
-<img src="./imgs/ServiceConnection.png" width="50%" height="50%" /></br>
+![](./imgs/ServiceConnection.png)</br>
+
 >  If you do not use manual, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.
 
 Enter the following:
@@ -275,31 +276,31 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
    2. Click **Files**
    3. Click the **Clone** button
 
-<img src="./imgs/Clone.png" width="75%" height="75%"></br>
+![](./imgs/Clone.png)</br>
 
-4. Copy the Command line **HTTPS** URL for your repo by clicking on the copy icon
+1. Copy the Command line **HTTPS** URL for your repo by clicking on the copy icon
 
-   <img src="./imgs/CloneCopy.png" width="50%" height="50%" />
+![](./imgs/CloneCopy.png)
 
-5. Back in VS Code hit the F1 key to open the comand pallet
-6. Type **Git: Clone** and hit enter
-7. Paste the Repository URL for your Azure DevOps Repo
-8. Navagate to your **C:\\** drive
-9. CLick **Select Repository Location**
+2. Back in VS Code hit the F1 key to open the comand pallet
+3. Type **Git: Clone** and hit enter
+4. Paste the Repository URL for your Azure DevOps Repo
+5. Navagate to your **C:\\** drive
+6. CLick **Select Repository Location**
    1.  You may be asked to provide your Microsoft acount
    2.  Use your Microsoft account used to login to Azure DevOps
-10. Using windows explore navagate to the the **source** directory in the cloned GitHub repo
+7.  Using windows explore navagate to the the **source** directory in the cloned GitHub repo
     *  **C:\\SuperchargeAzureSQL\\source\\** </br>
 
-    <img src="./imgs/sourcedir.png" width="75%" height="75%"/>
+![](./imgs/sourcedir.png)
 
-11. Copy both directories:  DatabaseProjects & Deployments
-12. Using windows explore navagate to your cloned Azure DevOps repo
+8.  Copy both directories:  DatabaseProjects & Deployments
+9.  Using windows explore navagate to your cloned Azure DevOps repo
     *  **C:\\SuperchargeSQLDeployment** </br>
-13. Paste the copied directories from step 11 into your cloned Azure DevOps repo
-14. The above steps should result with the following:
+10. Paste the copied directories from step 11 into your cloned Azure DevOps repo
+11. The above steps should result with the following:
 
-<img src="./imgs/copiedsource.png" width="75%" height="75%" />
+![](./imgs/copiedsource.png)
 
 ## Performing your inital Commit using VS Code
 
@@ -310,17 +311,22 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
    2. This is the number file files that have not been commited to your local Git repository for your Azure DevOps project
 4. Make sure your our working off of the Dev branch
    1. Click on **master** from the bottom left of VS Code</br>
-   <img src="./imgs/master.png">
+
+![](./imgs/master.png)
+
    2. Select **dev**</br>
-   <img src="./imgs/devSelect.png">
+
+![](./imgs/devSelect.png)
+
    3. You should now be in your *dev* branch</br>
-   <img src="./imgs/dev.png">   
+
+![](./imgs/dev.png)
 
 5. Click on the + that shows up when you hover over **CHANGES**
    * This will **stage** all changes in your repo to be commited
-   * You can also pick and choose which files you want to stage, for this workshop we want all of the intial files staged to be commited
+   * You can also pick and choose which files you want to stage, for this workshop we want all of the intial files staged to be commited</br>
 
-   <img src="./imgs/stagefiles.png" width="75%" height="75%" />
+![](./imgs/stagefiles.png)
 
 6. Type a message for the intial commit in the **Message** box (ie. inital commit)
 7. Click the Check mark to perform the commit.
@@ -334,15 +340,17 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
   > 3. Run your commit again (Step 6.)
 7. You now have commited all of the changes to your local Git Repo, notice that the Git icon in the left side menu does not show any numbers. 
 8. Notice that you have changes to push up to your remote Git repo (Azure DevOps Repo</br>
-<img src="./imgs/push.png" />
 
-9. Click on the **sync** icon in the bottom left to perform a Git pull & Git push
+![](./imgs/push.png)
+
+1. Click on the **sync** icon in the bottom left to perform a Git pull & Git push
      * You can also run the following Git command
      >git push
-10. Using a browser navigate to your Azure DevOps project
-11. Click on **Repos** > **Files**
-12. You should now see all of the files in your repo<br/>
-<img src="./imgs/remotefiles.png"  width="75%" height="75%" />
+2.  Using a browser navigate to your Azure DevOps project
+3.  Click on **Repos** > **Files**
+4.  You should now see all of the files in your repo<br/>
+
+![](./imgs/remotefiles.png)
 ___     
 - [Next Lab](/docs/labs/3-AzureResourceDeployment.md)
 - [Back to all modules](/docs/labs/README.md)
