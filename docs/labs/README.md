@@ -19,14 +19,27 @@
    - [2.4. Azure DevOps Organizations](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-organizations)
    - [2.5. Azure DevOps Project](/docs/labs/2-Configure_your_DevOps_Environment.md#azure-devops-project---clone-project-repo)
    - [2.7. Branching](/docs/labs/2-Configure_your_DevOps_Environment.md#branching)
-   - [2.8. DevOps Service connections - Azure Resource Manager](/docs/labs/2-Configure_your_DevOps_Environment.md#devops-service-connection-with-azure-resource-manager)
-   - [2.9. Push files to your Azure DevOps Repo](/docs/labs/2-Configure_your_DevOps_Environment.md#exercise---push-files-to-your-repo)
-2. Azure Resource Deployment
-   1. Azure DevOps Build - Azure Services
-   2. Azure DevOps Release - Azure Services
-3. Database life cycle Management
-   1. SSDT Project
-   2. Azure DevOps Build - Database Development
-   3. Azure DevOps Release - Database Development
-   4. Unit Testing
-   5. Dev, Test, Prod Pipeline
+   - [2.8. DevOps Service connections - Azure Resource Manager](/docs/labs/
+
+- [3. Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
+- [3.1. Build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
+  - [3.1.1 Configure the continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-the-continuos-integration-on-the-build-pipeline)
+  - [3.1.2 Testing Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-azure-resource-ci-pipeline)
+- [3.2 Build release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---release-pipeline-cd)
+   - [3.2.1 Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
+   - [3.2.2 Configure SQL DB deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-sql-db-deployment-task)
+   - [3.2.3 Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
+   - [3.2.4 Configure Azure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-azure-powershell-task)
+   - [3.2.5 Configure prod CI/CD pipelines](/docs/labs/3-AzureResourceDeployment.md#exercise---configure-prod-cicd-pipelines)
+   - [3.2.6 Create & configure Prod build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-build-pipeline-ci)
+   - [3.2.7 Create & configure Prod release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-release-pipeline-cd)
+- [3.3 Pull request](/docs/labs/3-AzureResourceDeployment.md#exercise---pull-request)
+  - [3.3.1 Review Prod CI/CD](/docs/labs/3-AzureResourceDeployment.md#review-prod-cicd)
+
+To DO:
+- Database life cycle Management
+   - SSDT Project
+   - Azure DevOps Build - Database Development
+   - Azure DevOps Release - Database Development
+   - Unit Testing
+   - Dev, Test, Prod Pipeline

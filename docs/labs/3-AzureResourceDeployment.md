@@ -4,12 +4,10 @@
 [Back to all modules](/docs/labs/README.md)
 
 | Lab Description:            | This lab covers all the steps needed to deploy Azure Resource with Azure DevOps pipelines.   |
-| :------------              | :--------------       |
-| Estimated Time to Complete: | 25 minutes            |
-| Key Takeaways:              | 1. Understand Advanced ARM templates |
-|                            | 2. Create CI/CD pipelines            |
-|                            | By the end of this lab, you should have an understanding of: advanced ARM templates, how create build and release pipelines, how to deploy Azure Resources with DevOps         |
-| Author(s):                     | Frank Garofalo             |
+| :------------                 | :--------------       |
+| Estimated Time to Complete:   | 30 minutes            |
+| Key Takeaways:                | By the end of this lab, you should have an understanding of: advanced ARM templates, how create build and release pipelines, how to deploy Azure Resources with DevOps, how to use PowerShell tasks and variables to make your pipelines more dynamic.         |
+| Author(s):                    | Frank Garofalo             |
 
 ### Purpose
 This lab is to build your foundational knowledge of how to leverage Azure DevOps to deploy Azure Resource with CI/CD pipelines.  This lab walks you through advanced ARM templates showing you how you can have an end state configuration for your Azure resource to limit the need to do post deployment configuration. You will create both a build and release pipeline which covers the CI/CD portions of DevOps.
@@ -27,6 +25,8 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
   * [Configure prod CI/CD pipelines](/docs/labs/3-AzureResourceDeployment.md#exercise---configure-prod-cicd-pipelines)
     * [Create & configure Prod build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-build-pipeline-ci)
     * [Create & configure Prod release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-release-pipeline-cd)
+  * [Pull request](/docs/labs/3-AzureResourceDeployment.md#exercise---pull-request)
+    * [Review Prod CI/CD](/docs/labs/3-AzureResourceDeployment.md#review-prod-cicd)
 
 ## <div style="color: #107c10">Exercise - Advanced ARM template</div>
 

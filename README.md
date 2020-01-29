@@ -20,15 +20,10 @@ Architects, consultants, DBAs, database developers, and data professionals in th
   
 2. [Configure your DevOps Environment](/docs/labs/2-Configure_your_DevOps_Environment.md)
   
-3. [Azure Resource Deployment](/docs/labs/3-AzureResourceDeployment.md)
-   1. Azure DevOps Build - Azure Services
-   2. Azure DevOps Release - Azure Services
+3. [Azure Resource Deployment CI/CD](/docs/labs/3-AzureResourceDeployment.md)
+
 4. Database Life cycle Management
-   1. SSDT Project
-   2. Azure DevOps Build - Database Development
-   3. Azure DevOps Release - Database Development
-   4. Unit Testing
-   5. Dev, Test, Prod Pipeline
+
 
 ## ![](docs/graphics/prerequisites.png) Prerequisites & References
 While there are no prerequisites for this workshop, it is helpful if you have already had some experience and understanding of the following:
