@@ -630,7 +630,8 @@ Login-AzAccount
 #For Azure Government use:  
 #Login-AzAccount -Environment AzureUSGovernment
 
-$sp = Get-AzADServicePrincipal -DisplayName 'SuperchargeSQL-SP'
+$sp = Get-AzADServicePrincipal -DisplayName '<use your Service Principle Name>'
+
 $sp.Id
 ```
 
