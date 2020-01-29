@@ -73,7 +73,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
 ![](./imgs/parmAdmin.png)</br>
 
-1. Enter **emailAddress ** at line **162**
+1. Enter **emailAddress** at line **162**
 
 :exclamation: Email address for where you want Security Alerts and Vulnerability Assessment scans sent.
 
