@@ -132,9 +132,9 @@ Get-AzResource -ResourceGroupName "dlm-demo-dev" | Format-Table
 
 ```
 
-5. You can check the status of your deployment from the protal
+5. You can check the status of your deployment from the portal
    1. Log into: [portal.azure.com](https:/portal.azure.com)
-   2. Navagate to the Resource Group you deployed to
+   2. Navigate to the Resource Group you deployed to
    3. Click on **Deployments** blade
    4. Click on **Related events** to view details about the deployment
 
