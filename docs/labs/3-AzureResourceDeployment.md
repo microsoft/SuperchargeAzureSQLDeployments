@@ -665,4 +665,103 @@ $sp.Id
 
 :exclamation:  If you want to clear your Resource Group durning this **dev** stage set the **clearResources** variable to **yes**. Since this would meet the custom condition you will be  deploying an "empty" template in Complete mode. Which will clear out your resource group (delete all resource not in your template).  This can take a bit of time and even timeout to complete.  While you are waiting for your Release to complete, review the logs as it deploys, or feel free to move on with the next steps in this lab. Don't forget to check status and address any errors.
 
-**Expected Results**
+**Expected Results**:
+
+![](./imgs/cd-result1.png)
+
+![](./imgs/cd-result2.png)
+
+:bulb: At this point in the workshop you have successfully created a full CI/CD dev pipeline which can be used develope and deploy Azure Resources. If you make changes to your ARM templates or parameter files located in the *Deployment* directory and push the changes to your remote Azure DevOps repository your build and release will happen automatically.  This keeps you and your development team from having to make changes via the portal.  You now have the ability to collaborate and perform rapid development with change logged via Git, and the ability to roll back / roll forward as needed.
+
+## <div style="color: #107c10">Exercise - Configure Prod CI/CD pipelines</div>
+
+:bulb: In this exercise you will walk through the steps to configure your production release pipelines.  Your prod pipeline will use the code from your master branch, require approval to deploy, and can only be run via changes to your **master** branch via **pull request**.
+
+### Create & configure prod build pipeline (CI) 
+
+1. In your Azure DevOps project navigate to **Pipelines** > **Pipelines**
+2. Click on your pipeline **Dev - Azure Resources-CI**
+3. Click on the ellipses in the top right corner next to the Run pipeline button
+4. Select **clone**
+5. Rename **Dev - Azure Resource-CI-clone** to **Prod - Azure Resource-CI** by click on the name
+6. Click on **Get sources** under the Tasks section of the pipeline
+7. Change your **Default branch for manual and scheduled builds** to: master
+
+![](./imgs/ci-sources-prod.png)
+
+8. Update both of the **Azure resource group deployment** task to:
+   1. Resource group: {select your prod resource group} **SuperhcargeSQL-prod**
+9.  Click on **Triggers**
+10. Update Branch filters: set to **master**
+11. Click the down arrow next to **Save & queue** (Comment is optional) > **Save**
+12. You now have a **Prod** CI pipeline for your Azure Resources that will be tirggered when changes are committed to your **master branch**
+
+### Create & configure prod release pipeline (CD)
+
+1. In your Azure DevOps project navigate to **Pipelines** > **Releases**
+2. Click on your **Dev** CD pipeline:  **dev-AzureResources-CD**
+3. Click on the ellipses in the top right corner next to the Create release button
+4. Select **clone**
+5. Rename **dev-AzureResouces-CD - Copy** to **prod-AzureResouces-CD** by click on the name
+6. Click on **_Dev - Azure Resources-CI** in the **Artifacts** section of Pipeline
+7. Click **Delete** > **Confirm**
+8. Click **Add an artifact**
+9. Set **Source (build pipeline)** to: **Prod - Azure Resources-CI**
+10. Click **Add**
+11. Turn on **Continuous deployment trigger** and added a **Build branch filter** for **master**
+    1. Hint: you did this step when you setup your dev release pipeline
+12. Click into the tasks of **Dev:Az Resource ...**
+13. Update each **Azure resource group deployment task** settings to:
+    * **Clear Resource Group Task** > **Template**: 
+    > $(System.DefaultWorkingDirectory)/_Prod - Azure Resources-CI/Azure Resources/ARM/templates/empty-template.json
+
+    * **Azure Deployment: Key Vault** > **Template**: 
+    > $(System.DefaultWorkingDirectory)/_Prod - Azure Resources-CI/Azure Resources/ARM/templates/KeyVault.json
+
+    * **Azure Deployment: Key Vault** > **Template parameters**: 
+    > $(System.DefaultWorkingDirectory)/_Prod - Azure Resources-CI/Azure Resources/ARM/parameters/KeyVault.parameters.json
+
+    * **Azure Deployment: SQL Database** > **Template**: 
+    > $(System.DefaultWorkingDirectory)/_Prod - Azure Resources-CI/Azure Resources/ARM/templates/sql_db.json
+
+    * **Azure Deployment: SQL Database** > **Template parameters**: 
+    > $(System.DefaultWorkingDirectory)/_Prod - Azure Resources-CI/Azure Resources/ARM/parameters/sql_db.parameters.dev.json
+
+14. Update the **PowerShell** task settings to:
+
+    * **Script Path**: 
+    > $(System.DefaultWorkingDirectory)/_Prod - Azure Resources-CI/Azure Resources/Scripts/Parse-ARMOutputs.ps1
+
+15. Update the **Azure PowerShell** task settings to:
+
+    * **Script Path**: 
+    > $(System.DefaultWorkingDirectory)/_Prod - Azure Resources-CI/Azure Resources/Scripts/KeyVault-WriteSecrets.ps1
+
+16. Click **Save** (Comment is optional) > **OK**
+17. Click on the **Pipeline** section
+18. Hover over **Dev:Az Resource ...**
+19. Click **Clone**
+20. Click into **Copy of Dev: Az R...** stage to edit the tasks
+21. Rename the stage from **Copy of Dev: Az Resource Deployment** to: **Prod: Az Resource Deployment**
+22. Update each Azure resource group deployment task's settings to:
+    * Set **Resource group** to: {your prod resource group} **SuperchargeSQL-prod**
+23. Click on the **Variables** section of the pipeline
+24. Update the variable **rEnv**: Set Scope to **Dev: Az Resource Deployment**
+25. Add a new variable **rEnv**
+    * Value: **prod**
+    * Set Scope to **Prod: Az Resource Deployment**
+
+Your Pipeline variables should look like this:
+![](./imgs/cd-release-vars.png)
+
+26. Click **Save** (Comment is optional) > **OK**
+
+**Add deploymnet approval to the prod deployment**
+1. Navigate back to the Pipeline section of **prod-AzureResouces-CD**
+2. Click on lighting bolt icon on the **Prod: Az Resource...** stage
+3. Leave **Triggers** with default settings
+4. Enable **Pre-deployment approvals**
+    * Approvers: **Add yourself as Approver**
+    * This setting means you have to approve this stage of the deployment. This is why you deploy to dev again. It give you a chance to check your deployment from your master code against an environment that does not effect prod. Once you verify deployment is as expect you can approve the prod deployment. 
+5. Click **Save** (Comment is optional) > **OK**
+6. You now have successfully configured a prod release pipeline for your Azure Resources
