@@ -15,9 +15,18 @@
 This lab is to build your foundational knowledge of how to leverage Azure DevOps to deploy Azure Resource with CI/CD pipelines.  This lab walks you through advanced ARM templates showing you how you can have an end state configuration for your Azure resource to limit the need to do post deployment configuration. You will create both a build and release pipeline which covers the CI/CD portions of DevOps.
 
  **Summary**
-  * [Review Adanced ARM templates]({summerylink})
-  * [{summary link}]({summerylink})
-  * [{summary link}]({summerylink})
+  * [Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
+  * [Build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
+    * [Configure the continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-the-continuos-integration-on-the-build-pipeline)
+    * [Testing Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-azure-resource-ci-pipeline)
+  * [Build release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---release-pipeline-cd)
+    * [Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
+    * [Configure SQL DB deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-sql-db-deployment-task)
+    * [Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
+    * [Configure Azure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-azure-powershell-task)
+  * [Configure prod CI/CD pipelines](/docs/labs/3-AzureResourceDeployment.md#exercise---configure-prod-cicd-pipelines)
+    * [Create & configure Prod build pipeline (CI)]()
+    * [Create & configure Prod release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-release-pipeline-cd)
 
 ## <div style="color: #107c10">Exercise - Advanced ARM template</div>
 
@@ -677,7 +686,7 @@ $sp.Id
 
 :bulb: In this exercise you will walk through the steps to configure your production release pipelines.  Your prod pipeline will use the code from your master branch, require approval to deploy, and can only be run via changes to your **master** branch via **pull request**.
 
-### Create & configure prod build pipeline (CI) 
+### Create & configure Prod build pipeline (CI)
 
 1. In your Azure DevOps project navigate to **Pipelines** > **Pipelines**
 2. Click on your pipeline **Dev - Azure Resources-CI**
