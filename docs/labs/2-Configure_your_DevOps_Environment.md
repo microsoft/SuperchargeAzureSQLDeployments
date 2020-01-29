@@ -302,7 +302,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/copiedsource.png)
 
-## Performing your inital Commit using VS Code
+## Performing your initial Commit using VS Code
 
 1. In VS Code from the menu click **File** > **Open Folder** 
 2. Navigate to your Cloned Azure DevOps Repo: **C:\SuperchargeSQLDeployments**
