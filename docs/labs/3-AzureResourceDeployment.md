@@ -255,7 +255,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 26. Select **Save**
 27. Click **Save** on the comment window (entering a comment here is optional)
 
-### Now you will set up the continuos integration on this build pipeline
+### Configure the continuos integration on the build pipeline
 
 1. Click on **Triggers** on the top menu of your build pipeline.
 2. Check mark **Enable continuous integration** to automate your build
