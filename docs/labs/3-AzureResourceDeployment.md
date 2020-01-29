@@ -128,7 +128,7 @@ $params = @{
 New-AzResourceGroupDeployment @params
 
 #To Check Resources Deployed Run:
-Get-AzResource -ResourceGroupName "dlm-demo-dev" | Format-Table
+Get-AzResource -ResourceGroupName "<enter your RG name>" | Format-Table
 
 ```
 
