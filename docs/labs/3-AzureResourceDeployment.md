@@ -305,11 +305,137 @@ In this exercise you will walk through all of the steps needed to create the Con
 ## <div style="color: #107c10">Exercise - Release Pipeline (CI)</div>
 In this exercise you will walk through all of the steps needed to create the Continuous Deployment (CD) portion of your Azure Resource deployment.  This step is called the **Release**.  The release will be triggered from a successful build pipeline.
 
+1. Inside of your Azure DevOps Project click on **Pipelines** > **Release** > **New Pipeline** button.
 
+![](./imgs/cd-new-pipeline.png)
 
+2. Select **Empty job**
 
+![](./imgs/cd-emptyjob.png)
 
+3. Set **Stage name**: ***Dev: Az Resource Deployment***
+4. Click on **+ Add** on Artifacts
+   1. Source type:  **Build**
+   2. Project: **SuperchargeSQLDeployments** *(the name of your DevOps Project)*
+   3. Source (build pipeline): **Dev - Azure Resources-CI** *(your build from last exercise)*
+   4. Leave Source alias as the default value
+   5. Click the **Add** button
 
+![](./imgs/cd-artifacts.png)
+
+5. Click on the **Lighting bolt** icon of Artifacts
+6. **Continuous deployment trigger** flip the switch to **Enabled** </br>
+
+:bulb: Note that this setting is what is used to enable the automation for Continuous deployment.  Which is triggered from a successful build.
+
+7. **Build branch filters** click **+ Add**
+8. Set build branch to **dev**
+
+![](./imgs/cd-trigger.png)
+
+9.  Click on **1 job, 0 task** in the Stages section of your release
+10. Click on the **+** button on Agent job
+11. Add the **Azure resource group deploymnet** task
+12. Once added click on the task to configure with these settings:
+    1.  Display name: **Clear Resource Group**
+    2. Select **Azure subscription** - You should see your Azure Service Connection that you setup earlier when configuring your DevOps environment.
+    3.  **Action**: **Create or update resource group**
+    4.  **Resource group**: Select your dev resource group that was setup in the pervious lab
+    5.  **Location**: Select the location you used for your resource group
+    6.  **Template location**: Linked artifact
+    7.  **Template**: click on the ellipses and navigate to the **empty-template.json** template file to select it.
+        1.  Your path should look similar to this: ***$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/empty-template.json***
+    8.  **Template parameters**: leave blank
+    9.  **Override template parameter**: leave blank
+    10. Deployment mode: **Complete** you will deploy this empty template in Complete mode to clear out your resource group.
+    11. Expand **Control Option**
+    12. Set **Run this task** to: **Custom conditions**
+    13. Set **Custom condition** to: eq(variables['clearResources'], 'yes')
+        * Using a variable to set when/if to clear Resource Group
+    14. Click **Save** (Comment is optional) > **OK**
+
+### Configure Key Vault deployment taks
+
+1. Add a New Azure resource group deployment task configured with the following:
+  
+    1. Display name: **Azure Deployment: Key Vault**
+    2. Update:  **Azure subscription, Action, Resource group, Location, Template location** to match the same as the pervious Azure RG Deployment task
+    3. Template: **$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/KeyVault.json** (you can navigate to this location)
+    4. Template parameters: **$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/parameters/KeyVault.parameters.json** (you can navigate to this location)
+    5. Override template parameters:
+
+```
+-keyVaultName "$(keyvault.VaultName)-$(rEnv)"  
+-accessPolicies [
+    {
+        "objectId": "$(sp.ObjectId)",
+        "tenantId": "$(sp.tenantId)",
+        "metadata": {
+            "description": "Service Principal - DevOps-DLM"
+        },
+        "permissions": {
+            "keys": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+            ],
+            "secrets": [
+                "Get",
+                "List",
+                "Set",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+            ],
+            "certificates": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "ManageContacts",
+                "ManageIssuers",
+                "GetIssuers",
+                "ListIssuers",
+                "SetIssuers",
+                "DeleteIssuers"
+            ],
+            "storage": [
+                "Get",
+                "List",
+                "Update",
+                "Set",
+                "Delete",
+                "Regeneratekey",
+                "Recover",
+                "Backup",
+                "Restore"
+            ]
+        }
+    }
+] 
+-tenant "$(sp.tenantId)" 
+-location "$(location)"
+-enabledForDeployment false 
+-enabledForTemplateDeployment true 
+-enabledForDiskEncryption false
+
+```
+
+:exclamation: This is to allow you to override values in your parameters file, as you do not want to save protected conditionals or settings in your Git repo. You will setup the variables and values once you have completed configuring your release tasks. </br>
+
+    6.  Deployment mode: **Incremental**
+    7.  Click **Save** (comment optional) > **OK**
+1.  
 
 
 
