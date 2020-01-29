@@ -1,4 +1,4 @@
-## Lab 3 - Deploy Azure Resouces
+## Lab 3 - Deploy Azure Resources
 --------------------------------
 
 [Back to all modules](/docs/labs/README.md)
@@ -25,7 +25,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
     * [Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
     * [Configure Azure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-azure-powershell-task)
   * [Configure prod CI/CD pipelines](/docs/labs/3-AzureResourceDeployment.md#exercise---configure-prod-cicd-pipelines)
-    * [Create & configure Prod build pipeline (CI)]()
+    * [Create & configure Prod build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-build-pipeline-ci)
     * [Create & configure Prod release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-release-pipeline-cd)
 
 ## <div style="color: #107c10">Exercise - Advanced ARM template</div>
@@ -774,3 +774,80 @@ Your Pipeline variables should look like this:
     * This setting means you have to approve this stage of the deployment. This is why you deploy to dev again. It give you a chance to check your deployment from your master code against an environment that does not effect prod. Once you verify deployment is as expect you can approve the prod deployment. 
 5. Click **Save** (Comment is optional) > **OK**
 6. You now have successfully configured a prod release pipeline for your Azure Resources
+
+## <div style="color: #107c10">Exercise - Pull request</div>
+
+In this exercise you will walk through creating a pull request. This is the process to merge your dev code into your master branch.  At which point it will trigger your Prod CI/CD process. This is an example of how you can release changes into your production environment.
+
+1. Navigate to your Azure DevOps project > **Repos** > **Pull requests**
+2. Click on the **New pull request** button
+3. Fill out the Pull Request form setting the values to:
+   1. Provide a Title for the pull Request: **Supercharge Azure SQL initial prod release**
+   2. Description: **Dev to master code merge, release azure resources into prod environment**
+   3. Reviewers: {locate yourself to approve request}
+   4. Click the **Create** button
+4. Review the pull request
+   1. Notice that you have an **Active** Pull Request
+   2. Note that the changes dev to master merge will not complete until all **Polices** have be satisfied
+
+![](./imgs/pr-active.png)
+
+   3. Take a minute to review the **Files** tab where you can see a side-by-side diff of dev to master
+
+![](./imgs/pr-compare.png)
+
+   4. Click the **Approve** button
+   5. Click the **Complete** button
+   6. Enter a Merge commit comment: **Merged PR 1: Supercharge Azure SQL initial prod release**
+   7. Click Merge type drop down to review and read the different types
+      1. For this lab pick:**Merge (no fast-forward)**
+   8. Un-check **Delete dev after merging**
+      1. We do not want to lose our dev branch for this workshop we are working with a persistent dev branch
+    
+![](./imgs/pr-complete.png)
+
+   9. Click the **Complete merge** button
+
+5. At this point you have completed the steps to perform a **Pull Request**
+
+### Review Prod CI/CD
+
+1. Navigate to **Pipelines** > **Pipelines**
+2. You will now see both you Prod and Dev Pipelines
+   1. Click into Prod to review the status of your build and the logs
+3. Navigate to **Pipelines** > **Releases**
+   1. You should see both your dev and prod Release pipelines
+      1. If you do not see your prod it could be because your build as not completed and triggered your release. 
+   2. Click into your Prod release pipeline to review status and logs
+   3. Notice that once your Dev Stage completes you will need to approve the deployment into prod.
+
+![](./imgs/prod-release1.png)
+
+4. Navigate to Azure via the portal and check that all your resources in Resource Group: **SuperchargeSQL-dev** deployed correctly 
+5. You should also receive an email to approve the Prod stage of your release that looks similar to this:
+
+![](./imgs/prod-email.png)
+
+6. Navigate to your Azure DevOps project > **Pipelines** > **Releases**
+7. Click on release: **prod-AzureResource-CD**
+8. Click on the **Prod** stage
+9. Enter a Comment for approval
+10. Click **Approve**
+11. Click the **X** to close the Approval comment window
+
+![](./imgs/prod-approve.png)
+
+12. Click into the prod stage to review status and logs for your prod deployment
+    1.  Note this could take a little bit of time to deploy all of the new Azure Resource in your prod Resource Group
+13. Navigate to Azure via the portal and check that all your resources in Resource Group: **SuperchargeSQL-prod** deployed correctly
+    1.  Remember you can also check the status of your deployment from the **Deployments** blade of your Resource Group
+
+:exclamation: You have not completed lab three.  You should have a full working CI/CD pipelines for dev and prod, and have a good understand of how to create your own CI/CD pipelines to deploy Azure Resources with ARM templates. Please move on to the next lab in this workshop.
+
+- [Next Lab](/docs/labs/4-DatabaseLifecycleManagement)
+- [Back to all modules](/docs/labs/README.md)
+___
+___
+**Azure subscriptions**
+
+<ins>TRIAL SUBSCRIPTIONS ARE NOT SUPPORTED FOR THIS WORKSHOP</ins>
