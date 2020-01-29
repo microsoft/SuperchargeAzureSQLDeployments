@@ -183,7 +183,7 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 
 ![](./imgs/newproject.jpg)
 
-1. Click on **Repo**
+1. Click on **Repos**
 
 ![](./imgs/repo.jpg)
 
@@ -314,11 +314,12 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 ![](./imgs/master.png)
 
    2. Select **dev**</br>
+      1. If you haven’t previously selected the dev branch you may need to choose **origin/dev**
 
 ![](./imgs/devSelect.png)
 
    3. You should now be in your *dev* branch</br>
-
+   
 ![](./imgs/dev.png)
 
 5. Click on the + that shows up when you hover over **CHANGES**
@@ -347,7 +348,8 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
      >git push
 2.  Using a browser navigate to your Azure DevOps project
 3.  Click on **Repos** > **Files**
-4.  You should now see all of the files in your repo<br/>
+4.  You should now see all of the files in your repo
+    1. You may need to select the ‘dev’ branch to see the new files
 
 ![](./imgs/remotefiles.png)
 ___     
