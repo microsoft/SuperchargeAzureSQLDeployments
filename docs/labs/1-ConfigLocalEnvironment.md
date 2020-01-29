@@ -5,7 +5,7 @@
 
 
 
-| Lab Description | This lab covers the installation of tools that you will you in the labs. |
+| Lab Description | This lab covers the installation of tools that you will use in the labs. |
 | :------------ | :-------------- |
 | Estimated Time to Complete | 45 minutes |
 | Key Takeaways | 1. Download and install the required tools |

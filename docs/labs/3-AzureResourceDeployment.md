@@ -30,7 +30,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
 ## <div style="color: #107c10">Exercise - Advanced ARM template</div>
 
-### Lunch VS Code
+### Launch VS Code
 
 1. Open **sql_db.json** file
    1. Located in: **Deployments** > **ARM** > **templates**</br>
