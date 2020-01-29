@@ -8,7 +8,7 @@
 | Estimated Time to Complete | 20 minutes |
 | Key Takeaways | 1. Create resource group in Azure  for deployment automation |
 |  | 2. Establish RBAC permissions for resource creation |
-|  | 3. Set up permissions and service principals for continuous deployments in Azure DevOps environment |
+|  | 3. Setup permissions and service principals for continuous deployments in Azure DevOps environment |
 |  | By the end of this lab, you should have: Resource Groups, Service Principal, Azure DevOps Environment, Artifacts needed to complete this workshop
 | Author | Shirley MacKay </br> Frank Garofalo|
 
@@ -19,7 +19,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
  **Summary**
   * [Setup Up Azure Environment](#exercise---setup-azure-environment)
   * [Azure AD Service Principal](#exercise---setup-permissions)
-  * [Set up Azure DevOps Environment](#exercise---set-up-azure-devops-environment)
+  * [Setup Azure DevOps Environment](#exercise---set-up-azure-devops-environment)
   * [Push files to your Azure DevOps Repo](#exercise---push-files-to-your-repo)
 
 ## <div style="color: #107c10">Exercise - Setup Azure Environment</div>
@@ -39,9 +39,9 @@ This lab will create the environment for the CI/CD process. Service Principals a
 ![](./imgs/resourcegoup.jpg)
 
 **create two resource groups:** </br>
-         \<name>-prod</br>
-         \<name>-dev</br>
-         *Replace \<name> with the name you would like to use*
+         SuperchargeSQL-dev</br>
+         SuperchargeSQL-prod</br>
+        
 1. Click **+ Add**
    1. Select the **Subscription**
    2. Enter the **Resource Group** name *(example: sqldb-dev)*
@@ -53,7 +53,6 @@ This lab will create the environment for the CI/CD process. Service Principals a
 **create two resource groups:** </br>
          SuperchargeSQL-dev</br>
          SuperchargeSQL-prod</br>
-         *Replace \<name> with the name you would like to use*
 
 ```powershell  
 $rg = "<Your Resource Group Name>" #Use: SuperchargeSQL-dev & SuperchargeSQL-prod
@@ -89,7 +88,7 @@ Get-AzLocation
 
 3. Select the **App Registrations** blade
 4. Select **+ New registration**
-   1. Enter the **Name**
+   1. Enter the **Name**: **\<your alias>-SuperchargeSQL-SP** 
    1. Leave the defaults
    1. Click **Register**
 
@@ -101,7 +100,7 @@ On the **App Registrations > <Your App Name>** blade
 	   1. Click **Add**
 	   1. Copy the **Value**
 
-
+:exclamation: Be sure to save the secret somewhere for later on, you can only view it upon creation
 
 > #### **PowerShell**
 ```powershell  
@@ -111,7 +110,7 @@ Login-AzAccount
 
 Select-AzSubscription –Subscription '<Id>'
 
-$spName  = '<Service Principal Name>'
+$spName  = '<your alias>-SuperchargeSQL-SP'
 $id = (New-Guid).Guid
 $pass = (New-Guid).Guid
 
@@ -125,7 +124,7 @@ New-AzADServicePrincipal -DisplayName $spName -PasswordCredential $cred
 $pass
 ``` 
 
-:exclamation: Copy and save the Service Principal Name, ApplicationId and the Key which is the value from the $pass variable. It will be used later. 
+:exclamation: Copy and save the Service Principal Name, ApplicationId and the Key which is the value from the $pass variable. Be sure to save these values as they will be used later.  **The secret can only be viewed at creation.**  If you do not save it you will need to create a new secret later. 
 
 
 ## <div style="color: #107c10">Exercise - Setup Permissions</div>
@@ -136,7 +135,7 @@ $pass
 ```
 > #### **Portal**
 
-Go to the resource group that was created earlier
+Go to both of your new resource groups that you created earlier
 1. Click on the **Access control (IAM)** blade
 2. Click on **+ Add**
 3. Click on **Add role assignment**
@@ -160,7 +159,7 @@ $app = (Get-AzADServicePrincipal -DisplayName $spName).ApplicationID
 New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionName 'Owner'
 ``` 
 
-## <div style="color: #107c10">Exercise - Set up Azure DevOps Environment</div>
+## <div style="color: #107c10">Exercise - Setup Azure DevOps Environment</div>
 
 
 #### Azure DevOps Organizations
