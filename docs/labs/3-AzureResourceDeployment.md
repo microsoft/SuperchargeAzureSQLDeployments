@@ -47,7 +47,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
 :bulb: You may see older schema versions this is because the template is designed to work in both Azure Commercial and Azure Government
 
-6. Close **sql_db.json** without saving anything
+5. Close **sql_db.json** without saving anything
 
 #### Edit parameter file
 
