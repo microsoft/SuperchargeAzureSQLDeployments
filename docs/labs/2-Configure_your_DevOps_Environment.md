@@ -51,12 +51,12 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 > #### **PowerShell**
 **create two resource groups:** </br>
-         \<name>-prod</br>
-         \<name>-dev</br>
+         SuperchargeSQL-dev</br>
+         SuperchargeSQL-prod</br>
          *Replace \<name> with the name you would like to use*
 
 ```powershell  
-$rg = "<Your Resource Group Name>" #Example: sqldb-dev & sqldb-prod
+$rg = "<Your Resource Group Name>" #Use: SuperchargeSQL-dev & SuperchargeSQL-prod
 $location = "<Location>"
 
 Login-AzAccount

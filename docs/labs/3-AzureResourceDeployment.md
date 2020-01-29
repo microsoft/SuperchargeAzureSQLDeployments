@@ -194,9 +194,15 @@ In this exercise you will walk through all of the steps needed to create the Con
     5.  **Location**: Select the location you used for your resource group
     6.  **Template location**: Linked artifact
     7.  **Template**: click on the ellipses and navigate to the **sql_db.json** template file to select it.
-        1.  Your path should look similar to this: ***Deployments/ARM/templates/sql_db.json***
+        1.  Your path should look similar to:
+        
+        >***Deployments/ARM/templates/sql_db.json***
+
     8.  **Template parameters**: click on the ellipses and navigate to the **sql_db.parameters.dev.json** template file to select it.
-        1.  Your path should look similar to this: ***Deployments/ARM/parameters/sql_db.parameters.dev.json***
+        1.  Your path should look similar to: 
+        
+        >***Deployments/ARM/parameters/sql_db.parameters.dev.json***
+
     9.  **Override template parameter**: leave blank for this step as we are only validating the ARM template, not deploying
     10. **Deployment mode**: Select **Validation only**
         1.  :exclamation: This is a key setting, as you only want to validate (test) your ARM template.
@@ -221,9 +227,15 @@ In this exercise you will walk through all of the steps needed to create the Con
 17. Update the following setting for your newly cloned task
     1.  **Display name**: set it to **Validate Deployment ARM Templates for KeyVault**
     2.  **Tempate**: click on the ellipses and navigate to the **KeyVault.json** template file to select it.
-        1.  Your path should look similar to this: ***Deployments/ARM/templates/KeyVault.json***
+        1.  Your path should look similar to: 
+        
+        >***Deployments/ARM/templates/KeyVault.json***
+
     3.  **Template parameters**: click on the ellipses and navigate to the **KeyVault.parameters.json** template file to select it.
-        1.  Your path should look similar to this: ***Deployments/ARM/parameters/KeyVault.parameters.json***
+        1.  Your path should look similar to: 
+        
+        >***Deployments/ARM/parameters/KeyVault.parameters.json***
+
 18. Click the drop down arrow next to **Save & queue** 
 19. Select **Save**
 20. Click **Save** on the comment window (entering a comment here is optional)
@@ -270,7 +282,10 @@ In this exercise you will walk through all of the steps needed to create the Con
 8. Click on **Options** at the top of your pipeline menu to edit some meta data for your build
 9. Update the following **Build properties**
    1. **Description**: Build Pipeline for Azure Resource(s) Deployment
-   2. **Build number format**: \$(date:yyyyMMdd)_\$(BuildDefinitionName)_\$(SourceBranchName)\$(rev:.r)
+   2. **Build number format**:
+
+    >\$(date:yyyyMMdd)_\$(BuildDefinitionName)_\$(SourceBranchName)\$(rev:.r)
+
 10. Click the drop down arrow next to **Save & queue**
 11. Select **Save**
 12. Click **Save** on the comment window (entering a comment here is optional)
@@ -302,7 +317,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 10. You now have published artifacts that can be used in your dev continuous deployment (CD) (dev Release pipeline)
 
-## <div style="color: #107c10">Exercise - Release Pipeline (CI)</div>
+## <div style="color: #107c10">Exercise - Release Pipeline (CD)</div>
 In this exercise you will walk through all of the steps needed to create the Continuous Deployment (CD) portion of your Azure Resource deployment.  This step is called the **Release**.  The release will be triggered from a successful build pipeline.
 
 1. Inside of your Azure DevOps Project click on **Pipelines** > **Release** > **New Pipeline** button.
@@ -314,7 +329,9 @@ In this exercise you will walk through all of the steps needed to create the Con
 ![](./imgs/cd-emptyjob.png)
 
 3. Set **Stage name**: ***Dev: Az Resource Deployment***
-4. Click on **+ Add** on Artifacts
+4. Click on the **X** to close Stage settings
+5. Click on **New Release pipeline** to rename it to: **dev-AzureResouces-CD**
+6. Click on **+ Add** on Artifacts
    1. Source type:  **Build**
    2. Project: **SuperchargeSQLDeployments** *(the name of your DevOps Project)*
    3. Source (build pipeline): **Dev - Azure Resources-CI** *(your build from last exercise)*
@@ -344,7 +361,10 @@ In this exercise you will walk through all of the steps needed to create the Con
     5.  **Location**: Select the location you used for your resource group
     6.  **Template location**: Linked artifact
     7.  **Template**: click on the ellipses and navigate to the **empty-template.json** template file to select it.
-        1.  Your path should look similar to this: ***$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/empty-template.json***
+        1.  Your path should look similar to:
+        
+        > ***$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/empty-template.json***
+
     8.  **Template parameters**: leave blank
     9.  **Override template parameter**: leave blank
     10. Deployment mode: **Complete** you will deploy this empty template in Complete mode to clear out your resource group.
@@ -354,18 +374,24 @@ In this exercise you will walk through all of the steps needed to create the Con
         * Using a variable to set when/if to clear Resource Group
     14. Click **Save** (Comment is optional) > **OK**
 
-### Configure Key Vault deployment taks
+### Configure Key Vault deployment task
 
 1. Add a New Azure resource group deployment task configured with the following:
   
     1. Display name: **Azure Deployment: Key Vault**
     2. Update:  **Azure subscription, Action, Resource group, Location, Template location** to match the same as the pervious Azure RG Deployment task
-    3. Template: **$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/KeyVault.json** (you can navigate to this location)
-    4. Template parameters: **$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/parameters/KeyVault.parameters.json** (you can navigate to this location)
-    5. Override template parameters:
+    3. Template: 
+    
+    >**$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/KeyVault.json** 
 
-```
--keyVaultName "$(keyvault.VaultName)-$(rEnv)"  
+    4. Template parameters: 
+    
+    >**$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/parameters/KeyVault.parameters.json** 
+    
+    5. Override template parameters:
+   
+```PowerShell
+-keyVaultName "$(keyvault.VaultName)-$(rEnv)" 
 -accessPolicies [
     {
         "objectId": "$(sp.ObjectId)",
@@ -424,20 +450,218 @@ In this exercise you will walk through all of the steps needed to create the Con
     }
 ] 
 -tenant "$(sp.tenantId)" 
--location "$(location)"
+-location "$(location)" 
 -enabledForDeployment false 
 -enabledForTemplateDeployment true 
 -enabledForDiskEncryption false
 
 ```
+:exclamation: This overrides the values in your parameters file. It's best practice not to save protected credentials / settings in your Git repo. You will setup the variables and values once you have completed configuring your release tasks. </br>
 
-:exclamation: This is to allow you to override values in your parameters file, as you do not want to save protected conditionals or settings in your Git repo. You will setup the variables and values once you have completed configuring your release tasks. </br>
+   6. Deployment mode: **Incremental**
+   7. Click **Save** (comment optional) > **OK**
 
-    6.  Deployment mode: **Incremental**
-    7.  Click **Save** (comment optional) > **OK**
-1.  
+### Configure SQL DB deployment task
+
+1. Add a New Azure resource group deployment task configured with the following:
+   1. Display name: **Azure Deployment: SQL Database**
+   2. Update: **Azure subscription, Action, Resource group, Location, Template location** to match the same as the pervious Azure RG Deployment tasks
+   3. Template:
+   
+    >**$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/sql_db.json** 
+
+  
+   4. Template parameters: 
+   
+    >**$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/parameters/sql_db.parameters.dev.json**
+            
+   5. Override template parameters:
+
+   > -serverName "\$(sql.serverName)-$(rEnv)"
+
+   6. Deployment mode: **Incremental**
+   7. Deployment outputs: **sql.Output**
+   8. Click **Save** (Comment is optional) > **OK**
+
+### Configure PowerShell task
+
+1.  Click **+** on Agent job
+2.  Search for **PowerShell**
+3.  Click **Add** on the PowerShell tasks
+
+![](./imgs/cd-powershell.png)
+
+4. Click on the newly added PowerShell task and set the following:
+   1. Task version: **2.\***
+   2. Display name: **Parse SQL Database Outputs**
+   3. Type: **File Path**
+   4. Script Path:
+
+   > $(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/Scripts/Parse-ARMOutputs.ps1
+
+:bulb: This script is used to parse the output values of admin username and password from your SQL DB deployment.  It writes the output values to variables which will later be written back to Key Vault. This is often a technique used to move values around in a pipeline. The script is:
+
+```PowerShell
+param (
+    [Parameter(Mandatory=$true)][string]$ARMOutput
+    )
+
+#region Convert from json
+$json = $ARMOutput | convertfrom-json
+$sqlAdminLogin = $json.administratorLogin.value
+$sqlAdminPass = $json.administratorLoginPassword.value
+#endregion
+
+#region Parse ARM Template Output
+Write-Host "##vso[task.setvariable variable=sql.Login]$sqlAdminLogin"
+Write-Host "##vso[task.setvariable variable=sql.Pass;issecret=true]$sqlAdminPass"
+#endregion
+
+```
+   4. Arguments:
+
+> -ARMOutput '$(sql.Output)'
+
+   5. Click **Save** (Comment is optional) > **OK**
+
+### Configure Azure PowerShell task
+
+1.  Click **+** on Agent job
+2.  Search for **Azure PowerShell**
+3.  Click **Add** on the Azure PowerShell tasks
+
+![](./imgs/cd-azpowershell.png)
 
 
+4. Click on the newly added Azure PowerShell task and set the following:
+   1. Task version: **4.\***
+   2. Display name: **Key Vault write Resource Keys**
+   3. Azure Connection Type: **Azure Resource Manager**
+   4. Azure Subscription: **Set this to your Service Connection** (perviously setup in Configuring your DevOps Environment lab)
+   5. Script Type: **Script File Path**
+   6. Script Path:
+
+   > $(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/Scripts/KeyVault-WriteSecrets.ps1
+
+   :bulb: This script is used to write the SQL admin account info to your Key Vault. Take a minute to review the script so you understand what is is doing:
+
+```PowerShell
+
+Param(
+	$kVaultName,
+	$ResourceGroup,	
+	$adminLogin,
+    $adminPass
+    )
+
+Function ToSecret {
+	Param($val)
+	$secret = ConvertTo-SecureString -String $val -AsPlainText -Force
+	$secret 
+	}
+
+$kvSecrets = @{
+	'SQLadminLogin' = ToSecret -val $adminLogin
+	'SQLadminPass' = ToSecret -val $adminPass
+}
+
+ForEach($Key in $kvSecrets.Keys){
+	$response = Set-AzKeyVaultSecret -VaultName $kVaultName -Name $Key -SecretValue $kvSecrets[$Key]
+	Write-Host $response
+    }
+    
+```
+   7. Script Arguments:
+
+> -kVaultName "\$(keyvault.VaultName)-\$(rEnv)"</br>
+> -ResourceGroup \$(ResourceGroup)$(rEnv)</br>
+> -adminLogin $(sql.Login)</br>
+> -adminPass $(sql.Pass)</br>
+
+   8. Azure PowerShell Version: **Latest installed version**
+   9. Click **Save** (Comment is optional) > **OK** </br>
+
+:exclamation: At this point your Release pipeline's **Tasks** should look like this:
+
+![](./imgs/cd-tasks.png)
+
+### Configure Variables
+
+You need to configure and set the values of your variables that will be used in this release pipeline.  Variables are used to make your pipelines more flexible and dynamic.
+
+1. Click on the **Variables** section of your pipeline
+2. Create the following **Pipeline variables**
+
+    |Name           |Value  |
+    |:---           |:---   |
+    |clearResources | no   |
+    |rEnv           | dev   |
+
+3. Click **Save** (Comment is optional) > **OK**
+4. Click on **Variable groups** (these are variables that can be shared throughout any pipeline in your project)
+5. Click on **Manage variable groups** (this will open a new browser tab)
+6. Click **+ Variable group**
+
+![](./imgs/cd-variablegroup.png)
+
+7. Variable group name: **SuperchargeSQL-Vars**
+8. Description: **Variables used for Supercharge SQL deployments**
+9. Allow access to all pipelines: **turn on switch**
+10. Click **+ Add** > Add the following Variables:
+
+    |Name                   |Value                | ![](./imgs/icon-lock.png) |
+    | :---                  |:---                 | :---   |
+    | keyvault.VaultName    | {your alias}-vault | ![](./imgs/icon-unlock.png) |
+    | ResourceGroup         | SuperchargeSQL-       | ![](./imgs/icon-unlock.png) |
+    | sp.DisplayName        | {your Service Princple Name} | ![](./imgs/icon-unlock.png) |
+    | sp.ObjectId           | {same location as RG} | ![](./imgs/icon-unlock.png)   |
+    | sp.tenantId           | {your tenantID} | ![](./imgs/icon-unlock.png)   |
+    | sql.databaseName      | ["trainingDW"] | ![](./imgs/icon-unlock.png)   |
+    | sql.Login             | leave blank | ![](./imgs/icon-unlock.png)   |
+    | sql.Pass              | leave blank | ![](./imgs/icon-lock.png)   |
+    | sql.serverName        | {your alias}-sqlsrv | ![](./imgs/icon-unlock.png) |
+    | sql.Output            | leave blank | ![](./imgs/icon-unlock.png) |
+    | location           | eastus2  | ![](./imgs/icon-unlock.png) |
+
+:exclamation: **To get the correct sp.ObjectID use the below PowerShell**
+
+```PowerShell
+Login-AzAccount
+#For Azure Government use:  
+#Login-AzAccount -Environment AzureUSGovernment
+
+$sp = Get-AzADServicePrincipal -DisplayName 'SuperchargeSQL-SP'
+$sp.Id
+```
 
 
+11. Click **Save**
+12. Your **Variable group** should look similar to this:
 
+![](./imgs/variable-group.png)
+
+13. Close the Library tab and navigate back to the open browser tab with your **Release**
+14. Click on **Variables** > **Variable groups** > **Link variable group**
+15. Select your Variable group created in the pervious steps: **SuperchargeSQL-Vars**
+16. Click the **Link** button
+17. Click **Save** (Comment is optional) > **OK**
+18. Click **Create release** to manually trigger 
+19. Select Stages for a trigger... : **Dev: Az Resource Deployment**
+20. Click **Create** button
+21. CLick on Release **Release-\<num>** has been created
+
+![](./imgs/cd-release.png)
+
+22. If you get a popup window about the new improvement to the release summary page feel free to close or review for more information
+23. Notice that in **Stages** it says **Not deployed** this is because it was manually triggered 
+24. Hover over **Dev: Az Resource Dep** to expose the **Deploy** button > Click it
+
+![](./imgs/cd-deploy.png)
+
+25. Comment is optional > Click **Deploy**
+26. Click on **In progress** to view status of deployment
+    1.  You can also navigate to your resource group in Azure and view status of the deployment on the Deployments blade
+
+:exclamation:  If you want to clear your Resource Group durning this **dev** stage set the **clearResources** variable to **yes**. Since this would meet the custom condition you will be  deploying an "empty" template in Complete mode. Which will clear out your resource group (delete all resource not in your template).  This can take a bit of time and even timeout to complete.  While you are waiting for your Release to complete, review the logs as it deploys, or feel free to move on with the next steps in this lab. Don't forget to check status and address any errors.
+
+**Expected Results**

@@ -6,7 +6,7 @@
       "value": "Enter KeyVaultName"
     },
     "location": {
-      "value": "eastus"
+      "value": "eastus2"
     },
     "sku": {
       "value": "Standard"

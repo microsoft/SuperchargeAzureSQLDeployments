@@ -17,7 +17,7 @@ $kvSecrets = @{
 }
 
 ForEach($Key in $kvSecrets.Keys){
-	$response = Set-AzureKeyVaultSecret -VaultName $kVaultName -Name $Key -SecretValue $kvSecrets[$Key]
+	$response = Set-AzKeyVaultSecret -VaultName $kVaultName -Name $Key -SecretValue $kvSecrets[$Key]
 	Write-Host $response
 	}
 
