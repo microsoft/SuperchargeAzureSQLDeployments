@@ -42,10 +42,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 ![](./imgs/resourcegoup2.jpg)
 
-**create two resource groups:** </br>
-         SuperchargeSQL-dev</br>
-         SuperchargeSQL-prod</br>
-        
+Create resoure groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with the steps below:   
 1. Click **+ Add**
    1. Select the **Subscription**
    2. Enter the **Resource Group** name 
