@@ -119,7 +119,7 @@ On the **App Registrations > <Your App Name>** blade
 
 > #### **PowerShell**
 
-:bulb: Use the below PowerShell script in a PowerShell file with **VSC ode**, make sure to update the parameter values.
+:bulb: Use the below PowerShell script in a PowerShell file with **VSC Code**, make sure to update the parameter values.
 
 ```powershell  
 
@@ -171,11 +171,11 @@ For each of the resource groups that you created earlier
 
 > #### **PowerShell**
 
-:exclamation:  Use the below PowerShell Script in a PowerShell file in **VS Code**, executing it two times, once for each of your resource group names. Make sure to update the parameter values
+:exclamation:  Use the below PowerShell Script in a PowerShell file in **VS Code**, executing it twice, once for each of your resource group names. Make sure to update the parameter values
 
 ```powershell  
 
-#Note!: you only need to use Login-AzAccount 1 time if you  use the same session
+>Note: you only need to use Login-AzAccount 1 time if you  use the same session
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #Note!: To view your subscription you can run: Get-AzSubscription
