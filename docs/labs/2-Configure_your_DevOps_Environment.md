@@ -44,7 +44,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
         
 1. Click **+ Add**
    1. Select the **Subscription**
-   2. Enter the **Resource Group** name *(example: sqldb-dev)*
+   2. Enter the **Resource Group** name 
    3. Select the **Region**
    4. Click **Review + create**
    5. Click **Create**
