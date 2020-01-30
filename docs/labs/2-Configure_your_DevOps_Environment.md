@@ -29,7 +29,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
  
 > Perform the tasks below either via the **Portal** or **PowerShell**.
 > Create two resource groups one for **Dev** and **Prod**
-> Example naming convention: \<name\>-prod, \<name\>-dev
+> Example naming convention: (name)-prod, (name)-dev
 
 
 > #### **Portal**
