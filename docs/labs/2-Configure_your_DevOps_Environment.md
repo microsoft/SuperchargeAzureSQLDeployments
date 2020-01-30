@@ -50,13 +50,13 @@ This lab will create the environment for the CI/CD process. Service Principals a
    5. Click **Create**
 
 > #### **PowerShell**
-:bulb: Recommend using **VScode** for your IDE for PowerShell
+:bulb: Recommend using **VS Code** for your IDE for PowerShell
 
 **create two resource groups:** </br>
          SuperchargeSQL-dev</br>
          SuperchargeSQL-prod</br>
 
-:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VSCode**, executing it two times, once for each resource group name
+:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VS Code**, executing it two times, once for each resource group name
 
 ```powershell
 
@@ -91,7 +91,7 @@ Get-AzLocation #List all locations
 
 ### Create Service Principal
 
-:bulb: Perform the tasks below either via the Azure Portal or PowerShell. If using PowerShell we recommend using a PowerShell file in VSCode. You can use the same VSCode file that was used to create the resources groups. </br>
+:bulb: Perform the tasks below either via the Azure Portal or PowerShell. If using PowerShell we recommend using a PowerShell file in VS Code. You can use the same VS Code file that was used to create the resources groups. </br>
 
 :bulb: To keep the lab less complex we are only going to use one Service Principle. In typical dev, test, staging and prod environments you may have a Service Principle for each.
 
@@ -119,7 +119,7 @@ On the **App Registrations > <Your App Name>** blade
 
 > #### **PowerShell**
 
-:bulb: Use the below PowerShell script in a PowerShell file with **VSCode**, make sure to update the parameter values.
+:bulb: Use the below PowerShell script in a PowerShell file with **VS Code**, make sure to update the parameter values.
 
 ```powershell  
 
@@ -152,7 +152,7 @@ $pass  #Note!: make sure to save off the value for $pass, it will be used later
 ### Access Control (IAM) for the Resource Group(s)
 
 ```diff 
-# Perform the tasks below either via the Azure Portal or PowerShell via VSCode.
+# Perform the tasks below either via the Azure Portal or PowerShell via VS Code.
 ```
 > #### **Portal**
 
@@ -290,7 +290,7 @@ Enter the following:
 ## <div style="color: #107c10">Exercise - Push files to your Repo</div>
 Your repository is currently empty, except for the default README.md file that was created to initialize your repo. In this exercise you are going to use Git commands to clone down the source files needed for this lab and push them up to your repo.  
 
-1. Using the TERMINAL in VSCode or Git Bash
+1. Using the TERMINAL in VS Code or Git Bash
 2. Run the following Git command to clone this Github Repo</br>
 
 ```Bash
@@ -309,7 +309,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/CloneCopy.png)
 
-2. Back in VSCode hit the F1 key to open the command pallet
+2. Back in VS Code hit the F1 key to open the command pallet
 3. Type **Git: Clone** and hit enter
 4. Paste the Repository URL for your Azure DevOps Repo
 5. Navigate to your **C:\\** drive
@@ -329,15 +329,15 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/copiedsource.png)
 
-## Performing your initial Commit using VSCode
+## Performing your initial Commit using VS Code
 
-1. In VSCode from the menu click **File** > **Open Folder** 
+1. In VS Code from the menu click **File** > **Open Folder** 
 2. Navigate to your Cloned Azure DevOps Repo: **C:\SuperchargeSQLDeployments**
 3. Click on the Git icon from the left side menu
    1. Notice that is shows a number on the icon
    2. This is the number file files that have not been committed to your local Git repository for your Azure DevOps project
 4. Make sure your our working off of the Dev branch
-   1. Click on **master** from the bottom left of VSCode</br>
+   1. Click on **master** from the bottom left of VS Code</br>
 
 ![](./imgs/master.png)
 
@@ -359,7 +359,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 6. Type a message for the initial commit in the **Message** box (ie. initial commit)
 7. Click the Check mark to perform the commit.
   >If you receive an error message **Make sure you configure your 'user.name' and 'user.email' in git.** Click Cancel on the error message </br>
-  > 1. Open the Terminal in VSCode
+  > 1. Open the Terminal in VS Code
   > 2. Run the following commands, **filling in your own name and email address**
   ><br/>
   >git config --global user.name "Your Name" <br/>
