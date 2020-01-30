@@ -55,7 +55,7 @@ Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with
 
 Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with the PowerShell Script below: 
 
-:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VSCode**, executing it twic, once for each resource group name
+:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VS Code**, executing it twice, once for each resource group name
 
 ```powershell
 
@@ -118,7 +118,7 @@ On the **App Registrations > <Your App Name>** blade
 
 > #### **PowerShell**
 
-:bulb: Use the below PowerShell script in a PowerShell file with **VSCode**, make sure to update the parameter values.
+:bulb: Use the below PowerShell script in a PowerShell file with **VS Code**, make sure to update the parameter values.
 
 ```powershell  
 
