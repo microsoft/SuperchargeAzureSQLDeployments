@@ -42,7 +42,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 ![](./imgs/resourcegoup2.jpg)
 
-Create resoure groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with the steps below:   
+Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with the steps below:   
 1. Click **+ Add**
    1. Select the **Subscription**
    2. Enter the **Resource Group** name 
@@ -53,15 +53,13 @@ Create resoure groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with 
 > #### **PowerShell**
 :bulb: Recommend using **VScode** for your IDE for PowerShell
 
-**create two resource groups:** </br>
-         SuperchargeSQL-dev</br>
-         SuperchargeSQL-prod</br>
+Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with the PowerShell Script below: 
 
-:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VSCode**, executing it two times, once for each resource group name
+:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VSCode**, executing it twic, once for each resource group name
 
 ```powershell
 
-#Note!: you only need to use Login-AzAccount 1 time if you use the same session
+> *Note:* you only need to use Login-AzAccount once if you use the same session
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #For 1st script execution update $rg value with: SuperchargeSQL-dev 
@@ -124,7 +122,7 @@ On the **App Registrations > <Your App Name>** blade
 
 ```powershell  
 
-#Note!: you only need to use Login-AzAccount 1 time if you  use the same session
+> *Note:* you only need to use Login-AzAccount once if you use the same session
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #Note!: To view your subscription you can run: Get-AzSubscription
@@ -176,7 +174,7 @@ For each of the resource groups that you created earlier
 
 ```powershell  
 
->Note: you only need to use Login-AzAccount 1 time if you  use the same session
+> *Note:* you only need to use Login-AzAccount once if you use the same session
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #Note!: To view your subscription you can run: Get-AzSubscription
