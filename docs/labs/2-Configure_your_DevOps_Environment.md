@@ -52,23 +52,16 @@ Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with
 
 > #### **PowerShell**
 :bulb: Recommend using **VS Code** for your IDE for PowerShell
-<<<<<<< HEAD
-=======
 
 Create **SuperchargeSQL-dev** and **SuperchargeSQL-prod** resource groups with the PowerShell Script below: 
 
 1. Open **VS Code**
 2. Create a new file
 3. Change the default environment to PowerShell. In the bottom corner of **VS Code**, select "Plain Text" and type "PowerShell"
->>>>>>> 7e9fcbc5ea0c5d1e3a69651c553e51236c0f93fe
 
 ![](./imgs/ps_vscode.jpg)
 
-<<<<<<< HEAD
-:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VS Code**, executing it two times, once for each resource group name
-=======
 :exclamation: Execute the script below for each resource group
->>>>>>> 7e9fcbc5ea0c5d1e3a69651c553e51236c0f93fe
 
 ```powershell
 
