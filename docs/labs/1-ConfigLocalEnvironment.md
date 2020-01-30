@@ -7,7 +7,7 @@
 
 | Lab Description | This lab covers the installation of tools that you will use in the labs. |
 | :------------ | :-------------- |
-| Estimated Time to Complete | 45 minutes |
+| Estimated Time to Complete | 50 minutes |
 | Key Takeaways | 1. Download and install the required tools |
 |  | 2. Know what version of the tools are installed |
 |  | 3. Learn to configure VS Code and install extensions |

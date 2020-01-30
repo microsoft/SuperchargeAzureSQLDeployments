@@ -3,9 +3,9 @@
 
 [Back to all modules](/docs/labs/README.md)
 
-| Lab Description:            | This lab covers all the steps needed to deploy Azure Resource with Azure DevOps pipelines.   |
+| Lab Description:              | This lab covers all the steps needed to deploy Azure Resource with Azure DevOps pipelines.   |
 | :------------                 | :--------------       |
-| Estimated Time to Complete:   | 30 minutes            |
+| Estimated Time to Complete:   | 40 minutes            |
 | Key Takeaways:                | By the end of this lab, you should have an understanding of: advanced ARM templates, how create build and release pipelines, how to deploy Azure Resources with DevOps, how to use PowerShell tasks and variables to make your pipelines more dynamic.         |
 | Author(s):                    | Frank Garofalo             |
 
