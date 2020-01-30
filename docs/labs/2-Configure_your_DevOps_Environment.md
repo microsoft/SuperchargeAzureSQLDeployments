@@ -38,6 +38,8 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 ![](./imgs/resourcegoup.jpg)
 
+![](./imgs/resourcegoup2.jpg)
+
 **create two resource groups:** </br>
          SuperchargeSQL-dev</br>
          SuperchargeSQL-prod</br>
