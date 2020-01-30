@@ -51,21 +51,21 @@ Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with
    5. Click **Create**
 
 > #### **PowerShell**
-
 :bulb: Recommend using **VS Code** for your IDE for PowerShell
 
-Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with the PowerShell Script below: 
+Create **SuperchargeSQL-dev** and **SuperchargeSQL-prod** resource groups with the PowerShell Script below: 
 
-:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VS Code**, executing it twice, once for each resource group name
 1. Open **VS Code**
 2. Create a new file
 3. Change the default environment to PowerShell. In the bottom corner of **VS Code**, select "Plain Text" and type "PowerShell"
 
 ![](./imgs/ps_vscode.jpg)
 
+:exclamation: Execute the script below for each resource group
+
 ```powershell
 
-> *Note:* you only need to use Login-AzAccount once if you use the same session
+#You only need to use Login-AzAccount once if you use the same session
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #For 1st script execution update $rg value with: SuperchargeSQL-dev 
