@@ -31,6 +31,8 @@ This lab will create the environment for the CI/CD process. Service Principals a
 > Create two resource groups one for **Dev** and **Prod**
 > Example naming convention: (name)-prod, (name)-dev
 
+####Prerequisites
+1. If you havea **Promo Code**, complete these steps first. [Click here](https://www.microsoftazurepass.com/Home/HowTo?Length=5)
 
 > #### **Portal**
 1. Login to **https://portal.azure.com**
