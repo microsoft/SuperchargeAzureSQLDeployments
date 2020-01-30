@@ -26,11 +26,13 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 ### Create Azure Resource groups
 
-```diff 
-# Perform the tasks below either via the Portal or PowerShell.
-# Create two Resource groups one for Dev and one for Prod
-# Example naming convention: <name>-prod, <name>-dev
-```
+ 
+> Perform the tasks below either via the **Portal** or **PowerShell**.
+> Create two resource groups one for **Dev** and **Prod**
+> Example naming convention: (name)-prod, (name)-dev
+
+#### Prerequisites
+1. Redeem your **Promo Code** for activating your Azure Subscription, go to the following link: [Click here](https://www.microsoftazurepass.com/Home/HowTo?Length=5)
 
 > #### **Portal**
 1. Login to **https://portal.azure.com**
@@ -38,10 +40,9 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 ![](./imgs/resourcegoup.jpg)
 
-**create two resource groups:** </br>
-         SuperchargeSQL-dev</br>
-         SuperchargeSQL-prod</br>
-        
+![](./imgs/resourcegoup2.jpg)
+
+Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with the steps below:   
 1. Click **+ Add**
    1. Select the **Subscription**
    2. Enter the **Resource Group** name 
@@ -51,16 +52,27 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 > #### **PowerShell**
 :bulb: Recommend using **VS Code** for your IDE for PowerShell
+<<<<<<< HEAD
+=======
 
-**create two resource groups:** </br>
-         SuperchargeSQL-dev</br>
-         SuperchargeSQL-prod</br>
+Create **SuperchargeSQL-dev** and **SuperchargeSQL-prod** resource groups with the PowerShell Script below: 
 
+1. Open **VS Code**
+2. Create a new file
+3. Change the default environment to PowerShell. In the bottom corner of **VS Code**, select "Plain Text" and type "PowerShell"
+>>>>>>> 7e9fcbc5ea0c5d1e3a69651c553e51236c0f93fe
+
+![](./imgs/ps_vscode.jpg)
+
+<<<<<<< HEAD
 :exclamation:  Use the below PowerShell Script in a new PowerShell file in **VS Code**, executing it two times, once for each resource group name
+=======
+:exclamation: Execute the script below for each resource group
+>>>>>>> 7e9fcbc5ea0c5d1e3a69651c553e51236c0f93fe
 
 ```powershell
 
-#Note!: you only need to use Login-AzAccount 1 time if you use the same session
+#You only need to use Login-AzAccount once if you use the same session
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #For 1st script execution update $rg value with: SuperchargeSQL-dev 
@@ -123,7 +135,7 @@ On the **App Registrations > <Your App Name>** blade
 
 ```powershell  
 
-#Note!: you only need to use Login-AzAccount 1 time if you  use the same session
+> *Note:* you only need to use Login-AzAccount once if you use the same session
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #Note!: To view your subscription you can run: Get-AzSubscription
@@ -175,7 +187,7 @@ For each of the resource groups that you created earlier
 
 ```powershell  
 
->Note: you only need to use Login-AzAccount 1 time if you  use the same session
+> *Note:* you only need to use Login-AzAccount once if you use the same session
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #Note!: To view your subscription you can run: Get-AzSubscription
