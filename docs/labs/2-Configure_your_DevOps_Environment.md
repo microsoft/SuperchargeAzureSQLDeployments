@@ -119,7 +119,7 @@ On the **App Registrations > <Your App Name>** blade
 
 > #### **PowerShell**
 
-:bulb: Use the below PowerShell script in a PowerShell file with **VSC Code**, make sure to update the parameter values.
+:bulb: Use the below PowerShell script in a PowerShell file with **VSCode**, make sure to update the parameter values.
 
 ```powershell  
 
