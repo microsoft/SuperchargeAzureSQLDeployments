@@ -26,11 +26,11 @@ This lab will create the environment for the CI/CD process. Service Principals a
 
 ### Create Azure Resource groups
 
-```diff 
-# Perform the tasks below either via the Portal or PowerShell.
-# Create two Resource groups one for Dev and one for Prod
-# Example naming convention: <name>-prod, <name>-dev
-```
+ 
+> Perform the tasks below either via the Portal or PowerShell.
+> Create two Resource groups one for Dev and one for Prod
+> Example naming convention: <name>-prod, <name>-dev
+
 
 > #### **Portal**
 1. Login to **https://portal.azure.com**
