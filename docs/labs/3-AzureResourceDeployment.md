@@ -105,7 +105,7 @@ Select-AzSubscription –Subscription '<Id>'
 $params = @{
     ResourceGroupName = '<enter your RG name>' #Dev Resource Group from lab 2
     TemplateFile = 'C:\SuperchargeAzureSQL\source\Deployments\ARM\templates\sql_db.json'
-    TemplateParameterFile = 'C:\SuperchargeAzureSQL\source\\Deployments\ARM\parameters\sql_db.parameters.dev.json'
+    TemplateParameterFile = 'C:\SuperchargeAzureSQL\source\Deployments\ARM\parameters\sql_db.parameters.dev.json'
     Verbose = $true
 }
 #Test ARM deployment
