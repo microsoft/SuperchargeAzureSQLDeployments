@@ -50,35 +50,50 @@ This lab will create the environment for the CI/CD process. Service Principals a
    5. Click **Create**
 
 > #### **PowerShell**
+:bulb: Recommend using **VScode** for your IDE for PowerShell
+
 **create two resource groups:** </br>
          SuperchargeSQL-dev</br>
          SuperchargeSQL-prod</br>
 
-```powershell  
-$rg = "<Your Resource Group Name>" #Use: SuperchargeSQL-dev & SuperchargeSQL-prod
-$location = "<Location>"
+:exclamation:  Use the below PowerShell Script in a new PowerShell file in **VSCode**, executing it two times, once for each resource group name
 
-Login-AzAccount
-#For Azure Government use:  
-#Login-AzAccount -Environment AzureUSGovernment
+```powershell
 
+#Note!: you only need to use Login-AzAccount 1 time if you use the same session
+Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
+
+#For 1st script execution update $rg value with: SuperchargeSQL-dev 
+#For 2nd script execution update $rg value with: SuperchargeSQL-prod
+$rg = "<Your Resource Group Name>" 
+
+$location = "<Location>" #Example: eastus2 
+#Note!: To list locations you can run: Get-AzLocation
+
+#Note!: To view your subscription you can run: Get-AzSubscription
 Select-AzSubscription –Subscription '<Id>'
+
 New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
+
 ``` 
 
-:bulb: Use the following cmdlets to obtain the subscription id and region
+:bulb: You can use the following cmdlets to obtain the subscription id and region (location)
+
 ```powershell  
-Get-AzSubscription
-Get-AzLocation
+
+Get-AzSubscription #List all available Subscriptions 
+Get-AzLocation #List all locations
+
 ``` 
+
 
 
 ### Create Service Principal
 
-```diff 
-# Perform the tasks below either via the Portal or PowerShell.
-```
+:bulb: Perform the tasks below either via the Azure Portal or PowerShell. If using PowerShell we recommend using a PowerShell file in VSCode. You can use the same VSCode file that was used to create the resources groups. </br>
+
+:bulb: To keep the lab less complex we are only going to use one Service Principle. In typical dev, test, staging and prod environments you may have a Service Principle for each.
 
 > #### **Portal**
 
@@ -100,15 +115,20 @@ On the **App Registrations > <Your App Name>** blade
 	   1. Click **Add**
 	   1. Copy the **Value**
 
-:exclamation: Be sure to save the secret somewhere for later on, you can only view it upon creation
+:exclamation: Be sure to save the secret somewhere for use later on, you can only view it upon creation. You will need to generate a new one if you lose it or it expires. We recommend using the portal steps to generate a new client secret.
 
 > #### **PowerShell**
-```powershell  
-Login-AzAccount
-#For Azure Government use:  
-#Login-AzAccount -Environment AzureUSGovernment
 
+:bulb: Use the below PowerShell script in a PowerShell file with **VSC ode**, make sure to update the parameter values.
+
+```powershell  
+
+#Note!: you only need to use Login-AzAccount 1 time if you  use the same session
+Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
+
+#Note!: To view your subscription you can run: Get-AzSubscription
 Select-AzSubscription –Subscription '<Id>'
+
 
 $spName  = '<your alias>-SuperchargeSQL-SP'
 $id = (New-Guid).Guid
@@ -121,7 +141,7 @@ $cred.KeyId = $id
 $cred.Password = $pass
 New-AzADServicePrincipal -DisplayName $spName -PasswordCredential $cred
 
-$pass
+$pass  #Note!: make sure to save off the value for $pass, it will be used later
 ``` 
 
 :exclamation: Copy and save the Service Principal Name, ApplicationId and the Key which is the value from the $pass variable. Be sure to save these values as they will be used later.  **The secret can only be viewed at creation.**  If you do not save it you will need to create a new secret later. 
@@ -129,35 +149,47 @@ $pass
 
 ## <div style="color: #107c10">Exercise - Setup Permissions</div>
 
-### Access Control (IAM) for the Resource Group
+### Access Control (IAM) for the Resource Group(s)
+
 ```diff 
-# Perform the tasks below either via the Portal or PowerShell.
+# Perform the tasks below either via the Azure Portal or PowerShell via VSCode.
 ```
 > #### **Portal**
 
-Go to both of your new resource groups that you created earlier
-1. Click on the **Access control (IAM)** blade
-2. Click on **+ Add**
-3. Click on **Add role assignment**
+:exclamation: Do these steps for both of the resource groups you created:  
+
+For each of the resource groups that you created earlier
+
+1. Go to the resource group
+2. Click on the **Access control (IAM)** blade
+3. Click on **+ Add**
+4. Click on **Add role assignment**
      1. Select the **Owner** role
      2. Enter your Service Principal name in the **Select** box to search
      3. Click **Save**
-4. Click on **Role Assignments** to verify
+5. Click on **Role Assignments** to verify
 
 > #### **PowerShell**
-```powershell  
-Login-AzAccount
-#For Azure Government use:  
-#Login-AzAccount -Environment AzureUSGovernment
 
+:exclamation:  Use the below PowerShell Script in a PowerShell file in **VS Code**, executing it two times, once for each of your resource group names. Make sure to update the parameter values
+
+```powershell  
+
+#Note!: you only need to use Login-AzAccount 1 time if you  use the same session
+Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
+
+#Note!: To view your subscription you can run: Get-AzSubscription
 Select-AzSubscription –Subscription '<Id>'
 
+#For 1st script execution update $rg value with: SuperchargeSQL-dev 
+#For 2nd script execution update $rg value with: SuperchargeSQL-prod
 $spName  = '<Service Principal Name>'
 $rg = "<Your Resource Group Name>"
 
 $app = (Get-AzADServicePrincipal -DisplayName $spName).ApplicationID
 New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionName 'Owner'
-``` 
+
+```
 
 ## <div style="color: #107c10">Exercise - Setup Azure DevOps Environment</div>
 
@@ -229,35 +261,31 @@ There are many options for a branching strategy and Git gives you the flexibilit
 ![](./imgs/projectsettings.jpg)
 
 2. Select **Service Connections** under **Pipelines**
-3. Click on **Create service connection**
+3. Click on **+ New service connection**
 4. Select **Azure Resource Manager**
+5. CLick on **use the full version of the service connection dialog**
 
-![](./imgs/serviceconnection.jpg)
+![](./imgs/fullserviceconnection.jpg)
 
-1. Click on **Next**
-2. Select **Service principal (manual)**
-
-![](./imgs/ServiceConnection.png)</br>
-
->  If you do not use manual, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.
+>  If you do not use the full version, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.  We do not want our service connection to have rights to everything in our subscription.
 
 Enter the following:
-1. Select Environment
-2. Select Scope level **Subscription**
-3. Enter **Subscription Id**</br>
+
+1. Enter **Service connection name**: \Supercharge SQL Service Connection
+2. Select Environment
+3. Select Scope level **Subscription**
+4. Enter **Subscription Id**</br>
      ```PowerShell
      Get-AzSubscription
      #Returns Subscription Name, Id, TenantId and State
     ```
-4. Enter **Subscription Name**
-5. Enter **Service Principal ID** (Created earlier)
-6. Select Credential **Service principal key**
-7. Enter **Service principal key** (Value noted earlier)
-8. Tenant ID should be pre-populated
-9. Click on **Verify**
-10. Enter **Service connection name**
-11. Enter **Description** (optional)
-12. Click on **Verify and save**
+5. Enter **Subscription Name**
+6. Enter **Service Principal client ID** (Created earlier)
+7. Select Credential **Service principal key**
+8. Enter **Service principal key** (Value noted earlier)
+9. Tenant ID: should be pre-populated
+10. Click on **Verify**
+13. Click on **OK**
 
 ## <div style="color: #107c10">Exercise - Push files to your Repo</div>
 Your repository is currently empty, except for the default README.md file that was created to initialize your repo. In this exercise you are going to use Git commands to clone down the source files needed for this lab and push them up to your repo.  
@@ -281,7 +309,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/CloneCopy.png)
 
-2. Back in VS Code hit the F1 key to open the command pallet
+2. Back in VSCode hit the F1 key to open the command pallet
 3. Type **Git: Clone** and hit enter
 4. Paste the Repository URL for your Azure DevOps Repo
 5. Navigate to your **C:\\** drive
@@ -301,15 +329,15 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/copiedsource.png)
 
-## Performing your initial Commit using VS Code
+## Performing your initial Commit using VSCode
 
-1. In VS Code from the menu click **File** > **Open Folder** 
+1. In VSCode from the menu click **File** > **Open Folder** 
 2. Navigate to your Cloned Azure DevOps Repo: **C:\SuperchargeSQLDeployments**
 3. Click on the Git icon from the left side menu
    1. Notice that is shows a number on the icon
    2. This is the number file files that have not been committed to your local Git repository for your Azure DevOps project
 4. Make sure your our working off of the Dev branch
-   1. Click on **master** from the bottom left of VS Code</br>
+   1. Click on **master** from the bottom left of VSCode</br>
 
 ![](./imgs/master.png)
 
@@ -331,7 +359,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 6. Type a message for the initial commit in the **Message** box (ie. initial commit)
 7. Click the Check mark to perform the commit.
   >If you receive an error message **Make sure you configure your 'user.name' and 'user.email' in git.** Click Cancel on the error message </br>
-  > 1. Open the Terminal in VS Code
+  > 1. Open the Terminal in VSCode
   > 2. Run the following commands, **filling in your own name and email address**
   ><br/>
   >git config --global user.name "Your Name" <br/>
