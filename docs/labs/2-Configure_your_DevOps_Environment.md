@@ -49,15 +49,16 @@ Create resource groups,  **SuperchargeSQL-dev** and **SuperchargeSQL-prod** with
    3. Select the **Region**
    4. Click **Review + create**
    5. Click **Create**
+2. Click **Refresh** in the portal to see the new resource group
 
 > #### **PowerShell**
-:bulb: Recommend using **VS Code** for your IDE for PowerShell
+:bulb: Recommend using  the **VS Code** IDE for PowerShell script development
 
 Create **SuperchargeSQL-dev** and **SuperchargeSQL-prod** resource groups with the PowerShell Script below: 
 
 1. Open **VS Code**
 2. Create a new file
-3. Change the default environment to PowerShell. In the bottom corner of **VS Code**, select "Plain Text" and type "PowerShell"
+3. Change the default environment to PowerShell. In the bottom corner of **VS Code**, click on "Plain Text" and type "PowerShell"
 
 ![](./imgs/ps_vscode.jpg)
 
@@ -66,53 +67,45 @@ Create **SuperchargeSQL-dev** and **SuperchargeSQL-prod** resource groups with t
 ```powershell
 
 #You only need to use Login-AzAccount once if you use the same session
+#IMPORTANT: The signin window may show up BEHIND the application. Minimize windows to view the signin window.
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #For 1st script execution update $rg value with: SuperchargeSQL-dev 
 #For 2nd script execution update $rg value with: SuperchargeSQL-prod
 $rg = "<Your Resource Group Name>" 
 
+#You can use the following cmdlet to obtain the region (location)
+#Get-AzLocation
 $location = "<Location>" #Example: eastus2 
-#Note!: To list locations you can run: Get-AzLocation
 
-#Note!: To view your subscription you can run: Get-AzSubscription
+#You can use the following cmdlet to obtain the subscription id
+#Get-AzSubscription
 Select-AzSubscription –Subscription '<Id>'
 
 New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
 
-``` 
-
-:bulb: You can use the following cmdlets to obtain the subscription id and region (location)
-
-```powershell  
-
-Get-AzSubscription #List all available Subscriptions 
-Get-AzLocation #List all locations
-
-``` 
-
-
+```
 
 ### Create Service Principal
 
-:bulb: Perform the tasks below either via the Azure Portal or PowerShell. If using PowerShell we recommend using a PowerShell file in VS Code. You can use the same VS Code file that was used to create the resources groups. </br>
+> Perform the tasks below either via the **Portal** or **PowerShell**. </br>
 
-:bulb: To keep the lab less complex we are only going to use one Service Principle. In typical dev, test, staging and prod environments you may have a Service Principle for each.
+:bulb: This lab uses one Service Principal. Typically, a Service Principal is used for each environment: Development, Staging, Production. 
 
 > #### **Portal**
 
 1. Login to **https://portal.azure.com**
-2. Select **Azure Active Directory** from the main menu </br>
+2. Select **Azure Active Directory** from the main menu (If Active Directory is not visible, go to **More Services**)</br>
 ![](./imgs/ad.jpg)
 
 3. Select the **App Registrations** blade
 4. Select **+ New registration**
-   1. Enter the **Name**: **\<your alias>-SuperchargeSQL-SP** 
+   1. Enter the **Name**: **\<your alias\>-SuperchargeSQL-SP** 
    1. Leave the defaults
    1. Click **Register**
 
-On the **App Registrations > <Your App Name>** blade
+On the **App Registrations > (Your App Name)** blade
  
  1. Select the **Certificates & secrets** blade
 	   1. Select the **+ New client secret** 
@@ -120,36 +113,39 @@ On the **App Registrations > <Your App Name>** blade
 	   1. Click **Add**
 	   1. Copy the **Value**
 
-:exclamation: Be sure to save the secret somewhere for use later on, you can only view it upon creation. You will need to generate a new one if you lose it or it expires. We recommend using the portal steps to generate a new client secret.
+:exclamation: Copy the new client secret value and Application Id(Overview blade). You won't be able to retrieve it after you perform another operation or leave this blade. Generate a new secret if it is lost it or expires. We recommend using the portal steps to generate a new client secret.
 
 > #### **PowerShell**
 
 :bulb: Use the below PowerShell script in a PowerShell file with **VS Code**, make sure to update the parameter values.
 
-```powershell  
+```powershell 
 
-> *Note:* you only need to use Login-AzAccount once if you use the same session
+#You only need to use Login-AzAccount once if you use the same session
+#IMPORTANT: The signin window may show up BEHIND the application. 
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
-#Note!: To view your subscription you can run: Get-AzSubscription
+#You can use the following cmdlet to obtain the subscription id
+#Get-AzSubscription
 Select-AzSubscription –Subscription '<Id>'
 
 
-$spName  = '<your alias>-SuperchargeSQL-SP'
+$spName  = '(your alias)-SuperchargeSQL-SP'
 $id = (New-Guid).Guid
-$pass = (New-Guid).Guid
+$secret = (New-Guid).Guid
 
 $cred = New-Object Microsoft.Azure.Commands.ActiveDirectory.PSADPasswordCredential
 $cred.StartDate = Get-Date
 $cred.EndDate = (Get-Date).AddYears(1)
 $cred.KeyId = $id
-$cred.Password = $pass
+$cred.Password = $secret
 New-AzADServicePrincipal -DisplayName $spName -PasswordCredential $cred
 
-$pass  #Note!: make sure to save off the value for $pass, it will be used later
+#IMPORTANT: Save the value for $secret, it will be used later
+$secret 
 ``` 
 
-:exclamation: Copy and save the Service Principal Name, ApplicationId and the Key which is the value from the $pass variable. Be sure to save these values as they will be used later.  **The secret can only be viewed at creation.**  If you do not save it you will need to create a new secret later. 
+:exclamation: Copy and save the Service Principal Name, Application Id and Secret. You won't be able to retrieve it after you perform another operation or leave this blade. Generate a new secret if it is lost it or expires. We recommend using the portal steps to generate a new client secret.
 
 
 ## <div style="color: #107c10">Exercise - Setup Permissions</div>
