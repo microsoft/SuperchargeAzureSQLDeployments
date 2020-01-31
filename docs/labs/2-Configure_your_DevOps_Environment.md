@@ -79,7 +79,7 @@ $location = "<Location>" #Example: eastus2
 
 #You can use the following cmdlet to obtain the subscription id
 #Get-AzSubscription
-Select-AzSubscription –Subscription '<Id>'
+Select-AzSubscription –Subscription "<Id>"
 
 New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
@@ -94,7 +94,7 @@ Get-AzResourceGroup -Name $rg
 > #### **Portal**
 
 1. Login to **https://portal.azure.com**
-2. Select **Azure Active Directory** from the main menu or from **More Services**</br>
+2. Select **Azure Active Directory** from the main menu or from **More Services**
 ![](./imgs/ad.jpg)
 
 3. Select the **App Registrations** blade
@@ -103,7 +103,7 @@ Get-AzResourceGroup -Name $rg
    1. Leave the defaults
    1. Click **Register**
 
-On the **App Registrations > (Your App Name)** blade
+On the **App Registrations - (Your App Name)** blade
   1. Select the **Certificates & secrets** blade
 	   1. Select the **+ New client secret** 
 	   1. Enter the **Description**
