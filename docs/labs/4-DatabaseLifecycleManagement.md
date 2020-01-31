@@ -70,7 +70,45 @@ In this exercise you are going to review a database project for a simple databas
 ![](./imgs/ssdt-tablescript.png)
 
 7. Close **dim.Attendee.sql**
-8. 
+8. Right click on **dim.Attendee.sql** > Hover over Refactor
+
+![](./imgs/ssdt-refactor1.png)
+
+9. Note the options you can use to refractor your scripts
+10. Click on **Fully-qualify Names..**
+11. Review how this option can quickly refactor your script to use *Fully Qualified Names*
+12. Click **Cancel**
+
+![](./imgs/ssdt-refactor2.png)
+
+13. From the main Visual Studio menu bar click **View** > **SQL Server Object Explorer**
+
+![](./imgs/ssdt-sqlexplorer.png)
+
+14. Expand **Projects - trainingDW** > **Tables** > Right click on: **dim.Attendee**
+15. Hover over **Refactor**
+16. Notice you have additional refactoring options
+    1.  Feel free to click through each to see how they work (**do not apply the changes**)
+
+![](./imgs/ssdt-refactor3.png)
+
+17. Close any open windows
+18. Open file: **trainingDW.refactorlog** from **Solution Explorer**
+    1.  Note that all refactored changes are logged and can be reviewed. This is a nice option to have if you need to check what changed in your database quickly from the last deployment.
+    2.  Close **trainingDW.refactorlog**
+
+### Build your database project
+
+1. From the **Solution Explorer** right click on **trainingDW** > Click on **Build**
+
+![](./imgs/ssdt-build.png)
+
+2. Expected Result
+
+
+
+
+   
 
 
 

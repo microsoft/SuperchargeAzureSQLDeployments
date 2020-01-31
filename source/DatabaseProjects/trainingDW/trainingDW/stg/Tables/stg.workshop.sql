@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [stg].[workshop]
 (
+    RowId int NOT NULL IDENTITY (1, 1) PRIMARY KEY CLUSTERED,
 	[MIPName] VARCHAR(75) NULL, 
 	[MIPType] VARCHAR(30) NULL,
     [StartDeliveryDate] DATE NULL, 
