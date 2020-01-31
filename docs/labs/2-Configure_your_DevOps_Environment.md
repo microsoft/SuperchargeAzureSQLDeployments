@@ -220,8 +220,8 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 ## Branching
 There are many options for a branching strategy and Git gives you the flexibility in how you use version control to share and manage code.  It's an important part of DevOps and your strategy is something that your team should come up with.  For more information about branching strategies please review [Adopt a Git branching stategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops) docs page. For this workshop we are going to work with just a *dev* and *master* branch.
 
-1. Click on Repos to expand the **Repos** sub menu
-2. Click on sub menu **Branches**</br>
+1. Click on Repos to expand the **Repos** submenu
+2. Click on submenu **Branches**</br>
      *Notice that your Repo only has a **master** branch, by default new Git Repos only have a **master** branch*</br>
 
 ![](./imgs/ReposBranchs.png)
@@ -265,7 +265,7 @@ There are many options for a branching strategy and Git gives you the flexibilit
 
 Enter the following:
 
-1. Enter **Service connection name**: \Supercharge SQL Service Connection
+1. Enter **Service connection name**: Supercharge SQL Service Connection
 2. Select Environment
 3. Select Scope level **Subscription**
 4. Enter **Subscription Id**</br>
@@ -303,11 +303,11 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/CloneCopy.png)
 
-2. Back in VS Code hit the F1 key to open the command pallet
+2. Back in VS Code hit the **F1** key to open the command pallet
 3. Type **Git: Clone** and hit enter
 4. Paste the Repository URL for your Azure DevOps Repo
 5. Navigate to your **C:\\** drive
-6. CLick **Select Repository Location**
+6. Click **Select Repository Location**
    1.  You may be asked to provide your Microsoft account
    2.  Use your Microsoft account used to login to Azure DevOps
 7.  Using windows explore navigate to the the **source** directory in the cloned GitHub repo
@@ -330,7 +330,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 3. Click on the Git icon from the left side menu
    1. Notice that is shows a number on the icon
    2. This is the number file files that have not been committed to your local Git repository for your Azure DevOps project
-4. Make sure your our working off of the Dev branch
+4. Make sure your are working off of the Dev branch
    1. Click on **master** from the bottom left of VS Code</br>
 
 ![](./imgs/master.png)
