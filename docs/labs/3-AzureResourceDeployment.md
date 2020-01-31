@@ -308,7 +308,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 :bulb: You now have built and setup a working Continuous Integrations pipeline for your Azure Resources in your dev branch.  This will be a CI pipeline used when developing and updating your ARM templates.  
 
-### Testing Dev Azure Resource CI pipeline
+### Testing Dev Azure Resource CI Pipeline
 
 1. Click on Pipelines
 2. Hover over your pipeline to expose and click on the ellipses
@@ -482,7 +482,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 1. Add a New Azure resource group deployment task configured with the following:
    1. Display name: **Azure Deployment: SQL Database**
-   2. Update: **Azure subscription, Action, Resource group, Location, Template location** to match the same as the pervious Azure RG Deployment tasks
+   2. Update: **Azure subscription, Action, Resource group, Location, Template location** to match the same as the previous Azure RG Deployment tasks
    3. Template:
    
     >**$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/sql_db.json** 
@@ -537,7 +537,7 @@ Write-Host "##vso[task.setvariable variable=sql.Pass;issecret=true]$sqlAdminPass
 ```
    4. Arguments:
 
-> -ARMOutput '$(sql.Output)'
+``` -ARMOutput '$(sql.Output)' ```
 
    5. Click **Save** (Comment is optional) > **OK**
 
