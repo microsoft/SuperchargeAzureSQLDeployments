@@ -26,6 +26,11 @@ This module is designed to build upon the skills you have learned thus far, and 
 - [Build your database project](/docs/labs/4-DatabaseLifecycleManagement.md#build-your-database-project)
 - [Load data to your local DB](/docs/labs/4-DatabaseLifecycleManagement.md#load-data-your-local-db)
 - [Dev Database build pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
+- Dev Database Release Pipeline (CD)
+- Unit Testing
+- Dev, Test, Prod Pipeline
+- sqlpackage.exe
+
 
 [comment]: <> (Main Exercise format) 
 ## <div style="color: #107c10">Exercise - Review SSDT database project</div>
