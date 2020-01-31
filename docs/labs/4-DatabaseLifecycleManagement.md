@@ -105,15 +105,151 @@ In this exercise you are going to review a database project for a simple databas
 
 2. Expected Result
 
+![](./imgs/ssdt-build-result.png)
 
+:exclamation: In order to deploy database projects it has to be able to build.  When the project builds it generates a **dacpac** which is used by sqlpackage.exe to deploy schema.  
 
+3. User the **SQL Server Object Explorer** expand **SQL Server** > (localdb)\ProjectsV13... > **Databasses**
+4. After a successfully **build** you will have a local version of your database which you can use for local testing.
 
-   
+![](./imgs/ssdt-localdb.png)
 
+5. Expand **trainingDW** > **Tables**
+   1. Notice there are no tables or any schema in this local version.
+   2. The build process only creates a blank database
+6. From the **Solution Explorer** > Right click on **trainingDW** > **Schema Compare...**
+7. Your source should be pre-populated with the DB project
+8. Click on the drop down arrow next to ***Select Target*** > **Select Target**
 
+![](./imgs/ssdt-compare-target.png)
 
+9. Select Target Schema > Database: > Select Connection
 
+![](./imgs/ssdt-select-target.png)
 
+10. Click on the **Browse** Tab
+11. Expand **Local** > **ProjectsV13**
+12. Set Database Name: **trainingDW**
+13. Click **Connect**
+
+![](./imgs/ssdt-localdb-connection.png)
+
+13. Click **OK** on **Select Target Schema** window
+14. Click on the **Gear** icon from the Compare menu
+
+![](./imgs/ssdt-compare-gear.png)
+
+15. Clink on the **General** and **Object Types** tabs and review the options you can enable/disable for your schema compare.
+16. Leave all values default > Click **Cancel**
+17. Click **Compare** 
+18. Review results
+19. Click the **Update** button > **Yes**
+20. From **SQL Server Object Explorer** review the **trainingDW**
+    1.  Notice that now all of your schema changes from your DB project is updated in your local version of **trainingDW**
+    2.  This is a light weight way to test your development before committing changes to Git and pushing to Azure DevOps
+21. Close **SQLSchemaCompare** > **Don't Save**
+
+### Load data your local DB
+
+1. From **Solution Explore** 
+2. Expand the **Scripts** folder > dbl Click on **LoadDateDim.sql**
+3. Notice you are connected to the local copy of **trainingDW**
+
+![](./imgs/ssdt-load-data.png)
+
+4. Execute script
+  
+![](./imgs/ssdt-execute-script.png)
+
+5. Close **LoadDateDim.sql**
+6. From **SQL Server Object Explorer** > right click on **trainingDW** > **New Query**
+
+![](./imgs/ssdt-localdb-query.png)
+
+7. Execute the below T-SQL to test that your script loaded the dim.date
+  
+  ```T-SQL
+
+  Select count(*) as dimDateCount From dim.Date
+
+  Select top 10 * From dim.Date
+
+  ```
+
+:bulb: This is a easy way to test scripts locally before you deploy changes to your Azure dev environment.
+
+1. Close **SQLQuery1.sql** > **Don't Save**
+
+## <div style="color: #107c10">Exercise - Dev Database Build Pipeline (CI)</div>
+
+1. Using a browser navigate to your Azure DevOps project
+2. Navigate to**Pipelines** > **Pipelines**
+3. Click the **New pipeline** button
+4. Click on **Use the classic editor**
+5. Select a source: **Azure Repos Git**
+6. Set **Default branch for manual and scheduled builds** to **dev**
+7. Click **Continue**
+8. Click **Empty job**
+9. Name: **Dev - Azure SQL Deployments-CI**
+
+![](./imgs/db-dev-ci.png)
+
+10. Click on the Agent job 1 and update the following setting:
+    1. Display name: **Build trainingDW database**
+11. Click on the **+** icon to add a new task
+    1.  Search for: **Visual Studio build**
+    2.  Click the **Add** button on the Visual Studio build
+
+![](./imgs/db-dev-vsbuild.png)
+
+12. Click on the newly added **Visual Studio build** task and update the following settings:
+    1. Display name: **Build solution trainingDW/trainingDW.sln**
+    2. Solution: **DatabaseProjects/trainingDW/trainingDW.sln**
+    3. Platform: **$(BuildPlatform)**
+    4. Configuration: **$(BuildConfiguration)**
+    5. Check mark **Clean**
+
+13. Click on the **+** icon to add a new task
+    1.  Search for: **Publish build artifacts**
+    2.  Click **Add**
+
+![](./imgs/db-dev-ci-publisharts.png)
+
+14. Click on the newly added **Publish build artifacts** task and update the following settings:
+    1.  Display name: **Publish Artifact: trainingDW-drop**
+    2.  Path to publish: **DatabaseProjects**
+    3.  Artifact name: **trainingDW**
+15. Click on **Variables** > add the following:
+    1.  **BuildConfiguration**: **release**
+    2.  **BuildPlatform**: **any cpu**
+
+![](./imgs/db-dev-build-vars.png)
+
+16. Click **Triggers** to configure continuos integration
+    1.  Enable continuous integration
+    2.  Branch filter: **dev**
+    3.  Add Path filter: **Include**: **DatabaseProjects**
+    4.  Add Path filter: **Exclude**: **Deployments**
+
+![](./igs/../imgs/db-dev-triggers.png)
+
+:bulb: The include and exclude filters set to make sure that continuous integration only kicks off when there has been changes committed for the database project.
+
+17. Click **Options**
+18. Update Build number format to:
+> \$(date:yyyyMMdd)_\$(BuildDefinitionName)_\$(SourceBranchName)\$(rev:.r)
+
+19. Click **Save & queue** > **Save** (Comment optional) > **Save**
+20. Click **Queue** > **Run**
+21. Click into **Build trainingDW database** in the jobs section to view the status of your build
+
+**Expected result**
+
+![](./imgs/db-dev-build.png)
+
+**You now have a working CI Pipeline to build your SSDT Database project**
+
+## <div style="color: #107c10">Exercise - Dev Database Release Pipeline (CD)</div>
 
 ___     
 - [Next Lab](/docs/labs/{enter next labe .md})

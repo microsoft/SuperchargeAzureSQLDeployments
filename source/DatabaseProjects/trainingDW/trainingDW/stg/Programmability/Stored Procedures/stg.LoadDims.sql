@@ -23,6 +23,6 @@ Select
 	getdate() as UpdateDate
 
 From stg.workshop w
-Left Join dim.Attendee a on a.FirstName + ' ' + a.LastName = trim(w.Attendee)
+Left Join dim.Attendee a on a.FirstName + ' ' + a.LastName = ltrim(w.Attendee)
 Where a.AttendeeId is null
 

@@ -1,19 +1,8 @@
-﻿/*
-This script was created by Visual Studio on 7/5/2019 at 2:45 PM.
-Run this script on dw-sqlsrv.database.usgovcloudapi.net.trainingDW (garofalofj@dosdev.us) to make it the same as (localdb)\ProjectsV13.trainingDW (DESKTOP-725GDF3\fgarofalo).
-This script performs its actions in the following order:
-1. Disable foreign-key constraints.
-2. Perform DELETE commands. 
-3. Perform UPDATE commands.
-4. Perform INSERT commands.
-5. Re-enable foreign-key constraints.
-Please back up your target database before running this script.
-*/
-SET NUMERIC_ROUNDABORT OFF
+﻿SET NUMERIC_ROUNDABORT OFF
 GO
 SET XACT_ABORT, ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-/*Pointer used for text / image updates. This might not be needed, but is declared here just in case*/
+
 DECLARE @pv binary(16)
 BEGIN TRANSACTION
 SET IDENTITY_INSERT [dim].[Date] ON
