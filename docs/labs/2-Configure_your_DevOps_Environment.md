@@ -105,7 +105,7 @@ Get-AzResourceGroup -Name $rg
    1. Leave the defaults
    1. Click **Register**
 
-On the **App Registrations > (Your App Name)** blade
+On the **App Registrations - (Your App Name)** blade
  
  1. Select the **Certificates & secrets** blade
 	   1. Select the **+ New client secret** 
