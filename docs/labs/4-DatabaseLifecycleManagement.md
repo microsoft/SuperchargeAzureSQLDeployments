@@ -353,7 +353,7 @@ In this exercise you are going to review a database project for a simple demo st
 8. Deployment type: **SQL DACPAC File**
 9. Action: **Deploy Report**
 
-:bulb: Note that you are creating a deployment report with this task.  This gives you a report of what will change in your database. It can be used for change tracking, deployment approval, ect.
+:bulb: Note that you are creating a deployment report with this task.  **Deploy Report** creates an XML report of the changes that would be made by a publish action. This can be used for change tracking, deployment approval, ect.
 
 10. DACPAC File:
 
