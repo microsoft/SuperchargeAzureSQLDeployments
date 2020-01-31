@@ -116,9 +116,9 @@ Test-AzResourceGroupDeployment @params
 Expended Result
 > VERBOSE: time ran - Template is valid.
 
-:bulb: To execute specific lines of code: In **VS Code** highlight the lines of code and *Right-click*, then select **Run Selection** or *(F8)*. 
+:bulb: To execute specific lines of code: In **VS Code**, highlight the lines of code and *Right-click*, then select **Run Selection** or *(F8)*. 
 
-4. Run the following to deploy your ARM template with PowerShell(~3 mins)
+4. Run the following to deploy your ARM template with PowerShell (~3 mins)
    
 ```PowerShell
 $params = @{
@@ -269,7 +269,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 26. Select **Save**
 27. Click **Save** on the comment window (entering a comment here is optional)
 
-### Configure dev continuous integration
+### Configure Dev Continuous Integration
 
 1. Click on **Triggers** on the top menu of your build pipeline.
 2. Check mark **Enable continuous integration** to automate your build
@@ -299,16 +299,16 @@ In this exercise you will walk through all of the steps needed to create the Con
    2. **Build number format**:
 
     ```
-    $(date:yyyyMMdd)_\$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
+    $(date:yyyyMMdd)_$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
     ```
 
 10. Click the drop down arrow next to **Save & queue**
 11. Select **Save**
 12. Click **Save** on the comment window (entering a comment here is optional)
 
-:bulb: You now have built and setup a working Continuos integrations pipeline for your Azure Resources in your dev branch.  This will be a CI pipeline used when developing and updating your ARM templates.  
+:bulb: You now have built and setup a working Continuous Integrations pipeline for your Azure Resources in your dev branch.  This will be a CI pipeline used when developing and updating your ARM templates.  
 
-### Testing dev Azure Resource CI pipeline
+### Testing Dev Azure Resource CI Pipeline
 
 1. Click on Pipelines
 2. Hover over your pipeline to expose and click on the ellipses
@@ -346,7 +346,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 3. Set **Stage name**: ***Dev: Az Resource Deployment***
 4. Click on the **X** to close Stage settings
-5. Click on **New Release pipeline** to rename it to: **dev-AzureResouces-CD**
+5. Click on the name **New Release pipeline** to rename it to: **dev-AzureResources-CD**
 6. Click on **+ Add** on Artifacts
    1. Source type:  **Build**
    2. Project: **SuperchargeSQLDeployments** *(the name of your DevOps Project)*
@@ -356,19 +356,20 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 ![](./imgs/cd-artifacts.png)
 
-5. Click on the **Lighting bolt** icon of Artifacts
+5. Click on the **lighting bolt** icon on the Artifacts
 6. **Continuous deployment trigger** flip the switch to **Enabled** </br>
 
-:bulb: Note that this setting is what is used to enable the automation for Continuous deployment.  Which is triggered from a successful build.
+:bulb: Note that this setting is what is used to enable the automation for Continuous Deployment.  Which is triggered from a successful build.
 
 7. **Build branch filters** click **+ Add**
 8. Set build branch to **dev**
+9. Click **Save** and close
 
 ![](./imgs/cd-trigger.png)
 
 9.  Click on **1 job, 0 task** in the Stages section of your release
 10. Click on the **+** button on Agent job
-11. Add the **Azure resource group deploymnet** task
+11. Add the **Azure resource group deployment** task
 12. Once added click on the task to configure with these settings:
     1.  Display name: **Clear Resource Group**
     2. Select **Azure subscription** - You should see your Azure Service Connection that you setup earlier when configuring your DevOps environment.
@@ -386,7 +387,7 @@ In this exercise you will walk through all of the steps needed to create the Con
     10. Deployment mode: **Complete** you will deploy this empty template in Complete mode to clear out your resource group.
     11. Expand **Control Option**
     12. Set **Run this task** to: **Custom conditions**
-    13. Set **Custom condition** to: eq(variables['clearResources'], 'yes')
+    13. Set **Custom condition** to: ```eq(variables['clearResources'], 'yes')```
         * Using a variable to set when/if to clear Resource Group
     14. Click **Save** (Comment is optional) > **OK**
 
@@ -395,7 +396,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 1. Add a New Azure resource group deployment task configured with the following:
   
     1. Display name: **Azure Deployment: Key Vault**
-    2. Update:  **Azure subscription, Action, Resource group, Location, Template location** to match the same as the pervious Azure RG Deployment task
+    2. Update:  **Azure subscription, Action, Resource group, Location, Template location** to match the same as the previous Azure RG Deployment task
     3. Template: 
     
     >**$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/KeyVault.json** 
@@ -481,7 +482,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 1. Add a New Azure resource group deployment task configured with the following:
    1. Display name: **Azure Deployment: SQL Database**
-   2. Update: **Azure subscription, Action, Resource group, Location, Template location** to match the same as the pervious Azure RG Deployment tasks
+   2. Update: **Azure subscription, Action, Resource group, Location, Template location** to match the same as the previous Azure RG Deployment tasks
    3. Template:
    
     >**$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/sql_db.json** 
@@ -493,7 +494,7 @@ In this exercise you will walk through all of the steps needed to create the Con
             
    5. Override template parameters:
 
-   > -serverName "\$(sql.serverName)-$(rEnv)"
+   ``` -serverName "$(sql.serverName)-$(rEnv)" ```
 
    6. Deployment mode: **Incremental**
    7. Deployment outputs: **sql.Output**
@@ -536,7 +537,7 @@ Write-Host "##vso[task.setvariable variable=sql.Pass;issecret=true]$sqlAdminPass
 ```
    4. Arguments:
 
-> -ARMOutput '$(sql.Output)'
+``` -ARMOutput '$(sql.Output)' ```
 
    5. Click **Save** (Comment is optional) > **OK**
 
@@ -553,7 +554,7 @@ Write-Host "##vso[task.setvariable variable=sql.Pass;issecret=true]$sqlAdminPass
    1. Task version: **4.\***
    2. Display name: **Key Vault write Resource Keys**
    3. Azure Connection Type: **Azure Resource Manager**
-   4. Azure Subscription: **Set this to your Service Connection** (perviously setup in Configuring your DevOps Environment lab)
+   4. Azure Subscription: **Set this to your Service Connection** (previously setup in Configuring your DevOps Environment lab)
    5. Script Type: **Script File Path**
    6. Script Path:
 
@@ -587,13 +588,14 @@ ForEach($Key in $kvSecrets.Keys){
     }
     
 ```
-   7. Script Arguments:
+   7. Enter the **Script Arguments**:
 
-> -kVaultName "\$(keyvault.VaultName)-\$(rEnv)"</br>
-> -ResourceGroup \$(ResourceGroup)$(rEnv)</br>
-> -adminLogin $(sql.Login)</br>
-> -adminPass $(sql.Pass)</br>
-
+```
+-kVaultName "\$(keyvault.VaultName)-\$(rEnv)"</br>
+-ResourceGroup \$(ResourceGroup)$(rEnv)</br>
+-adminLogin $(sql.Login)</br>
+-adminPass $(sql.Pass)</br>
+```
    8. Azure PowerShell Version: **Latest installed version**
    9. Click **Save** (Comment is optional) > **OK** </br>
 
@@ -650,7 +652,6 @@ $sp = Get-AzADServicePrincipal -DisplayName '<use your Service Principle Name>'
 
 $sp.Id
 ```
-
 
 11. Click **Save**
 12. Your **Variable group** should look similar to this:
