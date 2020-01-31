@@ -14,19 +14,19 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
  **Summary**
   * [Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
-  * [Build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
-    * [Configure the continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-the-continuos-integration-on-the-build-pipeline)
-    * [Testing Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-azure-resource-ci-pipeline)
-  * [Build release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---release-pipeline-cd)
+  * [Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
+    * [Configure dev continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-the-continuos-integration-on-the-build-pipeline)
+    * [Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-azure-resource-ci-pipeline)
+  * [Build dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---release-pipeline-cd)
     * [Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
     * [Configure SQL DB deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-sql-db-deployment-task)
     * [Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
     * [Configure Azure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-azure-powershell-task)
   * [Configure prod CI/CD pipelines](/docs/labs/3-AzureResourceDeployment.md#exercise---configure-prod-cicd-pipelines)
-    * [Create & configure Prod build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-build-pipeline-ci)
-    * [Create & configure Prod release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-release-pipeline-cd)
+    * [Create & configure prod build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-build-pipeline-ci)
+    * [Create & configure prod release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-release-pipeline-cd)
   * [Pull request](/docs/labs/3-AzureResourceDeployment.md#exercise---pull-request)
-    * [Review Prod CI/CD](/docs/labs/3-AzureResourceDeployment.md#review-prod-cicd)
+    * [Review prod CI/CD](/docs/labs/3-AzureResourceDeployment.md#review-prod-cicd)
 
 ## <div style="color: #107c10">Exercise - Advanced ARM template</div>
 
@@ -150,7 +150,7 @@ Get-AzResource -ResourceGroupName "<enter your RG name>" | Format-Table
 2. **Stage** & **Commit** any changes to your repo
 3. **Sync** or **Push** your changes to your remote branch (Azure DevOps Repo)
 
-## <div style="color: #107c10">Exercise - Build Pipeline (CI)</div>
+## <div style="color: #107c10">Exercise - Build Dev Pipeline (CI)</div>
 
 In this exercise you will walk through all of the steps needed to create the Continuous integration (CI) portion of your Azure Resource deployment. This step is called the build process.  You will test that your ARM template build correctly.
 
@@ -301,7 +301,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 :bulb: You now have built and setup a working Continuos integrations pipeline for your Azure Resources in your dev branch.  This will be a CI pipeline used when developing and updating your ARM templates.  
 
-### Testing Azure Resource CI pipeline
+### Testing dev Azure Resource CI pipeline
 
 1. Click on Pipelines
 2. Hover over your pipeline to expose and click on the ellipses
@@ -326,7 +326,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 10. You now have published artifacts that can be used in your dev continuous deployment (CD) (dev Release pipeline)
 
-## <div style="color: #107c10">Exercise - Release Pipeline (CD)</div>
+## <div style="color: #107c10">Exercise - Dev Release Pipeline (CD)</div>
 In this exercise you will walk through all of the steps needed to create the Continuous Deployment (CD) portion of your Azure Resource deployment.  This step is called the **Release**.  The release will be triggered from a successful build pipeline.
 
 1. Inside of your Azure DevOps Project click on **Pipelines** > **Release** > **New Pipeline** button.
