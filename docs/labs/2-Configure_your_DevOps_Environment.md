@@ -65,7 +65,6 @@ Create **SuperchargeSQL-dev** and **SuperchargeSQL-prod** resource groups with t
 :exclamation: Execute the script below for each resource group
 
 ```powershell
-
 #You only need to use Login-AzAccount once if you use the same session
 #IMPORTANT: The signin window may show up BEHIND the application. Minimize windows to view the signin window.
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
@@ -119,7 +118,6 @@ On the **App Registrations > (Your App Name)** blade
 
 
 ```powershell 
-
 #You only need to use Login-AzAccount once if you use the same session
 #IMPORTANT: The signin window may show up BEHIND the application. 
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
