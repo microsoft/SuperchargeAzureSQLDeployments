@@ -63,7 +63,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
 2. Enter name for **serverName**, line **27**
    1. The server name needs to be globally unique
-   2. Recommend using: **\<alias>-sqlsrv-dev** (ie jdoe-sqlsrv-dev) </br>
+   2. Recommend using: **{alias}-sqlsrv-dev** (ie jdoe-sqlsrv-dev) </br>
 
 ![](./imgs/srvName.png)
 
