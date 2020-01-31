@@ -308,7 +308,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 :bulb: You now have built and setup a working Continuous Integrations pipeline for your Azure Resources in your dev branch.  This will be a CI pipeline used when developing and updating your ARM templates.  
 
-### Testing dev Azure Resource CI pipeline
+### Testing Dev Azure Resource CI pipeline
 
 1. Click on Pipelines
 2. Hover over your pipeline to expose and click on the ellipses
@@ -396,7 +396,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 1. Add a New Azure resource group deployment task configured with the following:
   
     1. Display name: **Azure Deployment: Key Vault**
-    2. Update:  **Azure subscription, Action, Resource group, Location, Template location** to match the same as the pervious Azure RG Deployment task
+    2. Update:  **Azure subscription, Action, Resource group, Location, Template location** to match the same as the previous Azure RG Deployment task
     3. Template: 
     
     >**$(System.DefaultWorkingDirectory)/_Dev - Azure Resources-CI/Azure Resources/ARM/templates/KeyVault.json** 
@@ -494,7 +494,7 @@ In this exercise you will walk through all of the steps needed to create the Con
             
    5. Override template parameters:
 
-   > -serverName "\$(sql.serverName)-$(rEnv)"
+   ``` -serverName "$(sql.serverName)-$(rEnv)" ```
 
    6. Deployment mode: **Incremental**
    7. Deployment outputs: **sql.Output**
