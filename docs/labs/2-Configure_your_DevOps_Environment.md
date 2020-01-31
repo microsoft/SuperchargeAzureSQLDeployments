@@ -79,7 +79,7 @@ $location = "<Location>" #Example: eastus2
 
 #You can use the following cmdlet to obtain the subscription id
 #Get-AzSubscription
-Select-AzSubscription –Subscription "<Id>"
+Select-AzSubscription –Subscription '<Id>'
 
 New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
