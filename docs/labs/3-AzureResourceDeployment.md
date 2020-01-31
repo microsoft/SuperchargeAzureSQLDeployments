@@ -15,9 +15,9 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
  **Summary**
   * [Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
   * [Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
-    * [Configure dev continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-the-continuos-integration-on-the-build-pipeline)
-    * [Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-azure-resource-ci-pipeline)
-  * [Build dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
+    * [Configure dev continuos integration](docs/labs/3-AzureResourceDeployment.md#configure-dev-continuos-integration)
+    * [Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-dev-azure-resource-ci-pipeline)
+  * [Dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
     * [Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
     * [Configure SQL DB deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-sql-db-deployment-task)
     * [Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
