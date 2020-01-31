@@ -5,34 +5,38 @@
 
 [comment]: <> (Lab header table provide values for lab)
 
-| Lab Description:            | This lab covers all the steps needed to deploy Azure Resource with Azure DevOps pipelines.   |
-| :------------               | :--------------              |
+| Lab Description:            | This lab covers database life cycle management.   |
+| :------------               | :--------------             |
 | Estimated Time to Complete: | 60                          |
-| Key Takeaways:              |By the end of this lab, you should have an understanding of: SSDT DB Projects, How create build and release pipelines to deploy schema changes, Database Unit Testing, and leverage the power of sqlpackage.exe    |
-| Author(s):                     | Frank Garofalo             |
+| Key Takeaways:              |By the end of this lab, you should understand how to implement database life cycle management. Having a good grasp on the key princples of DLM:|
+|                              |SSDT Database projects |
+|                              |Create & configure build & release pipelines (CI/CD) for database change management |
+|                              |Unit testing |
+|                              |Leverage the power of sqlpackage.exe|
+| Author(s):                    | Frank Garofalo             |
 
 [comment]: <> (Write up purpose for this lab, provide some info on the what and why) 
 ### Purpose
 
-The purpose of this lab is to take the skils you have learned so far and apply them to Database life cycle management (DLM). This lab walks you through the concepts of a database project in Visual Studio, how to setup and use a CI/CD process for rapid development, unit testing and change control.  
+This module is designed to build upon the skills you have learned thus far, and apply them to Database life cycle management (DLM). It walks through all of the core concept of DLM, providing you will a full working DLM POC. 
 
  **Summary**
 - [Initial SSDT project setup](/docs/labs/4-DatabaseLifecycleManagement.md#initial-ssdt-project-setup)
 - [Get to know SSDT database projects](/docs/labs/4-DatabaseLifecycleManagement.md#get-to-know-ssdt-database-projects)
 - [Build your database project](/docs/labs/4-DatabaseLifecycleManagement.md#build-your-database-project)
-- [Load data your local DB](/docs/labs/4-DatabaseLifecycleManagement.md#load-data-your-local-db)
-- [Dev Database Build Pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
+- [Load data to your local DB](/docs/labs/4-DatabaseLifecycleManagement.md#load-data-your-local-db)
+- [Dev Database build pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
 
 [comment]: <> (Main Exercise format) 
 ## <div style="color: #107c10">Exercise - Review SSDT database project</div>
 
-In this exercise you are going to review a database project for a simple database.  
+In this exercise you are going to review a database project for a simple demo style database.
 
 ### Initial SSDT project setup
  
 1. Launch Visual Studio 2019
-   1. If this is the first time launching Visual Studio it may ask you to sign in. If you have an MSDN account we recommend signing in. If not feel free to select *Not now, maybe later.* 
-   2. You may also be asked pick development Settings and a color theme.  We recommend General and the theme of your choice. 
+   1. If this is the first time launching Visual Studio it may ask you to sign in. If you have an MSDN account we recommend signing in. If not, feel free to select *Not now, maybe later.* 
+   2. You maybe asked select the development Settings, and a color theme.  We recommend General, and the theme of your choice. 
 2. Click on **Open a project or solution**
 3. Navigate to: **C:\SuperchargeSQLDeployments\DatabaseProjects\trainingDW**
 4. Select the solution file: **trainingDW.sln**
@@ -45,7 +49,7 @@ In this exercise you are going to review a database project for a simple databas
 
 ![](./imgs/ssdt-dev.png)
 
-:bulb: Just like in VS Code you want to be developing and editing in your **dev** branch.  **Master** only gets updated from pull requests.
+:bulb: Just like in VS Code you will want to develop & edit in the **dev** branch.  **Master** is configured only to be updated from pull requests.
 
 ### Get to know SSDT database projects
 1. In the **Solution Explorer** right click on **trainingDW** > **Properties**
