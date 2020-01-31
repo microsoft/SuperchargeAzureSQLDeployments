@@ -87,7 +87,7 @@ Get-AzResourceGroup -Name $rg
 
 ### Create Service Principal
 
-> Perform the tasks below either via the **Portal** or **PowerShell**. </br>
+> Perform the tasks below either via the **Portal** or **PowerShell**.
 
 :bulb: This lab uses one Service Principal. Typically, a Service Principal is used for each environment: Development, Staging, Production. 
 
@@ -149,14 +149,11 @@ $secret
 
 ### Access Control (IAM) for the Resource Group(s)
 
-```powershell
-# Perform the tasks below either via the Azure Portal or PowerShell via VS Code.
-```
+> Perform the tasks below either via the **Portal** or **PowerShell**.
+
 > #### **Portal**
 
-:exclamation: Do these steps for both of the resource groups you created:  
-
-For each of the resource groups that you created earlier
+:exclamation: Do the following steps for both resource groups created earlier:  
 
 1. Go to the resource group
 2. Click on the **Access control (IAM)** blade
@@ -169,14 +166,16 @@ For each of the resource groups that you created earlier
 
 > #### **PowerShell**
 
-:exclamation:  Use the below PowerShell Script in a PowerShell file in **VS Code**, executing it twice, once for each of your resource group names. Make sure to update the parameter values
+:exclamation:  Use the below PowerShell Script in a PowerShell file in **VS Code**, executing it twice, once for each resource group. Make sure to update the parameter values
 
 ```powershell  
 
-> *Note:* you only need to use Login-AzAccount once if you use the same session
+#You only need to use Login-AzAccount once if you use the same session
+#IMPORTANT: The signin window may show up BEHIND the application. 
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
-#Note!: To view your subscription you can run: Get-AzSubscription
+#You can use the following cmdlet to obtain the subscription id
+#Get-AzSubscription
 Select-AzSubscription –Subscription '<Id>'
 
 #For 1st script execution update $rg value with: SuperchargeSQL-dev 
@@ -198,7 +197,7 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 2. Navigate to Azure DevOps after signing in
 3. Click on **New Organization**
      1. Confirm and Enter an **organization** name
-         *  The organization name is a DNS name therefor it must be globally unique.  
+         *  The organization name is a DNS name therefore it must be globally unique.  
      2. Choose a **Location**
 4. After creation, navigate to your organization **https://dev.azure.com/{yourorganization}**
 
@@ -265,7 +264,7 @@ There are many options for a branching strategy and Git gives you the flexibilit
 
 ![](./imgs/fullserviceconnection.jpg)
 
->  If you do not use the full version, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.  We do not want our service connection to have rights to everything in our subscription.
+>  If you do not use the full version, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.  We do not want our service connection to have full rights in our subscription.
 
 Enter the following:
 
