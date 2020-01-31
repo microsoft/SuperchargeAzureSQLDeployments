@@ -117,7 +117,7 @@ On the **App Registrations > (Your App Name)** blade
 
 > #### **PowerShell**
 
-:bulb: Use the below PowerShell script in a PowerShell file with **VS Code**, make sure to update the parameter values.
+:bulb: Use the below PowerShell script in a PowerShell file with **VS Code**. Make sure to update the parameter values.
 
 ```powershell 
 
@@ -144,7 +144,7 @@ New-AzADServicePrincipal -DisplayName $spName -PasswordCredential $cred
 #IMPORTANT: Save the value for $secret, it will be used later
 $secret 
 
-``` 
+```
 
 :exclamation: Copy and save the Service Principal Name, Application Id and Secret. You won't be able to retrieve it after you perform another operation or leave this blade. Generate a new secret if it is lost it or expires. We recommend using the portal steps to generate a new client secret.
 
@@ -153,7 +153,7 @@ $secret
 
 ### Access Control (IAM) for the Resource Group(s)
 
-```diff 
+```powershell
 # Perform the tasks below either via the Azure Portal or PowerShell via VS Code.
 ```
 > #### **Portal**
