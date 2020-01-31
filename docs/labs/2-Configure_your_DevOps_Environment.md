@@ -274,9 +274,9 @@ Enter the following:
      #Returns Subscription Name, Id, TenantId and State
     ```
 5. Enter **Subscription Name** (Found in Resource Group > Overview blade)
-6. Enter **Service Principal Id** [Value noted earlier](section#create-service-principal)
+6. Enter **Service Principal Id** ([Value noted earlier](#create-service-principal))
 7. Select Credential **Service principal key**
-8. Enter **Service principal key** ([Value noted earlier](section#create-service-principal))
+8. Enter **Service principal key** ([Value noted earlier](#create-service-principal))
 9. Enter **Tenant ID** (Found in Azure Active Directory > properties blade)
 10. Click on **Verify**
 13. Click on **Verify and Safe**
