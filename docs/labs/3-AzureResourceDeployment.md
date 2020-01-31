@@ -17,7 +17,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
   * [Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
     * [Configure dev continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-the-continuos-integration-on-the-build-pipeline)
     * [Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-azure-resource-ci-pipeline)
-  * [Build dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---release-pipeline-cd)
+  * [Build dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
     * [Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
     * [Configure SQL DB deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-sql-db-deployment-task)
     * [Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
@@ -264,7 +264,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 26. Select **Save**
 27. Click **Save** on the comment window (entering a comment here is optional)
 
-### Configure the continuos integration on the build pipeline
+### Configure dev continuos integration
 
 1. Click on **Triggers** on the top menu of your build pipeline.
 2. Check mark **Enable continuous integration** to automate your build

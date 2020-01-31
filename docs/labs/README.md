@@ -24,8 +24,8 @@
    - [2.10. Performing your initial Commit using VS Code](/docs/labs/2-Configure_your_DevOps_Environment.md#performing-your-inital-commit-using-vs-code)
 
 - [3. Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
-  - [3.1. Build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
-    - [3.1.1 Configure the continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-the-continuos-integration-on-the-build-pipeline)
+  - [3.1. Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
+    - [3.1.1 Configure dev continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-the-continuos-integration-on-the-build-pipeline)
     - [3.1.2 Testing Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-azure-resource-ci-pipeline)
   - [3.2 Build release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---release-pipeline-cd)
      - [3.2.1 Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
