@@ -301,7 +301,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 2. Back in VS Code hit the **F1** key to open the command pallet
 3. Type **Git: Clone** and hit enter
-4. Paste the Repository URL for your Azure DevOps Repo
+4. Paste the Repository URL for your Azure DevOps Repo > Press Enter on your keyboard
 5. Navigate to your **C:\\** drive
 6. Click **Select Repository Location**
    1.  You may be asked to provide your Microsoft account
@@ -349,14 +349,18 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 6. Type a message for the initial commit in the **Message** box (ie. initial commit)
 7. Click the Check mark to perform the commit.
-  >If you receive an error message **Make sure you configure your 'user.name' and 'user.email' in git.** Click Cancel on the error message </br>
-  > 1. Open the Terminal in VS Code
-  > 2. Run the following commands, **filling in your own name and email address**
-  ><br/>
-  >git config --global user.name "Your Name" <br/>
-  >git config --global user.email "you@example.com" <br/>
-  >
-  > 3. Run your commit again (Step 6.)
+
+![](./imgs/vscode-check.png)
+
+:exclamation:  If you receive an error message **Make sure you configure your 'user.name' and 'user.email' in git.** Click Cancel on the error message
+
+   - Open the Terminal in VS Code 
+   - Run the following commands, **filling in your own name and email address**
+  
+        > git config --global user.name "Your Name" <br/>
+        > git config --global user.email "you@example.com" <br/>
+
+  - Run your commit again (Step 6.)
 7. You now have commited all of the changes to your local Git Repo, notice that the Git icon in the left side menu does not show any numbers. 
 8. Notice that you have changes to push up to your remote Git repo (Azure DevOps Repo</br>
 
@@ -365,10 +369,21 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 1. Click on the **sync** icon in the bottom left to perform a Git pull & Git push
      * You can also run the following Git command
      >git push
-2.  Using a browser navigate to your Azure DevOps project
-3.  Click on **Repos** > **Files**
-4.  You should now see all of the files in your repo
-    1. You may need to select the ‘dev’ branch to see the new files
+2. You may see a *Visual Studio Code* pop up window that says: *This action will push and pull commits to and from 'origin/dev'.*
+   - Click **OK**
+
+![](./imgs/vscode-sync-message.png)
+
+3. After the push completes you may receive the following message dialog: 
+
+![](./imgs/vs-git-fetch.png)
+
+   - This is an option setting, when working on a team with multiple developers it is recommend to set this to **Yes**
+
+4. Using a browser navigate to your Azure DevOps project
+5. Click on **Repos** > **Files**
+6. You should now see all of the files in your repo
+   1. You may need to select the ‘dev’ branch to see the new files
 
 ![](./imgs/remotefiles.png)
 ___     
