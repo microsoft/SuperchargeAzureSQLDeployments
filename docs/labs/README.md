@@ -28,7 +28,7 @@
   - [3.2. Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
     - [3.2.1 Configure dev continuous integration](/docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
     - [3.2.2 Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-dev-azure-resource-ci-pipeline)
-  - [3.3 Dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---release-pipeline-cd)
+  - [3.3 Dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
      - [3.3.1 Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
      - [3.3.2 Configure SQL DB deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-sql-db-deployment-task)
      - [3.3.3 Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
