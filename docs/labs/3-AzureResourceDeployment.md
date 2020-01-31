@@ -684,7 +684,7 @@ $sp.Id
 
 ## <div style="color: #107c10">Exercise - Configure Prod CI/CD pipelines</div>
 
-:bulb: In this exercise you will walk through the steps to configure your production release pipelines.  Your prod pipeline will use the code from your master branch, require approval to deploy, and can only be run via changes to your **master** branch via **pull request**.
+:bulb: In this exercise you will walk through the steps to configure your production release pipelines both CI and CD.  Your prod release pipeline will use the code from your master branch to deploy to your dev resource group, include a gate that requires approval to deploy to your prod resource group, and can only be run via changes to your **master** branch from **pull requests**. 
 
 ### Create & configure Prod build pipeline (CI)
 
@@ -721,7 +721,7 @@ $sp.Id
 ![](./imgs/cd-artifacts-delete.png)
 
 8. Click **Add an artifact**
-9.  Set **Source (build pipeline)** to: **Prod - Azure Resources-CI**
+9. Set **Source (build pipeline)** to: **Prod - Azure Resources-CI**
 10. Click **Add**
 11. Turn on **Continuous deployment trigger** and added a **Build branch filter** for **master**
     1. Hint: it is the same steps you did for your dev release pipeline
@@ -772,7 +772,7 @@ $sp.Id
 
 23. Click on **Pipeline**
 
-:bulb: At this point your Prod Release pipeline should look like the below. 
+:bulb: At this point your Prod Release pipeline should look like the below. You should have two stages, dev and prod 
 
 ![](./imgs/pr-prod-pipline.png)
 
