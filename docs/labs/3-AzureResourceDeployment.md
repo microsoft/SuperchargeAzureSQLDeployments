@@ -692,7 +692,7 @@ $sp.Id
 2. Click on your pipeline **Dev - Azure Resources-CI**
 3. Click on the ellipses in the top right corner next to the Run pipeline button
 4. Select **clone**
-5. Rename **Dev - Azure Resource-CI-clone** to **Prod - Azure Resource-CI** by click on the name
+5. Rename **Dev - Azure Resource-CI-clone** to **Prod - Azure Resource-CI** by clicking on the name
 6. Click on **Get sources** under the Tasks section of the pipeline
 7. Change your **Default branch for manual and scheduled builds** to: master
 
@@ -712,13 +712,19 @@ $sp.Id
 3. Click on the ellipses in the top right corner next to the Create release button
 4. Select **clone**
 5. Rename **dev-AzureResouces-CD - Copy** to **prod-AzureResouces-CD** by click on the name
+
+![](./imgs/cd-prod-rename.png)
+
 6. Click on **_Dev - Azure Resources-CI** in the **Artifacts** section of Pipeline
 7. Click **Delete** > **Confirm**
+
+![](./imgs/cd-artifacts-delete.png)
+
 8. Click **Add an artifact**
-9. Set **Source (build pipeline)** to: **Prod - Azure Resources-CI**
+9.  Set **Source (build pipeline)** to: **Prod - Azure Resources-CI**
 10. Click **Add**
 11. Turn on **Continuous deployment trigger** and added a **Build branch filter** for **master**
-    1. Hint: you did this step when you setup your dev release pipeline
+    1. Hint: it is the same steps you did for your dev release pipeline
 12. Click into the tasks of **Dev:Az Resource ...**
 13. Update each **Azure resource group deployment task** settings to:
     * **Clear Resource Group Task** > **Template**: 
@@ -750,13 +756,30 @@ $sp.Id
 17. Click on the **Pipeline** section
 18. Hover over **Dev:Az Resource ...**
 19. Click **Clone**
-20. Click into **Copy of Dev: Az R...** stage to edit the tasks
+
+![](./imgs/pr-clone-dev.png)
+
+20. Click into **Copy of Dev: Az R...** stage to edit the tasks and rename stage
+
+![](./imgs/pr-clone-dev-rename.png)
+
 21. Rename the stage from **Copy of Dev: Az Resource Deployment** to: **Prod: Az Resource Deployment**
+
+![](./img/../imgs/pr-rename-prod-stage.png)
+
 22. Update each Azure resource group deployment task's settings to:
     * Set **Resource group** to: {your prod resource group} **SuperchargeSQL-prod**
-23. Click on the **Variables** section of the pipeline
-24. Update the variable **rEnv**: Set Scope to **Dev: Az Resource Deployment**
-25. Add a new variable **rEnv**
+
+23. Click on **Pipeline**
+
+:bulb: At this point your Prod Release pipeline should look like the below. 
+
+![](./imgs/pr-prod-pipline.png)
+
+
+24. Click on the **Variables** section of the pipeline
+25. Update the variable **rEnv**: Set Scope to **Dev: Az Resource Deployment**
+26. Add a new variable **rEnv**
     * Value: **prod**
     * Set Scope to **Prod: Az Resource Deployment**
 

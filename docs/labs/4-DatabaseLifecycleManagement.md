@@ -32,7 +32,14 @@ In this exercise you are going to review a database project for a simple databas
    1. If this is the first time launching Visual Studio it may ask you to sign in. If you have an MSDN account we recommend signing in. If not feel free to select *Not now, maybe later.* 
    2. You may also be asked pick development Settings and a color theme.  We recommend General and the theme of your choice. 
 2. Click on **Open a project or solution**
-3. Navigate to: 
+3. Navigate to: **C:\SuperchargeSQLDeployments\DatabaseProjects\trainingDW**
+4. Select the solution file: **trainingDW.sln**
+5. Once the solution loads click on **Team Explorer**
+6. Click on Changes
+   1. You may be prompted to set your Git User Information
+   2. Fill in the values asked and click **Save**
+7. Switch to your **Dev** branch
+8. 
 
 
 
