@@ -195,7 +195,7 @@ In this exercise you are going to review a database project for a simple demo st
 ## <div style="color: #107c10">Exercise - Dev Database Build Pipeline (CI)</div>
 
 1. Using a browser navigate to your Azure DevOps project
-2. Navigate to**Pipelines** > **Pipelines**
+2. Navigate to **Pipelines** > **Pipelines**
 3. Click the **New pipeline** button
 4. Click on **Use the classic editor**
 5. Select a source: **Azure Repos Git**
@@ -262,6 +262,9 @@ In this exercise you are going to review a database project for a simple demo st
 **You now have a working CI Pipeline to build your SSDT Database project**
 
 ## <div style="color: #107c10">Exercise - Dev Database Release Pipeline (CD)</div>
+
+1. 
+
 
 ___     
 
