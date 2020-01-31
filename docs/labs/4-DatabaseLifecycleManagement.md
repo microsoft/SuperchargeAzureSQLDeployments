@@ -17,9 +17,11 @@
 The purpose of this lab is to take the skils you have learned so far and apply them to Database life cycle management (DLM). This lab walks you through the concepts of a database project in Visual Studio, how to setup and use a CI/CD process for rapid development, unit testing and change control.  
 
  **Summary**
-  * [{summary link}]({summerylinke})
-  * [{summary link}]({summerylinke})
-  * [{summary link}]({summerylinke})
+- [Initial SSDT project setup](/docs/labs/4-DatabaseLifecycleManagement.md#initial-ssdt-project-setup)
+- [Get to know SSDT database projects](/docs/labs/4-DatabaseLifecycleManagement.md#get-to-know-ssdt-database-projects)
+- [Build your database project](/docs/labs/4-DatabaseLifecycleManagement.md#build-your-database-project)
+- [Load data your local DB](/docs/labs/4-DatabaseLifecycleManagement.md#load-data-your-local-db)
+- [Dev Database Build Pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
 
 [comment]: <> (Main Exercise format) 
 ## <div style="color: #107c10">Exercise - Review SSDT database project</div>
@@ -253,7 +255,7 @@ In this exercise you are going to review a database project for a simple databas
 ## <div style="color: #107c10">Exercise - Dev Database Release Pipeline (CD)</div>
 
 ___     
-- [Next Lab](/docs/labs/{enter next labe .md})
+
 - [Back to all modules](/docs/labs/README.md)
 ___
 ___
