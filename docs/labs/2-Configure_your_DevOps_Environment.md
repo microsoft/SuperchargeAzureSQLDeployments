@@ -259,10 +259,6 @@ There are many options for a branching strategy and Git gives you the flexibilit
 4. Select **Azure Resource Manager** and **Next**
 5. Select **Service Principal (Manual)** and **Next**
 
-![](./imgs/fullserviceconnection.jpg)
-
->  If you do not use the full version, Azure DevOps will attempt to use your currently logged in Azure DevOps credentials to create a new Service Principal and give it rights to the subscription, instead of using the one we just created.  We do not want our service connection to have full rights in our subscription.
-
 Enter the following:
 
 1. Enter **Service connection name**: Supercharge SQL Service Connection
@@ -310,6 +306,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 6. Click **Select Repository Location**
    1.  You may be asked to provide your Microsoft account
    2.  Use your Microsoft account used to login to Azure DevOps
+   3.  Open that repository in VS Code, if prompted
 7.  Using windows explore navigate to the the **source** directory in the cloned GitHub repo
     *  **C:\\SuperchargeAzureSQL\\source\\** </br>
 
@@ -326,7 +323,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 ## Performing your initial Commit using VS Code
 
 1. In VS Code from the menu click **File** > **Open Folder** 
-2. Navigate to your Cloned Azure DevOps Repo: **C:\SuperchargeSQLDeployments**
+2. Navigate to your Cloned Azure DevOps Repo: **C:\SuperchargeSQLDeployments** (If not already in this directory)
 3. Click on the Git icon from the left side menu
    1. Notice that is shows a number on the icon
    2. This is the number file files that have not been committed to your local Git repository for your Azure DevOps project
