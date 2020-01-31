@@ -263,7 +263,108 @@ In this exercise you are going to review a database project for a simple demo st
 
 ## <div style="color: #107c10">Exercise - Dev Database Release Pipeline (CD)</div>
 
-1. 
+### Setup Key Vault Library
+
+1. In your Azure DevOps project click on **Repos** > **Library**
+2. Click **+ Variable group**
+
+![](./imgs/dlm-lb-keys.png)
+
+3. Variable group name: **SuperchargeSQL-KeyVault-dev**
+4. Description: **Dev Key Vault linked secrets**
+5. Enable **Link secrets from an Azure key vault as variables**
+   1. Select Azure subscription: **Use your Service Connection** (created when you setup Azure DevOps)
+   2. Key vault name: **Select your dev vault**
+   3. Click **+ Add** under the Variables section
+
+![](./imgs/dlm-lb-keys2.png)
+
+   4. Select both secrets: **SQLadminLogin** & **SQLadminPass**
+   5. Click **Ok** button
+
+![](./imgs/dlm-lb-keys3.png)
+
+6.  Click **Save**
+
+![](./imgs/dlm-lb-keys4.png)
+
+### Dev Release pipeline
+
+1. In your Azure DevOps project click on **Repos** > **Releases**
+2. Click on the **Create release**
+
+![](./imgs/dlm-cd-new.png)
+
+3. Click **Empty job**
+
+![](./imgs/dlm-cd-emptyjob.png)
+
+4. Update **Stage name**: **Dev: trainingDW DB**
+5. Click on the **X** to close Stage
+
+![](./imgs/dlm-rename-dev.png)
+
+6. Click on **New release pipeline** to rename to: **dev-AzSQLDatabase-CD**
+
+![](./imgs/dlm-cd-rename.png)
+
+7. Click **+ Add** next to Artifacts 
+8. Source type: **Build**
+9. Source (build pipeline): **Dev - Azure SQL Deployments-CI**
+10. Click **Add**
+
+![](./imgs/dlm-dev-cd-artifact.png)
+
+11. Click on the **Lighting bolt** icon to configure Continuous deployment
+    1.  Set to **Enabled**
+    2.  Add Build branch filterers:
+        -  Type: **Include**
+        -  Build branch: **dev**
+        -  Click on **X** to close CD trigger
+        
+![](./imgs/dlm-dev-cd-trigger.png)
+
+12. Click on the **Tasks** tab
+13. Click the **+** icon next to Agent job  
+
+![](./imgs/dlm-cd-add-task.png)
+
+14. Search for **Azure Sql Database**
+15. Click **Add** from the **Azure SQL Database deployment** task
+    
+![](./imgs/dlm-dev-cd-sql.png)
+
+### Configure Azure SQL DacpacTask
+
+1. Click on your newly added Azure SQL to configure
+2. Display name: **Azure SQL Deployment Report**
+3. Azure Subscription: **Your service Connection**
+4. Azure SQL Server:
+
+     ``` 
+    "$(sql.serverName)-$(rEnv)"
+     ```
+5. Database: **trainingDW**
+6. Login: **$(SQLadminLogin)**
+7. Password: **$(SQLadminPass)**
+
+:exclamation: Note the the SQL auth credentials are populdate form the linked Key Vault Values. This keeps your credentials from being exposed.
+
+8. Deployment type: **SQL DACPAC File**
+9. Action: **Deploy Report**
+
+:bulb: Note that you are creating a deployment report with this task.  This gives you a report of what will change in your database. It can be used for change tracking, deployment approval, ect.
+
+10. DACPAC File:
+
+     ``` 
+    $(System.DefaultWorkingDirectory)/_Dev - Azure SQL Deployments-CI/trainingDW/trainingDW/trainingDW/bin/Release/trainingDW.dacpac
+     ```
+11. Click **Save** > (Comment optional) > **Save**
+12. Settings should look similar to this:
+
+![](./imgs/dlm-cd-sql-task.png)
+
 
 
 ___     

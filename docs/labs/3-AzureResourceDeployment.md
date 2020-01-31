@@ -494,7 +494,9 @@ In this exercise you will walk through all of the steps needed to create the Con
             
    5. Override template parameters:
 
-   ``` -serverName "$(sql.serverName)-$(rEnv)" ```
+   ``` 
+   -serverName "$(sql.serverName)-$(rEnv)" 
+   ```
 
    6. Deployment mode: **Incremental**
    7. Deployment outputs: **sql.Output**
