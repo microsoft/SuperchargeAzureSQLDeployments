@@ -116,18 +116,17 @@ On the **App Registrations > (Your App Name)** blade
 
 :bulb: Use the below PowerShell script in a PowerShell file with **VS Code**. Make sure to update the parameter values.
 
-
-```powershell 
+```powershell
 #You only need to use Login-AzAccount once if you use the same session
 #IMPORTANT: The signin window may show up BEHIND the application. 
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #You can use the following cmdlet to obtain the subscription id
 #Get-AzSubscription
-Select-AzSubscription –Subscription '<Id>'
+Select-AzSubscription –Subscription "<Id>"
 
 
-$spName  = '(your alias)-SuperchargeSQL-SP'
+$spName  = "(your alias)-SuperchargeSQL-SP"
 $id = (New-Guid).Guid
 $secret = (New-Guid).Guid
 
