@@ -22,7 +22,7 @@ Architects, consultants, DBAs, database developers, and data professionals in th
   
 3. [Azure Resource Deployment CI/CD](/docs/labs/3-AzureResourceDeployment.md)
 
-4. Database Life cycle Management
+4. [Database Life cycle Management](/docs/labs/4-DatabaseLifecycleManagement.md)
 
 
 ## ![](docs/graphics/prerequisites.png) Prerequisites & References

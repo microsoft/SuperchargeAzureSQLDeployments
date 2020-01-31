@@ -38,8 +38,7 @@
   - [3.3 Pull request](/docs/labs/3-AzureResourceDeployment.md#exercise---pull-request)
     - [3.3.1 Review Prod CI/CD](/docs/labs/3-AzureResourceDeployment.md#review-prod-cicd)
 
-To DO:
-- Database life cycle Management
+- [4. Database life cycle Management](/docs/labs/4-DatabaseLifecycleManagement.md)
    - SSDT Project
    - Azure DevOps Build - Database Development
    - Azure DevOps Release - Database Development

@@ -867,7 +867,7 @@ In this exercise you will walk through creating a pull request. This is the proc
 
 :exclamation: You have not completed lab three.  You should have a full working CI/CD pipelines for dev and prod, and have a good understand of how to create your own CI/CD pipelines to deploy Azure Resources with ARM templates. Please move on to the next lab in this workshop.
 
-- [Next Lab](/docs/labs/4-DatabaseLifecycleManagement)
+- [Next Lab](/docs/labs/4-DatabaseLifecycleManagement.md)
 - [Back to all modules](/docs/labs/README.md)
 ___
 ___
