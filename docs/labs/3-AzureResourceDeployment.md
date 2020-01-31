@@ -6,7 +6,7 @@
 | Lab Description:              | This lab covers all the steps needed to deploy Azure Resource with Azure DevOps pipelines.   |
 | :------------                 | :--------------       |
 | Estimated Time to Complete:   | 40 minutes            |
-| Key Takeaways:                | By the end of this lab, you should have an understanding of: advanced ARM templates, how create build and release pipelines, how to deploy Azure Resources with DevOps, how to use PowerShell tasks and variables to make your pipelines more dynamic.         |
+| Key Takeaways:                | By the end of this lab, you should have an understanding of: advanced ARM templates, how create a build & release pipelines, how to deploy Azure Resources with DevOps, how to use PowerShell tasks and variables to make your pipelines more dynamic.         |
 | Author(s):                    | Frank Garofalo             |
 
 ### Purpose
@@ -865,7 +865,7 @@ In this exercise you will walk through creating a pull request. This is the proc
 13. Navigate to Azure via the portal and check that all your resources in Resource Group: **SuperchargeSQL-prod** deployed correctly
     1.  Remember you can also check the status of your deployment from the **Deployments** blade of your Resource Group
 
-:exclamation: You have not completed lab three.  You should have a full working CI/CD pipelines for dev and prod, and have a good understand of how to create your own CI/CD pipelines to deploy Azure Resources with ARM templates. Please move on to the next lab in this workshop.
+:exclamation: You have now completed lab three.  You should have a full working CI/CD pipelines for dev and prod, and have a good understand of how to create your own CI/CD pipelines to deploy Azure Resources with ARM templates. Please move on to the next lab in this workshop.
 
 - [Next Lab](/docs/labs/4-DatabaseLifecycleManagement.md)
 - [Back to all modules](/docs/labs/README.md)
