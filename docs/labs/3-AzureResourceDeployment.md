@@ -620,6 +620,7 @@ $sp.Id
 25. Comment is optional > Click **Deploy**
 26. Click on **In progress** to view status of deployment
     1.  You can also navigate to your resource group in Azure and view status of the deployment on the Deployments blade
+
 :exclamation: If you receive a "MissingSubscriptionRegistration" error, register the Key Vault provider in **Subscription** > **{Your Subscription}** > **Resource Providers** > Search for **KeyVault** > **Register**
 
 :exclamation:  If you want to clear your Resource Group during this **dev** stage set the **clearResources** variable to **yes**. Since this would meet the custom condition you will be deploying an "empty" template in Complete mode. Which will clear out your resource group (delete all resources not in your template).  This can take a bit of time and even timeout to complete.  While you are waiting for your Release to complete, review the logs as it deploys, or feel free to move on with the next steps in this lab. Don't forget to check status and address any errors.
