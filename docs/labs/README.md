@@ -41,7 +41,9 @@
 - [4. Database life cycle Management](/docs/labs/4-DatabaseLifecycleManagement.md)
    - [4.1 Initial SSDT project setup](/docs/labs/4-DatabaseLifecycleManagement.md#initial-ssdt-project-setup)
    - [4.2 Get to know SSDT database projects](/docs/labs/4-DatabaseLifecycleManagement.md#get-to-know-ssdt-database-projects)
-   - Azure DevOps Build - Database Development
-   - Azure DevOps Release - Database Development
+   - [4.3 Build your database project](/docs/labs/4-DatabaseLifecycleManagement.md#build-your-database-project)
+   - [4.4 Load data your local DB](/docs/labs/4-DatabaseLifecycleManagement.md#load-data-your-local-db)
+   - [Dev Database Build Pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
+   - Dev Database Release Pipeline (CD)
    - Unit Testing
    - Dev, Test, Prod Pipeline

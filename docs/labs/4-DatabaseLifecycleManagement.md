@@ -40,7 +40,7 @@ In this exercise you are going to review a database project for a simple databas
 
 6. Expand **remotes/origin** > select **dev** (you may need to dbl click to select it)
    1. **dev** should now be in your local Git dir
-   
+
 ![](./imgs/ssdt-dev.png)
 
 :bulb: Just like in VS Code you want to be developing and editing in your **dev** branch.  **Master** only gets updated from pull requests.
@@ -177,7 +177,7 @@ In this exercise you are going to review a database project for a simple databas
 
   ```
 
-:bulb: This is a easy way to test scripts locally before you deploy changes to your Azure dev environment.
+:bulb: This is an easy way to test scripts locally before you deploy changes to your Azure dev environment.
 
 1. Close **SQLQuery1.sql** > **Don't Save**
 
