@@ -255,9 +255,9 @@ There are many options for a branching strategy and Git gives you the flexibilit
 ![](./imgs/projectsettings.jpg)
 
 2. Select **Service Connections** under **Pipelines**
-3. Click on **+ New service connection**
-4. Select **Azure Resource Manager**
-5. CLick on **use the full version of the service connection dialog**
+3. Create a new **Service Connection**
+4. Select **Azure Resource Manager** and **Next**
+5. Select **Service Principal (Manual)** and **Next**
 
 ![](./imgs/fullserviceconnection.jpg)
 
@@ -273,13 +273,13 @@ Enter the following:
      Get-AzSubscription
      #Returns Subscription Name, Id, TenantId and State
     ```
-5. Enter **Subscription Name**
-6. Enter **Service Principal client ID** (Created earlier)
+5. Enter **Subscription Name** (Found in Resource Group > Overview blade)
+6. Enter **Service Principal Id** [Value noted earlier](section#create-service-principal)
 7. Select Credential **Service principal key**
-8. Enter **Service principal key** (Value noted earlier)
-9. Tenant ID: should be pre-populated
+8. Enter **Service principal key** ([Value noted earlier](section#create-service-principal))
+9. Enter **Tenant ID** (Found in Azure Active Directory > properties blade)
 10. Click on **Verify**
-13. Click on **OK**
+13. Click on **Verify and Safe**
 
 ## <div style="color: #107c10">Exercise - Push files to your Repo</div>
 Your repository is currently empty, except for the default README.md file that was created to initialize your repo. In this exercise you are going to use Git commands to clone down the source files needed for this lab and push them up to your repo.  
