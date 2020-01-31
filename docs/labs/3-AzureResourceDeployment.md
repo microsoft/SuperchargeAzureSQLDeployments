@@ -653,7 +653,6 @@ $sp = Get-AzADServicePrincipal -DisplayName '<use your Service Principle Name>'
 $sp.Id
 ```
 
-
 11. Click **Save**
 12. Your **Variable group** should look similar to this:
 
