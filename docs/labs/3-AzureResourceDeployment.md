@@ -588,13 +588,17 @@ ForEach($Key in $kvSecrets.Keys){
     }
     
 ```
+:bulb:The code above may not work in LOD. Use the below:
+```
+-keyVaultName "$(keyvault.VaultName)-$(rEnv)" -location "$(location)" -sku "Standard" -accessPolicies [{"objectId":"$(sp.ObjectId)","tenantId":"$(sp.tenantId)","metadata":{"description":"Service Principal - DevOps-DLM"},"permissions":{"keys":["Get","List","Update","Create","Import","Delete","Recover","Backup","Restore"],"secrets":["Get","List","Set","Delete","Recover","Backup","Restore"],"certificates":["Get","List","Update","Create","Import","Delete","Recover","ManageContacts","ManageIssuers","GetIssuers","ListIssuers","SetIssuers","DeleteIssuers"],"storage":["Get","List","Update","Set","Delete","Regeneratekey","Recover","Backup","Restore"]}}] -tenant "$(sp.tenantId)" -enabledForDeployment false -enabledForTemplateDeployment true -enabledForDiskEncryption false
+```
    7. Enter the **Script Arguments**:
 
 ```
--kVaultName "$(keyvault.VaultName)-$(rEnv)"
--ResourceGroup $(ResourceGroup)$(rEnv)
--adminLogin $(sql.Login)
--adminPass $(sql.Pass)
+ -kVaultName "$(keyvault.VaultName)-$(rEnv)"
+ -ResourceGroup $(ResourceGroup)$(rEnv)
+ -adminLogin $(sql.Login)
+ -adminPass $(sql.Pass)
 ```
    8. Azure PowerShell Version: **Latest installed version**
    9. Click **Save** (Comment is optional) > **OK** </br>
@@ -660,13 +664,13 @@ $sp.Id
 
 13. Close the Library tab and navigate back to the open browser tab with your **Release**
 14. Click on **Variables** > **Variable groups** > **Link variable group**
-15. Select your Variable group created in the pervious steps: **SuperchargeSQL-Vars**
+15. Select your variable group created in the previous steps: **SuperchargeSQL-Vars**
 16. Click the **Link** button
 17. Click **Save** (Comment is optional) > **OK**
 18. Click **Create release** to manually trigger 
 19. Select Stages for a trigger... : **Dev: Az Resource Deployment**
 20. Click **Create** button
-21. CLick on Release **Release-\<num>** has been created
+21. Click on release **Release-{num}** has been created
 
 ![](./imgs/cd-release.png)
 
@@ -679,8 +683,9 @@ $sp.Id
 25. Comment is optional > Click **Deploy**
 26. Click on **In progress** to view status of deployment
     1.  You can also navigate to your resource group in Azure and view status of the deployment on the Deployments blade
+:exclamation: If you receive a "MissingSubscriptionRegistration" error, register the Key Vault provider in **Subscription** > **{Your Subscription}** > **Resource Providers** > Search for **KeyVault** > **Register**
 
-:exclamation:  If you want to clear your Resource Group durning this **dev** stage set the **clearResources** variable to **yes**. Since this would meet the custom condition you will be  deploying an "empty" template in Complete mode. Which will clear out your resource group (delete all resource not in your template).  This can take a bit of time and even timeout to complete.  While you are waiting for your Release to complete, review the logs as it deploys, or feel free to move on with the next steps in this lab. Don't forget to check status and address any errors.
+:exclamation:  If you want to clear your Resource Group during this **dev** stage set the **clearResources** variable to **yes**. Since this would meet the custom condition you will be deploying an "empty" template in Complete mode. Which will clear out your resource group (delete all resources not in your template).  This can take a bit of time and even timeout to complete.  While you are waiting for your Release to complete, review the logs as it deploys, or feel free to move on with the next steps in this lab. Don't forget to check status and address any errors.
 
 **Expected Results**:
 
@@ -688,9 +693,9 @@ $sp.Id
 
 ![](./imgs/cd-result2.png)
 
-:bulb: At this point in the workshop you have successfully created a full CI/CD dev pipeline which can be used develope and deploy Azure Resources. If you make changes to your ARM templates or parameter files located in the *Deployment* directory and push the changes to your remote Azure DevOps repository your build and release will happen automatically.  This keeps you and your development team from having to make changes via the portal.  You now have the ability to collaborate and perform rapid development with change logged via Git, and the ability to roll back / roll forward as needed.
+:bulb: At this point in the workshop you have successfully created a full CI/CD dev pipeline which can be used to develop and deploy Azure Resources. If you make changes to your ARM templates or parameter files located in the *Deployment* directory and push the changes to your remote Azure DevOps repository your build and release will happen automatically.  This keeps you and your development team from having to make changes via the portal.  You now have the ability to collaborate and perform rapid development with change logged via Git, and the ability to roll back / roll forward as needed.
 
-## <div style="color: #107c10">Exercise - Configure Prod CI/CD pipelines</div>
+## <div style="color: #107c10">Exercise - Configure Prod CI/CD Pipelines</div>
 
 :bulb: In this exercise you will walk through the steps to configure your production release pipelines both CI and CD.  Your prod release pipeline will use the code from your master branch to deploy to your dev resource group, include a gate that requires approval to deploy to your prod resource group, and can only be run via changes to your **master** branch from **pull requests**. 
 
@@ -707,11 +712,11 @@ $sp.Id
 ![](./imgs/ci-sources-prod.png)
 
 8. Update both of the **Azure resource group deployment** task to:
-   1. Resource group: {select your prod resource group} **SuperhcargeSQL-prod**
+   1. Resource group: {select your prod resource group} **SuperchargeSQL-prod**
 9.  Click on **Triggers**
 10. Update Branch filters: set to **master**
 11. Click the down arrow next to **Save & queue** (Comment is optional) > **Save**
-12. You now have a **Prod** CI pipeline for your Azure Resources that will be tirggered when changes are committed to your **master branch**
+12. You now have a **Prod** CI pipeline for your Azure Resources that will be triggered when changes are committed to your **master branch**
 
 ### Create & configure prod release pipeline (CD)
 
@@ -796,7 +801,7 @@ Your Pipeline variables should look like this:
 
 26. Click **Save** (Comment is optional) > **OK**
 
-**Add deploymnet approval to the prod deployment**
+**Add deployment approval to the prod deployment**
 1. Navigate back to the Pipeline section of **prod-AzureResouces-CD**
 2. Click on lighting bolt icon on the **Prod: Az Resource...** stage
 3. Leave **Triggers** with default settings
@@ -848,7 +853,7 @@ In this exercise you will walk through creating a pull request. This is the proc
    1. Click into Prod to review the status of your build and the logs
 3. Navigate to **Pipelines** > **Releases**
    1. You should see both your dev and prod Release pipelines
-      1. If you do not see your prod it could be because your build as not completed and triggered your release. 
+      1. If you do not see your prod it could be because your build is not completed and triggered your release. 
    2. Click into your Prod release pipeline to review status and logs
    3. Notice that once your Dev Stage completes you will need to approve the deployment into prod.
 
@@ -873,7 +878,7 @@ In this exercise you will walk through creating a pull request. This is the proc
 13. Navigate to Azure via the portal and check that all your resources in Resource Group: **SuperchargeSQL-prod** deployed correctly
     1.  Remember you can also check the status of your deployment from the **Deployments** blade of your Resource Group
 
-:exclamation: You have now completed lab three.  You should have a full working CI/CD pipelines for dev and prod, and have a good understand of how to create your own CI/CD pipelines to deploy Azure Resources with ARM templates. Please move on to the next lab in this workshop.
+:exclamation: You have now completed lab three.  You should have a full working CI/CD pipelines for dev and prod, and have a good understanding of how to create your own CI/CD pipelines to deploy Azure Resources with ARM templates. Please move on to the next lab in this workshop.
 
 - [Next Lab](/docs/labs/4-DatabaseLifecycleManagement.md)
 - [Back to all modules](/docs/labs/README.md)
