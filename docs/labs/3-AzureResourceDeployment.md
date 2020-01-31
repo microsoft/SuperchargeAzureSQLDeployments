@@ -408,7 +408,7 @@ In this exercise you will walk through all of the steps needed to create the Con
     5. Override template parameters:
    
 ```PowerShell
--keyVaultName "$(keyvault.VaultName)-$(rEnv)" -location "$(location)" -sku "Standard" -accessPolicies [{"objectId":"$(sp.ObjectId)","tenantId":"$(sp.tenantId)","metadata":{"description":"Service Principal - DevOps-DLM"},"permissions":{"keys":["all"],"secrets":["all"],"certificates":["all"],"storage":["all"]}}] -tenant "$(sp.tenantId)" -enabledForDeployment false -enabledForTemplateDeployment true -enabledForDiskEncryption false
+-keyVaultName "$(keyvault.VaultName)-$(rEnv)" -location "$(location)" -sku "Standard" -accessPolicies "[{"objectId":"$(sp.ObjectId)","tenantId":"$(sp.tenantId)","metadata":{"description":"Service Principal - DevOps-DLM"},"permissions":{"keys":["all"],"secrets":["all"],"certificates":["all"],"storage":["all"]}}]" -tenant "$(sp.tenantId)" -enabledForDeployment false -enabledForTemplateDeployment true -enabledForDiskEncryption false
 ```
 :exclamation: This overrides the values in your parameters file. It's best practice not to save protected credentials / settings in your Git repo. You will setup the variables and values once you have completed configuring your release tasks. </br>
 
