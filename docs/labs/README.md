@@ -26,7 +26,7 @@
 - [3. Deploy Azure Resources](/docs/labs/3-AzureResourceDeployment.md#lab-3---deploy-azure-resources)
   - [3.1 Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
   - [3.2. Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
-    - [3.2.1 Configure dev continuos integration](/docs/labs/3-AzureResourceDeployment.md#configure-dev-continuos-integration)
+    - [3.2.1 Configure dev continuous integration](/docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
     - [3.2.2 Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-dev-azure-resource-ci-pipeline)
   - [3.3 Dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---release-pipeline-cd)
      - [3.3.1 Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
