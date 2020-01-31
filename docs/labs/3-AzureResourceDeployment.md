@@ -554,7 +554,7 @@ Write-Host "##vso[task.setvariable variable=sql.Pass;issecret=true]$sqlAdminPass
    1. Task version: **4.\***
    2. Display name: **Key Vault write Resource Keys**
    3. Azure Connection Type: **Azure Resource Manager**
-   4. Azure Subscription: **Set this to your Service Connection** (perviously setup in Configuring your DevOps Environment lab)
+   4. Azure Subscription: **Set this to your Service Connection** (previously setup in Configuring your DevOps Environment lab)
    5. Script Type: **Script File Path**
    6. Script Path:
 
@@ -588,13 +588,13 @@ ForEach($Key in $kvSecrets.Keys){
     }
     
 ```
-   7. Script Arguments:
+   7. Enter the **Script Arguments**:
 
-> -kVaultName "\$(keyvault.VaultName)-\$(rEnv)"</br>
-> -ResourceGroup \$(ResourceGroup)$(rEnv)</br>
-> -adminLogin $(sql.Login)</br>
-> -adminPass $(sql.Pass)</br>
-
+``` -kVaultName "\$(keyvault.VaultName)-\$(rEnv)"</br>
+ -ResourceGroup \$(ResourceGroup)$(rEnv)</br>
+ -adminLogin $(sql.Login)</br>
+ -adminPass $(sql.Pass)</br>
+```
    8. Azure PowerShell Version: **Latest installed version**
    9. Click **Save** (Comment is optional) > **OK** </br>
 
