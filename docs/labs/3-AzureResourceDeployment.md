@@ -13,21 +13,21 @@
 This lab is to build your foundational knowledge of how to leverage Azure DevOps to deploy Azure Resource with CI/CD pipelines.  This lab walks you through advanced ARM templates showing you how you can have an end state configuration for your Azure resource to limit the need to do post deployment configuration. You will create both a build and release pipeline which covers the CI/CD portions of DevOps.
 
  **Summary**
-  * [Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
-  * [Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
-    * [Configure dev continuous integration](docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
-    * [Configure dev continuous integration](docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
-    * [Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-dev-azure-resource-ci-pipeline)
-  * [Dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
-    * [Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
-    * [Configure SQL DB deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-sql-db-deployment-task)
-    * [Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
-    * [Configure Azure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-azure-powershell-task)
-  * [Configure prod CI/CD pipelines](/docs/labs/3-AzureResourceDeployment.md#exercise---configure-prod-cicd-pipelines)
-    * [Create & configure prod build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-build-pipeline-ci)
-    * [Create & configure prod release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-release-pipeline-cd)
-  * [Pull request](/docs/labs/3-AzureResourceDeployment.md#exercise---pull-request)
-    * [Review prod CI/CD](/docs/labs/3-AzureResourceDeployment.md#review-prod-cicd)
+- [Deploy Azure Resources](/docs/labs/3-AzureResourceDeployment.md#lab-3---deploy-azure-resources)
+  - [Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
+  - [Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
+    - [Configure dev continuous integration](/docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
+    - [Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-dev-azure-resource-ci-pipeline)
+  - [Dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
+     - [Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
+     - [Configure SQL DB deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-sql-db-deployment-task)
+     - [Configure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-powershell-task)
+     - [Configure Azure PowerShell task](/docs/labs/3-AzureResourceDeployment.md#configure-azure-powershell-task)
+     - [Configure prod CI/CD pipelines](/docs/labs/3-AzureResourceDeployment.md#exercise---configure-prod-cicd-pipelines)
+     - [Create & configure Prod build pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-build-pipeline-ci)
+     - [Create & configure Prod release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#create--configure-prod-release-pipeline-cd)
+  - [Pull request](/docs/labs/3-AzureResourceDeployment.md#exercise---pull-request)
+    - [Review Prod CI/CD](/docs/labs/3-AzureResourceDeployment.md#review-prod-cicd)
 
 ## <div style="color: #107c10">Exercise - Advanced ARM template</div>
 
