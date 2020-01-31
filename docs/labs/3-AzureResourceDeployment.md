@@ -591,10 +591,10 @@ ForEach($Key in $kvSecrets.Keys){
    7. Enter the **Script Arguments**:
 
 ```
--kVaultName "\$(keyvault.VaultName)-\$(rEnv)"</br>
--ResourceGroup \$(ResourceGroup)$(rEnv)</br>
--adminLogin $(sql.Login)</br>
--adminPass $(sql.Pass)</br>
+-kVaultName "$(keyvault.VaultName)-$(rEnv)"
+-ResourceGroup $(ResourceGroup)$(rEnv)
+-adminLogin $(sql.Login)
+-adminPass $(sql.Pass)
 ```
    8. Azure PowerShell Version: **Latest installed version**
    9. Click **Save** (Comment is optional) > **OK** </br>
