@@ -84,7 +84,6 @@ Select-AzSubscription –Subscription '<Id>'
 
 New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
-
 ```
 
 ### Create Service Principal
@@ -106,7 +105,17 @@ Get-AzResourceGroup -Name $rg
    1. Click **Register**
 
 On the **App Registrations > (Your App Name)** blade
- 
+  1. Select the **Certificates & secrets** blade
+	   1. Select the **+ New client secret** 
+	   1. Enter the **Description**
+	   1. Click **Add**
+	   1. Copy the **Value**
+
+:exclamation: Copy the new **client secret** value and **Application Id** (Overview blade). You won't be able to retrieve it after you perform another operation or leave this blade. Generate a new secret if it is lost it or expires. We recommend using the portal steps to generate a new client secret.
+
+> #### **PowerShell**
+
+:bulb: Use the below PowerShell script in a PowerShell file with **VS Code**. Make sure to update the parameter values.
 
 
 ```powershell 
@@ -133,7 +142,6 @@ New-AzADServicePrincipal -DisplayName $spName -PasswordCredential $cred
 
 #IMPORTANT: Save the value for $secret, it will be used later
 $secret 
-
 ```
 
 :exclamation: Copy and save the Service Principal Name, Application Id and Secret. You won't be able to retrieve it after you perform another operation or leave this blade. Generate a new secret if it is lost it or expires. We recommend using the portal steps to generate a new client secret.
