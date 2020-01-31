@@ -53,7 +53,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 #### Edit parameter file
 
 1. Open **sql_db.parameter.dev.json** file
-    1. Located in: **Deploymnets** > **ARM** > **parameter** </br>
+    1. Located in: **Deployments** > **ARM** > **parameter** </br>
 
 ![](./imgs/parameters.png)
 
@@ -63,7 +63,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
 2. Enter name for **serverName**, line **27**
    1. The server name needs to be globally unique
-   2. Recommend using: **\<alias>-sqlsrv-dev** (ie jdoe-sqlsrv-dev) </br>
+   2. Recommend using: **{alias}-sqlsrv-dev** (ie jdoe-sqlsrv-dev) </br>
 
 ![](./imgs/srvName.png)
 
