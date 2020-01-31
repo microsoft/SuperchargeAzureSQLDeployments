@@ -63,7 +63,7 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
 2. Enter name for **serverName**, line **27**
    1. The server name needs to be globally unique
-   2. Recommend using: **<alias>-sqlsrv-dev** (ie jdoe-sqlsrv-dev) </br>
+   2. Recommend using: **{alias}-sqlsrv-dev** (ie jdoe-sqlsrv-dev) </br>
 
 ![](./imgs/srvName.png)
 
@@ -116,7 +116,9 @@ Test-AzResourceGroupDeployment @params
 Expended Result
 > VERBOSE: time ran - Template is valid.
 
-4. Run the following to deploy your ARM template with PowerShell
+:bulb: To execute specific lines of code: In **VS Code** highlight the lines of code and *Right-click*, then select **Run Selection** or *(F8)*. 
+
+4. Run the following to deploy your ARM template with PowerShell(~3 mins)
    
 ```PowerShell
 $params = @{
@@ -130,12 +132,13 @@ $params = @{
 New-AzResourceGroupDeployment @params
 
 #To Check Resources Deployed Run:
-Get-AzResource -ResourceGroupName "<enter your RG name>" | Format-Table
+Get-AzResource -ResourceGroupName $params.ResourceGroupName | Format-Table
 
 ```
 
+
 5. You can check the status of your deployment from the portal
-   1. Log into: [portal.azure.com](https:/portal.azure.com)
+   1. Log into [portal.azure.com](https:/portal.azure.com)
    2. Navigate to the Resource Group you deployed to
    3. Click on **Deployments** blade
    4. Click on **Related events** to view details about the deployment
@@ -154,7 +157,7 @@ Get-AzResource -ResourceGroupName "<enter your RG name>" | Format-Table
 
 ## <div style="color: #107c10">Exercise - Build Dev Pipeline (CI)</div>
 
-In this exercise you will walk through all of the steps needed to create the Continuous integration (CI) portion of your Azure Resource deployment. This step is called the build process.  You will test that your ARM template build correctly.
+In this exercise you will walk through all of the steps needed to create the Continuous Integration (CI) portion of your Azure Resource deployment. This step is called the build process.  You will test that the ARM template build correctly.
 
 1. In a browser window navigate to your DevOps project
 2. Navigate to **Pipelines**
@@ -191,7 +194,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 ![](./imgs/CI-AgentStepRename.png)
 
-7. Click the + next to **Publish Deployment Artifacts**
+7. Click the **+** next to **Publish Deployment Artifacts**
 8. Search for **Azure resource group** 
 9. Click **Add** on the **Azure resource group deployment** task
 
@@ -201,7 +204,7 @@ In this exercise you will walk through all of the steps needed to create the Con
     1.  Update **Display name**: Validate Deployment ARM Templates for SQL DB
     2.  Select **Azure subscription** - You should see your Azure Service Connection that you setup earlier when configuring your DevOps environment.
     3.  **Action**: **Create or update resource group**
-    4.  **Resource group**: Select your dev resource group that was setup in the pervious lab
+    4.  **Resource group**: Select your dev resource group that was setup in the previous lab
     5.  **Location**: Select the location you used for your resource group
     6.  **Template location**: Linked artifact
     7.  **Template**: click on the ellipses and navigate to the **sql_db.json** template file to select it.
@@ -237,7 +240,7 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 17. Update the following setting for your newly cloned task
     1.  **Display name**: set it to **Validate Deployment ARM Templates for KeyVault**
-    2.  **Tempate**: click on the ellipses and navigate to the **KeyVault.json** template file to select it.
+    2.  **Template**: click on the ellipses and navigate to the **KeyVault.json** template file to select it.
         1.  Your path should look similar to: 
         
         >***Deployments/ARM/templates/KeyVault.json***
@@ -290,12 +293,14 @@ In this exercise you will walk through all of the steps needed to create the Con
 
 ![](./imgs/ci-filter-build.png)
 
-8. Click on **Options** at the top of your pipeline menu to edit some meta data for your build
+8. Click on **Options** at the top of your pipeline menu to edit some metadata for your build
 9. Update the following **Build properties**
    1. **Description**: Build Pipeline for Azure Resource(s) Deployment
    2. **Build number format**:
 
-    >\$(date:yyyyMMdd)_\$(BuildDefinitionName)_\$(SourceBranchName)\$(rev:.r)
+    ```
+    $(date:yyyyMMdd)_\$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
+    ```
 
 10. Click the drop down arrow next to **Save & queue**
 11. Select **Save**
