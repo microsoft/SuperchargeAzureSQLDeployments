@@ -39,7 +39,8 @@
     - [3.3.1 Review Prod CI/CD](/docs/labs/3-AzureResourceDeployment.md#review-prod-cicd)
 
 - [4. Database life cycle Management](/docs/labs/4-DatabaseLifecycleManagement.md)
-   - SSDT Project
+   - [4.1 Initial SSDT project setup](/docs/labs/4-DatabaseLifecycleManagement.md#initial-ssdt-project-setup)
+   - [4.2 Get to know SSDT database projects](/docs/labs/4-DatabaseLifecycleManagement.md#get-to-know-ssdt-database-projects)
    - Azure DevOps Build - Database Development
    - Azure DevOps Release - Database Development
    - Unit Testing
