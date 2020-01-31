@@ -408,70 +408,7 @@ In this exercise you will walk through all of the steps needed to create the Con
     5. Override template parameters:
    
 ```PowerShell
--keyVaultName "$(keyvault.VaultName)-$(rEnv)" 
--accessPolicies [
-    {
-        "objectId": "$(sp.ObjectId)",
-        "tenantId": "$(sp.tenantId)",
-        "metadata": {
-            "description": "Service Principal - DevOps-DLM"
-        },
-        "permissions": {
-            "keys": [
-                "Get",
-                "List",
-                "Update",
-                "Create",
-                "Import",
-                "Delete",
-                "Recover",
-                "Backup",
-                "Restore"
-            ],
-            "secrets": [
-                "Get",
-                "List",
-                "Set",
-                "Delete",
-                "Recover",
-                "Backup",
-                "Restore"
-            ],
-            "certificates": [
-                "Get",
-                "List",
-                "Update",
-                "Create",
-                "Import",
-                "Delete",
-                "Recover",
-                "ManageContacts",
-                "ManageIssuers",
-                "GetIssuers",
-                "ListIssuers",
-                "SetIssuers",
-                "DeleteIssuers"
-            ],
-            "storage": [
-                "Get",
-                "List",
-                "Update",
-                "Set",
-                "Delete",
-                "Regeneratekey",
-                "Recover",
-                "Backup",
-                "Restore"
-            ]
-        }
-    }
-] 
--tenant "$(sp.tenantId)" 
--location "$(location)" 
--enabledForDeployment false 
--enabledForTemplateDeployment true 
--enabledForDiskEncryption false
-
+-keyVaultName "$(keyvault.VaultName)-$(rEnv)" -location "$(location)" -sku "Standard" -accessPolicies [{"objectId":"$(sp.ObjectId)","tenantId":"$(sp.tenantId)","metadata":{"description":"Service Principal - DevOps-DLM"},"permissions":{"keys":["all"],"secrets":["all"],"certificates":["all"],"storage":["all"]}}] -tenant "$(sp.tenantId)" -enabledForDeployment false -enabledForTemplateDeployment true -enabledForDiskEncryption false
 ```
 :exclamation: This overrides the values in your parameters file. It's best practice not to save protected credentials / settings in your Git repo. You will setup the variables and values once you have completed configuring your release tasks. </br>
 
@@ -494,9 +431,7 @@ In this exercise you will walk through all of the steps needed to create the Con
             
    5. Override template parameters:
 
-   ``` 
-   -serverName "$(sql.serverName)-$(rEnv)" 
-   ```
+   ``` -serverName "$(sql.serverName)-$(rEnv)" ```
 
    6. Deployment mode: **Incremental**
    7. Deployment outputs: **sql.Output**
