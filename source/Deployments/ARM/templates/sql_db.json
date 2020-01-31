@@ -183,7 +183,7 @@
         "administratorLogin": "[if(parameters('autoSetAdminAccount'), variables('sqlAdmin'), parameters('adminUsername'))]",
         "administratorLoginPassword": "[if(parameters('autoSetAdminAccount'), variables('sqlAdminPass'), parameters('adminPassword'))]",
         "serverName": "[toLower(parameters('serverName'))]",
-        "LogAnalyticsWorkspaceName": "[if(parameters('createLogAnalyticsWorkspace'), concat(parameters('LogAnalyticsWorkspaceName'),'-',uniqueString(resourceGroup().id)), parameters('LogAnalyticsWorkspaceName'))]",
+        "LogAnalyticsWorkspaceName": "[if(parameters('createLogAnalyticsWorkspace'), concat(parameters('LogAnalyticsWorkspaceName'),'-',uniqueString(resourceGroup().id, subscription().subscriptionId)), parameters('LogAnalyticsWorkspaceName'))]",
         "logRG": "[if(parameters('createLogAnalyticsWorkspace'), resourceGroup().name, parameters('LogAnalyticsWorkspaceResourceGroup'))]",
         "LogAnalytics": "[resourceId(variables('logRG'), 'Microsoft.operationalinsights/workspaces/', variables('LogAnalyticsWorkspaceName'))]",
         "varStorageName": "[concat(toLower(parameters('storageName')), uniqueString(resourceGroup().id))]",
