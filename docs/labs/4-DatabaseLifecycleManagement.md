@@ -28,7 +28,7 @@ This module is designed to build upon the skills you have learned thus far, and 
 - [Dev Database build pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
 - Dev Database Release Pipeline (CD)
 - Unit Testing
-- Dev, Test, Prod Pipeline
+- Prod Pipeline
 - sqlpackage.exe
 
 
