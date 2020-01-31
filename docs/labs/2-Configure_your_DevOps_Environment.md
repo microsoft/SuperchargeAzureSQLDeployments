@@ -85,6 +85,37 @@ New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
 ```
 
+### Create Service Principal
+
+> Perform the tasks below either via the **Portal** or **PowerShell**.
+
+:bulb: This lab uses one Service Principal. Typically, a Service Principal is used for each environment: Development, Staging, Production. 
+
+> #### **Portal**
+
+1. Login to **https://portal.azure.com**
+2. Select **Azure Active Directory** from the main menu or from **More Services**</br>
+![](./imgs/ad.jpg)
+
+3. Select the **App Registrations** blade
+4. Select **+ New registration**
+   1. Enter the **Name**: **(your alias)-SuperchargeSQL-SP** 
+   1. Leave the defaults
+   1. Click **Register**
+
+On the **App Registrations > (Your App Name)** blade
+  1. Select the **Certificates & secrets** blade
+	   1. Select the **+ New client secret** 
+	   1. Enter the **Description**
+	   1. Click **Add**
+	   1. Copy the **Value**
+
+:exclamation: Copy the new **client secret** value and **Application Id** (Overview blade). You won't be able to retrieve it after you perform another operation or leave this blade. Generate a new secret if it is lost it or expires. We recommend using the portal steps to generate a new client secret.
+
+> #### **PowerShell**
+
+:bulb: Use the below PowerShell script in a PowerShell file with **VS Code**. Make sure to update the parameter values.
+
 ```powershell
 #You only need to use Login-AzAccount once if you use the same session
 #IMPORTANT: The signin window may show up BEHIND the application. 
