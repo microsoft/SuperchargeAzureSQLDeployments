@@ -120,6 +120,7 @@ On the **App Registrations > (Your App Name)** blade
 :bulb: Use the below PowerShell script in a PowerShell file with **VS Code**, make sure to update the parameter values.
 
 ```powershell 
+
 #You only need to use Login-AzAccount once if you use the same session
 #IMPORTANT: The signin window may show up BEHIND the application. 
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
@@ -142,6 +143,7 @@ New-AzADServicePrincipal -DisplayName $spName -PasswordCredential $cred
 
 #IMPORTANT: Save the value for $secret, it will be used later
 $secret 
+
 ``` 
 
 :exclamation: Copy and save the Service Principal Name, Application Id and Secret. You won't be able to retrieve it after you perform another operation or leave this blade. Generate a new secret if it is lost it or expires. We recommend using the portal steps to generate a new client secret.
