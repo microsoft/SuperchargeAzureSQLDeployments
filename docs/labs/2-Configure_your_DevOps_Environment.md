@@ -79,7 +79,7 @@ $location = "<Location>" #Example: eastus2
 
 #You can use the following cmdlet to obtain the subscription id
 #Get-AzSubscription
-Select-AzSubscription –Subscription '<Id>'
+Select-AzSubscription –Subscription "<Id>"
 
 New-AzResourceGroup -Name $rg -Location $location
 Get-AzResourceGroup -Name $rg
@@ -167,15 +167,14 @@ $secret
 
 :exclamation:  Use the below PowerShell Script in a PowerShell file in **VS Code**, executing it twice, once for each resource group. Make sure to update the parameter values
 
-```powershell  
-
+```powershell
 #You only need to use Login-AzAccount once if you use the same session
 #IMPORTANT: The signin window may show up BEHIND the application. 
 Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUSGovernment
 
 #You can use the following cmdlet to obtain the subscription id
 #Get-AzSubscription
-Select-AzSubscription –Subscription '<Id>'
+Select-AzSubscription –Subscription "<Id>"
 
 #For 1st script execution update $rg value with: SuperchargeSQL-dev 
 #For 2nd script execution update $rg value with: SuperchargeSQL-prod
@@ -184,7 +183,6 @@ $rg = "<Your Resource Group Name>"
 
 $app = (Get-AzADServicePrincipal -DisplayName $spName).ApplicationID
 New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionName 'Owner'
-
 ```
 
 ## <div style="color: #107c10">Exercise - Setup Azure DevOps Environment</div>
@@ -216,7 +214,7 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 ![](./imgs/repo.jpg)
 
 1. Click on **Initialize**</br>
-*Defult settings to include Add a README*
+*Default settings to include Add a README*
 <img src="./imgs/RepoInitialize.png" width="75%" height="75%" />
 
 ## Branching
