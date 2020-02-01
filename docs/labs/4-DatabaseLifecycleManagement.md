@@ -458,14 +458,76 @@ With SSDT DB project you can make use of **predeployment** and **postdeployment*
 4. Select **Post-Deployment Script**
    1. Name: **postLoad-dimDate.sql**
    2. CLick **Add**
+5. Add the following to the script:
+
+    ```SQL
+    TRUNCATE TABLE [DIM].[DATE]
+    GO
+
+    ```
+6. Open **LoadDateDim.sql**
+7. Copy contents of file and paste it below your TRUNCATE statement
+
+![](./imgs/postload-datedim.png)
+
+ - postLoad-dimDate.sql should look like this:
+  
+![](./imgs/postload-script.png)
+
+8. Save and close file: **Post-Deployment Script**
+9. Close the **LoadDateDim.sql** file
+10. In SSMS or Azure Data Studio query **dim.Date** notice no values are returned
+11. Back in your Visual Studio SSDT project 
+12. Click on the **pencile** icon on the bottom SSDT
+
+![](./imgs/commit-ssdt.png)
+
+13. CLick the **+** icon next to **Changes** to stage all changes
+    -  If prompted to Save changes click **Yes**
+
+![](./imgs/ssdt-stage.png)
+
+14. Enter commit: **post load script**
+15. Click **Commit Staged** button
+
+![](./imgs/ssdt-commit-staged.png)
+
+16. Click **Sync**
+
+![](./imgs/ssdt-Synce.png)
+
+17. Click **Push** under **Outgoing Commits** 
+
+![](./imgs/ssdt-git-push.png)
+
+18. Navigate to your Azure DevOps project
+19. Review your CI/CD pipelines checking status and logs
+20. Once completed query **dim.Date** again
+21. You should now have values in **dim.Date**
+
+At this point you now have a fulling working CI/CD pipeline for database development.  
+
+## <div style="color: #107c10">Exercise - Configure Prod CI/CD - Challenge </div>
+
+Using all the skills you have learned in this lab, create and configure the following:
+
+1. Create & configure a prod build pipeline (CI) for your SSDT Project
+   1. use **master** branch
+2. Create & configure prod release pipeline (CD)
+   1. Include both: **dev** & **prod** stages
+   2. Add approval gates after **dev** stage before **prod** runs
+   3. use **master** branch
+   4. triggered from a **pull request** dev to prod
+3. Review status and logs of your pipelines
+4. Verify schema changes made it all they way through to prod
+
+:bulb: Use the past labs and your already build pipelines if you get stuck.  Review the steps and settings
 
 
+## Congratulations you have complete Supercharge your Azure SQL deployments by operationalizing Azure with DevOps
 
 ___     
-
+- [Home](/README.md)
 - [Back to all modules](/docs/labs/README.md)
 ___
 ___
-**Azure subscriptions**
-
-<ins>TRIAL SUBSCRIPTIONS ARE NOT SUPPORTED FOR THIS WORKSHOP</ins>
