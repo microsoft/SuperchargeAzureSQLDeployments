@@ -18,7 +18,7 @@
 [comment]: <> (Write up purpose for this lab, provide some info on the what and why) 
 ### Purpose
 
-This module is designed to build upon the skills you have learned thus far, and apply them to Database life cycle management (DLM). It walks through all of the core concept of DLM, providing you will a full working DLM POC. 
+This module is designed to build upon the skills you have learned thus far, and apply them to Database Life cycle Management (DLM). It walks through all of the core concept of DLM, providing you will a full working DLM PoC. 
 
  **Summary**
 - [Initial SSDT project setup](/docs/labs/4-DatabaseLifecycleManagement.md#initial-ssdt-project-setup)
@@ -49,8 +49,9 @@ In this exercise you are going to review a database project for a simple demo st
    
 ![](./imgs/ssdt-master.png)
 
-6. Expand **remotes/origin** > select **dev** (you may need to dbl click to select it)
-   1. **dev** should now be in your local Git dir
+6. Ensure you are working with the **dev** local branch. 
+    1. Expand **remotes/origin** > select **dev** (you may need to dbl click to select it)
+The **dev** branch should now be in your local Git dir
 
 ![](./imgs/ssdt-dev.png)
 
@@ -121,7 +122,7 @@ In this exercise you are going to review a database project for a simple demo st
 
 :exclamation: In order to deploy database projects it has to be able to build.  When the project builds it generates a **dacpac** which is used by sqlpackage.exe to deploy schema.  
 
-3. User the **SQL Server Object Explorer** expand **SQL Server** > (localdb)\ProjectsV13... > **Databasses**
+3. In the **SQL Server Object Explorer** expand **SQL Server** > (localdb)\ProjectsV13... > **Databases**
 4. After a successfully **build** you will have a local version of your database which you can use for local testing.
 
 ![](./imgs/ssdt-localdb.png)
@@ -524,7 +525,6 @@ Using all your new skills learned in this workshop, create and configure the fol
 :bulb: Use the past labs and your already built pipelines for reference if you get stuck.
 
 ### Congratulations you have completed Supercharge your Azure SQL deployments by operationalizing Azure with DevOps
-
 ___     
 - [Home](/README.md)
 - [Back to all modules](/docs/labs/README.md)
