@@ -113,7 +113,7 @@ $params = @{
 #Test ARM deployment
 Test-AzResourceGroupDeployment @params 
 ```
-Expended Result
+Expected Result
 > VERBOSE: time ran - Template is valid.
 
 :bulb: To execute specific lines of code: In **VS Code**, highlight the lines of code and *Right-click*, then select **Run Selection** or *(F8)*. 
