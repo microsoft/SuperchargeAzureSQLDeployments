@@ -321,6 +321,20 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/copiedsource.png)
 
+12. Copy the **.gitignore** file from:
+    -  **C:\\SuperchargeAzureSQL\\** </br>
+
+![](./imgs/gitignore.png)
+
+    - If you do not see the file enable: **File name extensions** and **Hidden items** from the **View** menue in explorer
+
+![](./imgs/explore-hidden.png)
+
+13. Paste the file into:
+     - **C:\\SuperchargeSQLDeployments**
+
+![](./imgs/explore-gitignore.png)
+
 ## Performing your initial Commit using VS Code
 
 1. In VS Code from the menu click **File** > **Open Folder** 
