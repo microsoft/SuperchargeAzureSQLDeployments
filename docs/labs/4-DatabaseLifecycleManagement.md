@@ -426,7 +426,7 @@ In this exercise you are going to review a database project for a simple demo st
       1. You will need to **Download all logs** to review
    4. Spend some time reviewing schema change script (trainingDW_Script.sql)
 
-### Challenge
+### Challenge - Firewall rule
 
 If you try to connect to your SQL Database with SSMS or Azure Data Studio using AAD auth, you will notice that you do not have a firwall rule configured.
 
@@ -447,6 +447,18 @@ If you try to connect to your SQL Database with SSMS or Azure Data Studio using 
    2. Your Release was triggered once the build pipeline completed
 6. Try to connect using SSMS or Azure Data Studio
    1. You should now be able to connect
+
+## <div style="color: #107c10">Exercise - Postdeployment Script (CI)</div>
+
+With SSDT DB project you can make use of **predeployment** and **postdeployment** scripts. This is very useful if you need to move data around before and after schema changes.  You can also use this type of process to start building out your DataOps pipelines
+
+1. Inside of your Visual Studio SSDT project
+2. From the Solution Explorer right click **Scripts** folder
+3. Click **Add** > **Script...**
+4. Select **Post-Deployment Script**
+   1. Name: **postLoad-dimDate.sql**
+   2. CLick **Add**
+
 
 
 ___     
