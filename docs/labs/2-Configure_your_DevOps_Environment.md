@@ -17,7 +17,8 @@
 This lab will create the environment for the CI/CD process. Service Principals are leveraged to allow permission to deploy or update resources in certain environments for a specific purpose. The Service Connection uses a Service Principal's permissions which are based off of RBAC. It gives Administrators better control over their environment while allowing the engineers the ability to focus on their code.
  
  **Summary**
-  * [Setup Up Azure Environment](#exercise---setup-azure-environment)
+  * [Setup Up Azure Environment]
+  #exercise---setup-azure-environment)
   * [Azure AD Service Principal](#exercise---setup-permissions)
   * [Setup Azure DevOps Environment](#exercise---set-up-azure-devops-environment)
   * [Push files to your Azure DevOps Repo](#exercise---push-files-to-your-repo)
@@ -29,7 +30,7 @@ This lab will create the environment for the CI/CD process. Service Principals a
  
 > Perform the tasks below either via the **Portal** or **PowerShell**.
 > Create two resource groups one for **Dev** and **Prod**
-> Example naming convention: (name)-prod, (name)-dev
+> Example naming convention: {name}-prod, {name}-dev
 
 #### Prerequisites
 1. Redeem your **Promo Code** for activating your Azure Subscription, go to the following link: [Click here](https://www.microsoftazurepass.com/Home/HowTo?Length=5)
@@ -99,11 +100,11 @@ Get-AzResourceGroup -Name $rg
 
 3. Select the **App Registrations** blade
 4. Select **+ New registration**
-   1. Enter the **Name**: **(your alias)-SuperchargeSQL-SP** 
+   1. Enter the **Name**: **{your alias}-SuperchargeSQL-SP** 
    1. Leave the defaults
    1. Click **Register**
 
-On the **App Registrations - (Your App Name)** blade
+On the **App Registrations - {Your App Name}** blade
   1. Select the **Certificates & secrets** blade
 	   1. Select the **+ New client secret** 
 	   1. Enter the **Description**
@@ -126,7 +127,7 @@ Login-AzAccount #For Azure Government use: #Login-AzAccount -Environment AzureUS
 Select-AzSubscription –Subscription "<Id>"
 
 
-$spName  = "(your alias)-SuperchargeSQL-SP"
+$spName  = "{your alias}-SuperchargeSQL-SP"
 $id = (New-Guid).Guid
 $secret = (New-Guid).Guid
 

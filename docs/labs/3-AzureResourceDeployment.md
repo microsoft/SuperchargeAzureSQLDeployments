@@ -113,7 +113,7 @@ $params = @{
 #Test ARM deployment
 Test-AzResourceGroupDeployment @params 
 ```
-Expended Result
+Expected Result
 > VERBOSE: time ran - Template is valid.
 
 :bulb: To execute specific lines of code: In **VS Code**, highlight the lines of code and *Right-click*, then select **Run Selection** or *(F8)*. 
@@ -408,70 +408,7 @@ In this exercise you will walk through all of the steps needed to create the Con
     5. Override template parameters:
    
 ```PowerShell
--keyVaultName "$(keyvault.VaultName)-$(rEnv)" 
--accessPolicies [
-    {
-        "objectId": "$(sp.ObjectId)",
-        "tenantId": "$(sp.tenantId)",
-        "metadata": {
-            "description": "Service Principal - DevOps-DLM"
-        },
-        "permissions": {
-            "keys": [
-                "Get",
-                "List",
-                "Update",
-                "Create",
-                "Import",
-                "Delete",
-                "Recover",
-                "Backup",
-                "Restore"
-            ],
-            "secrets": [
-                "Get",
-                "List",
-                "Set",
-                "Delete",
-                "Recover",
-                "Backup",
-                "Restore"
-            ],
-            "certificates": [
-                "Get",
-                "List",
-                "Update",
-                "Create",
-                "Import",
-                "Delete",
-                "Recover",
-                "ManageContacts",
-                "ManageIssuers",
-                "GetIssuers",
-                "ListIssuers",
-                "SetIssuers",
-                "DeleteIssuers"
-            ],
-            "storage": [
-                "Get",
-                "List",
-                "Update",
-                "Set",
-                "Delete",
-                "Regeneratekey",
-                "Recover",
-                "Backup",
-                "Restore"
-            ]
-        }
-    }
-] 
--tenant "$(sp.tenantId)" 
--location "$(location)" 
--enabledForDeployment false 
--enabledForTemplateDeployment true 
--enabledForDiskEncryption false
-
+-keyVaultName "$(keyvault.VaultName)-$(rEnv)" -location "$(location)" -sku "Standard" -accessPolicies [{"objectId":"$(sp.ObjectId)","tenantId":"$(sp.tenantId)","metadata":{"description":"Service Principal - DevOps-DLM"},"permissions":{"keys":["all"],"secrets":["all"],"certificates":["all"],"storage":["all"]}}] -tenant "$(sp.tenantId)" -enabledForDeployment false -enabledForTemplateDeployment true -enabledForDiskEncryption false
 ```
 :exclamation: This overrides the values in your parameters file. It's best practice not to save protected credentials / settings in your Git repo. You will setup the variables and values once you have completed configuring your release tasks. </br>
 
@@ -494,9 +431,7 @@ In this exercise you will walk through all of the steps needed to create the Con
             
    5. Override template parameters:
 
-   ``` 
-   -serverName "$(sql.serverName)-$(rEnv)" 
-   ```
+   ``` -serverName "$(sql.serverName)-$(rEnv)" ```
 
    6. Deployment mode: **Incremental**
    7. Deployment outputs: **sql.Output**
@@ -685,6 +620,7 @@ $sp.Id
 25. Comment is optional > Click **Deploy**
 26. Click on **In progress** to view status of deployment
     1.  You can also navigate to your resource group in Azure and view status of the deployment on the Deployments blade
+
 :exclamation: If you receive a "MissingSubscriptionRegistration" error, register the Key Vault provider in **Subscription** > **{Your Subscription}** > **Resource Providers** > Search for **KeyVault** > **Register**
 
 :exclamation:  If you want to clear your Resource Group during this **dev** stage set the **clearResources** variable to **yes**. Since this would meet the custom condition you will be deploying an "empty" template in Complete mode. Which will clear out your resource group (delete all resources not in your template).  This can take a bit of time and even timeout to complete.  While you are waiting for your Release to complete, review the logs as it deploys, or feel free to move on with the next steps in this lab. Don't forget to check status and address any errors.
