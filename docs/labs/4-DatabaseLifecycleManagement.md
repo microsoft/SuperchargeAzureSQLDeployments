@@ -428,37 +428,37 @@ In this exercise you are going to review a database project for a simple demo st
 
 ### Challenge - Firewall rule
 
-If you try to connect to your SQL Database with SSMS or Azure Data Studio using AAD auth, you will notice that you do not have a firwall rule configured.
+If you try to connect to your SQL Database with SSMS or Azure Data Studio using AAD auth, you will notice that there is no firewall rule configured.
 
-**Create a new firewall rule, no cheating with the portal**
-
-1. Try to connect to your SQL Database uusing SSMS or Azure Data Studio
+1. Try to connect to your SQL Database using SSMS or Azure Data Studio
    1. Using your AAD account
 2. Do not create the firewall rule when asked > click **Cancel**
 
 ![](./imgs/ssms-firewall.png)
 
-3. Create a firewall rule by updating file: **sql_db.parameters.dev.json**
+**Create a new firewall rule, no cheating with the portal**
+
+1. Create a firewall rule by updating file: **sql_db.parameters.dev.json**
    1. To find your current IP in a browser navigate to:  http://ifconfig.me/ip 
 
-4. Commit your changes and sync or push them up your Azure DevOps dev branch
-5. Review your Dev Build and Dev Prod pipelines for Azure Resources. 
-   1. Notice the Build pipeline ran right after pushing your changes to your dev branch in Azure DevOps repo 
-   2. Your Release was triggered once the build pipeline completed
-6. Try to connect using SSMS or Azure Data Studio
+2. Commit your changes and sync or push them up your Azure DevOps dev branch
+3. Review your dev Build and dev release pipelines 
+   1. Notice the build pipeline ran right after pushing your changes to your dev branch 
+   2. Your release should be triggered, once the build pipeline completes
+4. Connect using SSMS or Azure Data Studio
    1. You should now be able to connect
 
 ## <div style="color: #107c10">Exercise - Postdeployment Script (CI)</div>
 
-With SSDT DB project you can make use of **predeployment** and **postdeployment** scripts. This is very useful if you need to move data around before and after schema changes.  You can also use this type of process to start building out your DataOps pipelines
+With SSDT DB projects you can make use of **predeployment** and **postdeployment** scripts. This is very useful if you need to move data around before and after schema changes.  You can also use this type of process for your *DataOps* processes  
 
 1. Inside of your Visual Studio SSDT project
-2. From the Solution Explorer right click **Scripts** folder
+2. From the Solution Explorer, right click **Scripts** folder
 3. Click **Add** > **Script...**
 4. Select **Post-Deployment Script**
    1. Name: **postLoad-dimDate.sql**
    2. CLick **Add**
-5. Add the following to the script:
+5. Add the following to the script, right below the comments:
 
     ```SQL
     TRUNCATE TABLE [DIM].[DATE]
@@ -466,7 +466,7 @@ With SSDT DB project you can make use of **predeployment** and **postdeployment*
 
     ```
 6. Open **LoadDateDim.sql**
-7. Copy contents of file and paste it below your TRUNCATE statement
+7. Copy contents of file and paste it below your *TRUNCATE* statement
 
 ![](./imgs/postload-datedim.png)
 
@@ -474,16 +474,16 @@ With SSDT DB project you can make use of **predeployment** and **postdeployment*
   
 ![](./imgs/postload-script.png)
 
-8. Save and close file: **Post-Deployment Script**
-9. Close the **LoadDateDim.sql** file
-10. In SSMS or Azure Data Studio query **dim.Date** notice no values are returned
-11. Back in your Visual Studio SSDT project 
-12. Click on the **pencile** icon on the bottom SSDT
+1. Save and close file: **Post-Deployment Script**
+2. Close the **LoadDateDim.sql** file
+3. In SSMS or Azure Data Studio query **dim.Date** notice no values are returned
+4. Back in your Visual Studio SSDT project 
+5. Click on the **pencil** icon on the bottom of SSDT (Visual Studio)
 
 ![](./imgs/commit-ssdt.png)
 
-13. CLick the **+** icon next to **Changes** to stage all changes
-    -  If prompted to Save changes click **Yes**
+13. Click the **+** icon next to **Changes** to stage all changes
+    - If prompted to Save changes click **Yes**
 
 ![](./imgs/ssdt-stage.png)
 
@@ -507,24 +507,23 @@ With SSDT DB project you can make use of **predeployment** and **postdeployment*
 
 At this point you now have a fulling working CI/CD pipeline for database development.  
 
-## <div style="color: #107c10">Exercise - Configure Prod CI/CD - Challenge </div>
+## <div style="color: #107c10">Exercise - Configure prod CI/CD - Challenge</div>
 
-Using all the skills you have learned in this lab, create and configure the following:
+Using all your new skills learned in this workshop, create and configure the following:
 
 1. Create & configure a prod build pipeline (CI) for your SSDT Project
-   1. use **master** branch
-2. Create & configure prod release pipeline (CD)
+   1. using your **master** branch
+2. Create & configure a prod release pipeline (CD)
    1. Include both: **dev** & **prod** stages
-   2. Add approval gates after **dev** stage before **prod** runs
-   3. use **master** branch
-   4. triggered from a **pull request** dev to prod
-3. Review status and logs of your pipelines
-4. Verify schema changes made it all they way through to prod
+   2. Add an approval gate after the **dev** stage before the **prod** stage. (You need to approve prod before it processes)
+   3. use your **master** branch
+   4. it should be triggered from a **pull request** dev to prod
+3. Review the status and logs of your prod pipeline
+4. Verify schema changes made it all they way through to prod Azure SQL DB
 
-:bulb: Use the past labs and your already build pipelines if you get stuck.  Review the steps and settings
+:bulb: Use the past labs and your already built pipelines for reference if you get stuck.
 
-
-## Congratulations you have complete Supercharge your Azure SQL deployments by operationalizing Azure with DevOps
+### Congratulations you have completed Supercharge your Azure SQL deployments by operationalizing Azure with DevOps
 
 ___     
 - [Home](/README.md)
