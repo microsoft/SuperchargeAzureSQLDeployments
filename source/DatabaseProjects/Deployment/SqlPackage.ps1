@@ -15,19 +15,19 @@ param (
 #To Test Script Local provide values for the Params and Login to Azure as this script is meant to run in Azure Power Shell
 # Login-AzAccount
 
-$TenantId = '72f988bf-86f1-41af-91ab-2d7cd011db47'
-$ServicePrincipalId = 'ffed3ad4-ac99-45bc-979f-28dfee40d284'
-$AppKey = 'aDV?7jK5:0bX_Y8wGKGFwRk::_gs2EA:'
-$SqlSrv = 'dlm-sqlsrv-dev'
-$SqlDb = 'trainingDW'
-$ReportPath = 'C:\'
-$dacpacPath = 'C:\Users\fgarofalo\Documents\Repos\DataAI\Azure Data Platforms\DLM\AzureSQLDB\DatabaseProjects\trainingDW\trainingDW\bin\Debug'
-$sqlpackagePath = 'C:\Program Files\Microsoft SQL Server\150\DAC\bin'
-$PackageAction = 'DeployReport'
-$ResourceGroupName = 'dlm-demo-dev'
-$CreateFirewallRule = 'true'
-
-
+<#
+$TenantId = ''
+$ServicePrincipalId = ''
+$AppKey = ''
+$SqlSrv = ''
+$SqlDb = ''
+$ReportPath = ''
+$dacpacPath = ''
+$sqlpackagePath = ''
+$PackageAction = ''
+$ResourceGroupName = ''
+$CreateFirewallRule = ''
+#>
 
 #Create Deployment Firewall Rule
 If ($CreateFirewallRule) {

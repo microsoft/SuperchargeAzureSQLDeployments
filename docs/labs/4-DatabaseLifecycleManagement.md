@@ -342,7 +342,7 @@ In this exercise you are going to review a database project for a simple demo st
 4. Azure SQL Server:
 
      ``` 
-    "$(sql.serverName)-$(rEnv)"
+    "$(sql.serverName)-$(rEnv).$(endpoint)" 
      ```
 5. Database: **trainingDW**
 6. Login: **$(SQLadminLogin)**
@@ -365,6 +365,66 @@ In this exercise you are going to review a database project for a simple demo st
 
 ![](./imgs/dlm-cd-sql-task.png)
 
+14. Right click on **Azure SQL Deployment Report** task > Select **Clone task(s)**
+
+![](./imgs/dlm-cd-dev-clonetask.png)
+
+15. Click on the newly cloned task **Azure SQL Deployment Report copy** and update the following settings:
+    1.  Display name: **Azure SQL Schema change script**
+    2.  Action: **Script**
+
+:bulb: Note that action type of **Script** creates the SQL script of all changes that will be deployed.  This can be treated like a schema compare script for your logs, change tracking, approval flows, ect..
+
+14. Right click on the **Azure SQL Schema change script** task > Select **Clone task(s)**
+15. Click on the newly cloned task **Azure SQL Schema change script copy** and update the following settings:
+    1.  Display name: **Azure SQL DB deployment**
+    2.  Action: **Publish**
+
+:bulb: Note that action type of **Publish** updates the target database to match the schema of the source .dacpac file generated from your build (CI) pipeline. 
+
+16. Click **Save** > (Comment optional) > **Save**
+
+**Your pipeline tasks should look similar to this:**
+
+![](./imgs/dlm-cd-dev-tasksall.png)
+
+17. Click on the **Variables** tab of your pipeline
+18. Click **+ Add** 
+    -  Name: **rEnv**
+    -  Value: **dev**
+    -  Scope: **Release**
+19. Click **+ Add** 
+    -  Name: **endpoint**
+    -  Value: **database.windows.net**
+       -  *If your SQL logical server is in Azure Gov use: **database.usgovcloudapi.net***
+    -  Scope: **Release**
+   
+![](./imgs/dlm-cd-dev-rEnv.png)
+
+1.  Click on **Variable groups**
+    1. Click on **Link variable group**
+    2. Select: **SuperchargeSQL-KeyVaultpdev**
+    3. Click the **Link** button
+    4. Click on **Link variable group** again
+    5. Select: **SuperchargeSQL-Vars**
+    6. Click the **Link** button
+
+![](./imgs/dlm-cd-linked-vars.png)
+
+20. Click **Save** > (Comment optional) > **Save**
+21. CLick on the **Pipeline** tab, your pipeline should look similar to:
+
+![](./imgs/dlm-cd-dev-CD.png)
+
+:exclamation: At this point you have a fully configured release pipeline for your **development** work. 
+
+1. Using the skills you have learned to this point perform the following:
+   1. Manually create a release from Azure DevOps
+   2. Review all logs from the release
+      1. You will need to **Download all logs** to review
+   3. Spend some time looking at the Deployment Report (trainingDW_DeployReport.xml)
+      1. You will need to **Download all logs** to review
+   4. Spend some time reviewing schema change script (trainingDW_Script.sql)
 
 
 ___     
