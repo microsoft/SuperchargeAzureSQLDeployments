@@ -426,6 +426,28 @@ In this exercise you are going to review a database project for a simple demo st
       1. You will need to **Download all logs** to review
    4. Spend some time reviewing schema change script (trainingDW_Script.sql)
 
+### Challenge
+
+If you try to connect to your SQL Database with SSMS or Azure Data Studio using AAD auth, you will notice that you do not have a firwall rule configured.
+
+**Create a new firewall rule, no cheating with the portal**
+
+1. Try to connect to your SQL Database uusing SSMS or Azure Data Studio
+   1. Using your AAD account
+2. Do not create the firewall rule when asked > click **Cancel**
+
+![](./imgs/ssms-firewall.png)
+
+3. Create a firewall rule by updating file: **sql_db.parameters.dev.json**
+   1. To find your current IP in a browser navigate to:  http://ifconfig.me/ip 
+
+4. Commit your changes and sync or push them up your Azure DevOps dev branch
+5. Review your Dev Build and Dev Prod pipelines for Azure Resources. 
+   1. Notice the Build pipeline ran right after pushing your changes to your dev branch in Azure DevOps repo 
+   2. Your Release was triggered once the build pipeline completed
+6. Try to connect using SSMS or Azure Data Studio
+   1. You should now be able to connect
+
 
 ___     
 
