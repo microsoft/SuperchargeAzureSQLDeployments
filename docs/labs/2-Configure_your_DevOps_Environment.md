@@ -17,8 +17,7 @@
 This lab will create the environment for the CI/CD process. Service Principals are leveraged to allow permission to deploy or update resources in certain environments for a specific purpose. The Service Connection uses a Service Principal's permissions which are based off of RBAC. It gives Administrators better control over their environment while allowing the engineers the ability to focus on their code.
  
  **Summary**
-  * [Setup Up Azure Environment]
-  #exercise---setup-azure-environment)
+  * [Setup Up Azure Environment](#exercise---setup-azure-environment)
   * [Azure AD Service Principal](#exercise---setup-permissions)
   * [Setup Azure DevOps Environment](#exercise---set-up-azure-devops-environment)
   * [Push files to your Azure DevOps Repo](#exercise---push-files-to-your-repo)
