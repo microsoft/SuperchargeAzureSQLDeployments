@@ -268,7 +268,7 @@ $(date:yyyyMMdd)_$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
 
 ### Setup Key Vault Library
 
-1. In your Azure DevOps project click on **Repos** > **Library**
+1. In your Azure DevOps project click on **Pipelines** > **Library**
 2. Click **+ Variable group**
 
 ![](./imgs/dlm-lb-keys.png)
@@ -293,7 +293,7 @@ $(date:yyyyMMdd)_$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
 
 ### Dev Release pipeline
 
-1. In your Azure DevOps project click on **Repos** > **Releases**
+1. In your Azure DevOps project click on **Pipelines** > **Releases**
 2. Click on the **Create release**
 
 ![](./imgs/dlm-cd-new.png)
