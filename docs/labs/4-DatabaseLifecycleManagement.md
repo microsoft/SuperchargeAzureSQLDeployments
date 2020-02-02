@@ -250,7 +250,9 @@ The **dev** branch should now be in your local Git dir
 
 17. Click **Options**
 18. Update Build number format to:
-> \$(date:yyyyMMdd)_\$(BuildDefinitionName)_\$(SourceBranchName)\$(rev:.r)
+```
+$(date:yyyyMMdd)_$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
+```
 
 19. Click **Save & queue** > **Save** (Comment optional) > **Save**
 20. Click **Queue** > **Run**
