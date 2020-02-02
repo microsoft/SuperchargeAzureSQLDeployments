@@ -327,7 +327,7 @@ $(date:yyyyMMdd)_$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
         
 ![](./imgs/dlm-dev-cd-trigger.png)
 
-12. Click on the **Tasks** tab
+12. Click on the **1 job 0 task** and then the **Tasks** tab
 13. Click the **+** icon next to Agent job  
 
 ![](./imgs/dlm-cd-add-task.png)
