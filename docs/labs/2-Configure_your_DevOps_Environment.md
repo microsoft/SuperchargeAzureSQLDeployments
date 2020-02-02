@@ -325,7 +325,7 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 
 ![](./imgs/gitignore.png)
 
-> If you do not see the file enable: **File name extensions** and **Hidden items** from the **View** menue in explorer
+> If you do not see the file enable: **File name extensions** and **Hidden items** from the **View** menu in explorer
 
 ![](./imgs/explore-hidden.png)
 
