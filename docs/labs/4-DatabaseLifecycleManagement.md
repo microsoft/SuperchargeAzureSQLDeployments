@@ -385,7 +385,7 @@ $(date:yyyyMMdd)_$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
 
 :bulb: Note that action type of **Publish** updates the target database to match the schema of the source .dacpac file generated from your build (CI) pipeline. 
 
-16. Click **Save** > (Comment optional) > **Save**
+16. Click **Save** > (Comment optional) > **OK**
 
 **Your pipeline tasks should look similar to this:**
 
@@ -406,7 +406,7 @@ $(date:yyyyMMdd)_$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
 
 1.  Click on **Variable groups**
     1. Click on **Link variable group**
-    2. Select: **SuperchargeSQL-KeyVaultpdev**
+    2. Select: **SuperchargeSQL-KeyVault-dev**
     3. Click the **Link** button
     4. Click on **Link variable group** again
     5. Select: **SuperchargeSQL-Vars**
@@ -414,8 +414,8 @@ $(date:yyyyMMdd)_$(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
 
 ![](./imgs/dlm-cd-linked-vars.png)
 
-20. Click **Save** > (Comment optional) > **Save**
-21. CLick on the **Pipeline** tab, your pipeline should look similar to:
+20. Click **Save** > (Comment optional) > **OK**
+21. Click on the **Pipeline** tab, your pipeline should look similar to:
 
 ![](./imgs/dlm-cd-dev-CD.png)
 
@@ -460,7 +460,7 @@ With SSDT DB projects you can make use of **predeployment** and **postdeployment
 3. Click **Add** > **Script...**
 4. Select **Post-Deployment Script**
    1. Name: **postLoad-dimDate.sql**
-   2. CLick **Add**
+   2. Click **Add**
 5. Add the following to the script, right below the comments:
 
     ```SQL
