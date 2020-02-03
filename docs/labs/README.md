@@ -44,7 +44,9 @@
    - [4.2 Get to know SSDT database projects](/docs/labs/4-DatabaseLifecycleManagement.md#get-to-know-ssdt-database-projects)
    - [4.3 Build your database project](/docs/labs/4-DatabaseLifecycleManagement.md#build-your-database-project)
    - [4.4 Load data your local DB](/docs/labs/4-DatabaseLifecycleManagement.md#load-data-your-local-db)
-   - [Dev Database Build Pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
-   - Dev Database Release Pipeline (CD)
-   - Unit Testing
-   - Dev, Test, Prod Pipeline
+   - [4.5 Dev Database Build Pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
+   - [4.6 Dev Database Release Pipeline (CD)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-release-pipeline-cd)
+     - [4.6.1 Configure Azure SQL DacpacTask](/docs/labs/4-DatabaseLifecycleManagement.md#configure-azure-sql-dacpactask)
+     - [4.6.2 Challenge - Firewall rule](/docs/labs/4-DatabaseLifecycleManagement.md#challenge---firewall-rule)
+   - [4.7 Postdeployment Script (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---postdeployment-script-ci)
+   - [4.8 Configure prod CI/CD - Challenge](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---postdeployment-script-ci)
