@@ -11,8 +11,6 @@
 | Key Takeaways:              |By the end of this lab, you should understand how to implement database life cycle management. Having a good grasp on the key princples of DLM:|
 |                              |SSDT Database projects |
 |                              |Create & configure build & release pipelines (CI/CD) for database change management |
-|                              |Unit testing |
-|                              |Leverage the power of sqlpackage.exe|
 | Author(s):                    | Frank Garofalo             |
 
 [comment]: <> (Write up purpose for this lab, provide some info on the what and why) 
@@ -26,11 +24,11 @@ This module is designed to build upon the skills you have learned thus far, and 
 - [Build your database project](/docs/labs/4-DatabaseLifecycleManagement.md#build-your-database-project)
 - [Load data to your local DB](/docs/labs/4-DatabaseLifecycleManagement.md#load-data-your-local-db)
 - [Dev Database build pipeline (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-build-pipeline-ci)
-- Dev Database Release Pipeline (CD)
-- Unit Testing
-- Prod Pipeline
-- sqlpackage.exe
-
+- [Dev Database Release Pipeline (CD)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---dev-database-release-pipeline-cd)
+  - [Configure Azure SQL DacpacTask](/docs/labs/4-DatabaseLifecycleManagement.md#configure-azure-sql-dacpactask)
+  - [Challenge - Firewall rule](/docs/labs/4-DatabaseLifecycleManagement.md#challenge---firewall-rule)
+  - [Postdeployment Script (CI)](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---postdeployment-script-ci)
+- [Configure prod CI/CD - Challenge](/docs/labs/4-DatabaseLifecycleManagement.md#exercise---postdeployment-script-ci)
 
 [comment]: <> (Main Exercise format) 
 ## <div style="color: #107c10">Exercise - Review SSDT database project</div>
