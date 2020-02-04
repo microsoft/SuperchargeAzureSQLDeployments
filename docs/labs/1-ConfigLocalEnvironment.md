@@ -211,7 +211,7 @@ Expected return:
 4. Once Setup completes click **Close**
 
 ## <div style="color: #107c10"> Exercise - Setup ![](docs/../imgs/AzureDataStudioLogo.png) Azure Data Studio </div>
-*`SSMS is not required for this lab, but is useful to connect to and query Azure SQL Database with.`*
+*`Azure Data Studio is not required for this lab, but is useful to connect to and query Azure SQL Database with.`*
 
 ### Download Azure Data Studio
 
