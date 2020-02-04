@@ -123,14 +123,17 @@ The **dev** branch should now be in your local Git dir
 3. In the **SQL Server Object Explorer** expand **SQL Server** > (localdb)\ProjectsV13... > **Databases**
 4. After a successfully **build** you will have a local version of your database which you can use for local testing.
 
+:exclamation: If your database does not get added you can right click on Database and create new database.  Name it **trainingDW** or hit F5 to deploy the full code package with all objects.
+
+
 ![](./imgs/ssdt-localdb.png)
 
-5. Expand **trainingDW** > **Tables**
+1. Expand **trainingDW** > **Tables**
    1. Notice there are no tables or any schema in this local version.
    2. The build process only creates a blank database
-6. From the **Solution Explorer** > Right click on **trainingDW** > **Schema Compare...**
-7. Your source should be pre-populated with the DB project
-8. Click on the drop down arrow next to ***Select Target*** > **Select Target**
+2. From the **Solution Explorer** > Right click on **trainingDW** > **Schema Compare...**
+3. Your source should be pre-populated with the DB project
+4. Click on the drop down arrow next to ***Select Target*** > **Select Target**
 
 ![](./imgs/ssdt-compare-target.png)
 
