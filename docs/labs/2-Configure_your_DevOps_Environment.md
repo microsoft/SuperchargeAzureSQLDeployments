@@ -32,7 +32,14 @@ This lab will create the environment for the CI/CD process. Service Principals a
 > Example naming convention: {name}-prod, {name}-dev
 
 #### Prerequisites
-1. Redeem your **Promo Code** for activating your Azure Subscription, go to the following link: [Click here](https://www.microsoftazurepass.com/Home/HowTo?Length=5)
+1. Active Azure Subscription
+   1. TRIAL SUBSCRIPTIONS ARE NOT SUPPORTED FOR THIS WORKSHOP
+2. Live workshops may have an Azure Pass Promo Code
+   1. Redeem your **Promo Code** for activating your Azure Subscription, go to the following link: [Click here](https://www.microsoftazurepass.com/Home/HowTo?Length=5)
+3. Azure DevOps account
+   1. If you do not have an account Sign up for free using [Windows Live ID](https://account.microsoft.com/account) or Github
+
+![](./imgs/devops-signup.png)
 
 > #### **Portal**
 1. Login to **https://portal.azure.com**
@@ -206,6 +213,10 @@ New-AzRoleAssignment -ApplicationID $app -ResourceGroupName $rg -RoleDefinitionN
 4. Expand the Advanced options
 5. Select **Git** and **Basic** for version control and work item process, respectively. 
 6. Click on **+ Create project**
+7. Project name: **SuperchargeSQLDeployments**
+8. Description: **Supercharge SQL Deployments**
+
+:exclamation: To prevent any confusion later on in the lab it is strongly recommend to name your DevOps project **SuperchargeSQLDeployments**. If you name your project something else make note that some of the lab instructions may not match your path(S)
 
 ![](./imgs/newproject.jpg)
 
@@ -303,10 +314,13 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 3. Type **Git: Clone** and hit enter
 4. Paste the Repository URL for your Azure DevOps Repo > Press Enter on your keyboard
 5. Navigate to your **C:\\** drive
-6. Click **Select Repository Location**
+6. Click the **Select Repository Location** button
    1.  You may be asked to provide your Microsoft account
    2.  Use your Microsoft account used to login to Azure DevOps
    3.  Open that repository in VS Code, if prompted
+
+![](./imgs/clone-cdrive.png)
+
 7.  Using windows explore navigate to the the **source** directory in the cloned GitHub repo
     *  **C:\\SuperchargeAzureSQL\\source\\** </br>
 
@@ -321,7 +335,9 @@ git clone https://github.com/microsoft/SuperchargeAzureSQLDeployments.git c:/Sup
 ![](./imgs/copiedsource.png)
 
 12. Copy the **.gitignore** file from:
-    -  **C:\\SuperchargeAzureSQL\\** </br>
+    -  **C:\\SuperchargeAzureSQL\\**
+
+          :exclamation: Note that **SuperchargeAzureSQL** is the name of your project in Azure DevOps, you do not create this directory when you clone a repo.  Git creates the directory as the root of your local repository.  It uses the name of your project from Azure DevOps.  If you named your project something different, your path will be: **C:\\{your DevOps Project name}**
 
 ![](./imgs/gitignore.png)
 

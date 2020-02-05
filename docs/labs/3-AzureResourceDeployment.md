@@ -573,14 +573,14 @@ You need to configure and set the values of your variables that will be used in 
     | keyvault.VaultName    | {your alias}-vault | ![](./imgs/icon-unlock.png) |
     | ResourceGroup         | SuperchargeSQL-       | ![](./imgs/icon-unlock.png) |
     | sp.DisplayName        | {your Service Princple Name} | ![](./imgs/icon-unlock.png) |
-    | sp.ObjectId           | {same location as RG} | ![](./imgs/icon-unlock.png)   |
+    | sp.ObjectId           | {see script below} | ![](./imgs/icon-unlock.png)   |
     | sp.tenantId           | {your tenantID} | ![](./imgs/icon-unlock.png)   |
     | sql.databaseName      | ["trainingDW"] | ![](./imgs/icon-unlock.png)   |
     | sql.Login             | leave blank | ![](./imgs/icon-unlock.png)   |
-    | sql.Pass              | leave blank | ![](./imgs/icon-lock.png)   |
+    | sql.Pass              | leave blank and lock it | ![](./imgs/icon-lock.png)   |
     | sql.serverName        | {your alias}-sqlsrv | ![](./imgs/icon-unlock.png) |
     | sql.Output            | leave blank | ![](./imgs/icon-unlock.png) |
-    | location           | eastus2  | ![](./imgs/icon-unlock.png) |
+    | location           | {same location as your RG}  | ![](./imgs/icon-unlock.png) |
 
 :exclamation: **To get the correct sp.ObjectID use the below PowerShell**
 
