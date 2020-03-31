@@ -14,9 +14,9 @@ This lab is to build your foundational knowledge of how to leverage Azure DevOps
 
  **Summary**
   * [Advanced ARM template](/docs/labs/3-AzureResourceDeployment.md#exercise---advanced-arm-template)
-  * [Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-pipeline-ci)
-    * [Configure dev continuous integration](docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
-    * [Configure dev continuous integration](docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
+  * [Build dev pipeline (CI)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
+    * [Configure dev continuous integration](/docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
+    * [Configure dev continuous integration](/docs/labs/3-AzureResourceDeployment.md#configure-dev-continuous-integration)
     * [Testing dev Azure resource CI pipeline](/docs/labs/3-AzureResourceDeployment.md#testing-dev-azure-resource-ci-pipeline)
   * [Dev release pipeline (CD)](/docs/labs/3-AzureResourceDeployment.md#exercise---build-dev-pipeline-ci)
     * [Configure Key Vault deployment task](/docs/labs/3-AzureResourceDeployment.md#configure-key-vault-deployment-task)
